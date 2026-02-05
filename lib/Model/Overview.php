@@ -69,6 +69,8 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'open_runs' => 'int',
         'groomed_runs' => 'int',
         'total_runs' => 'int',
+        'open_acres' => 'int',
+        'total_acres' => 'int',
         'runs_updated_at' => '\DateTime',
         'open_lifts' => 'int',
         'total_lifts' => 'int',
@@ -99,6 +101,8 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'open_runs' => 'int64',
         'groomed_runs' => 'int64',
         'total_runs' => 'int64',
+        'open_acres' => 'int64',
+        'total_acres' => 'int64',
         'runs_updated_at' => 'date-time',
         'open_lifts' => 'int64',
         'total_lifts' => 'int64',
@@ -127,6 +131,8 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'open_runs' => true,
         'groomed_runs' => true,
         'total_runs' => false,
+        'open_acres' => true,
+        'total_acres' => true,
         'runs_updated_at' => false,
         'open_lifts' => true,
         'total_lifts' => false,
@@ -235,6 +241,8 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'open_runs' => 'open_runs',
         'groomed_runs' => 'groomed_runs',
         'total_runs' => 'total_runs',
+        'open_acres' => 'open_acres',
+        'total_acres' => 'total_acres',
         'runs_updated_at' => 'runs_updated_at',
         'open_lifts' => 'open_lifts',
         'total_lifts' => 'total_lifts',
@@ -263,6 +271,8 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'open_runs' => 'setOpenRuns',
         'groomed_runs' => 'setGroomedRuns',
         'total_runs' => 'setTotalRuns',
+        'open_acres' => 'setOpenAcres',
+        'total_acres' => 'setTotalAcres',
         'runs_updated_at' => 'setRunsUpdatedAt',
         'open_lifts' => 'setOpenLifts',
         'total_lifts' => 'setTotalLifts',
@@ -291,6 +301,8 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'open_runs' => 'getOpenRuns',
         'groomed_runs' => 'getGroomedRuns',
         'total_runs' => 'getTotalRuns',
+        'open_acres' => 'getOpenAcres',
+        'total_acres' => 'getTotalAcres',
         'runs_updated_at' => 'getRunsUpdatedAt',
         'open_lifts' => 'getOpenLifts',
         'total_lifts' => 'getTotalLifts',
@@ -370,6 +382,8 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('open_runs', $data ?? [], null);
         $this->setIfExists('groomed_runs', $data ?? [], null);
         $this->setIfExists('total_runs', $data ?? [], null);
+        $this->setIfExists('open_acres', $data ?? [], null);
+        $this->setIfExists('total_acres', $data ?? [], null);
         $this->setIfExists('runs_updated_at', $data ?? [], null);
         $this->setIfExists('open_lifts', $data ?? [], null);
         $this->setIfExists('total_lifts', $data ?? [], null);
@@ -757,6 +771,74 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable total_runs cannot be null');
         }
         $this->container['total_runs'] = $total_runs;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_acres
+     *
+     * @return int|null
+     */
+    public function getOpenAcres()
+    {
+        return $this->container['open_acres'];
+    }
+
+    /**
+     * Sets open_acres
+     *
+     * @param int|null $open_acres Total acres of open runs.  Not included if acres are not tracked or run status feature is disabled.
+     *
+     * @return self
+     */
+    public function setOpenAcres($open_acres)
+    {
+        if (is_null($open_acres)) {
+            array_push($this->openAPINullablesSetToNull, 'open_acres');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('open_acres', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['open_acres'] = $open_acres;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_acres
+     *
+     * @return int|null
+     */
+    public function getTotalAcres()
+    {
+        return $this->container['total_acres'];
+    }
+
+    /**
+     * Sets total_acres
+     *
+     * @param int|null $total_acres Total acres of all runs.  Not included if acres are not tracked.
+     *
+     * @return self
+     */
+    public function setTotalAcres($total_acres)
+    {
+        if (is_null($total_acres)) {
+            array_push($this->openAPINullablesSetToNull, 'total_acres');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_acres', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_acres'] = $total_acres;
 
         return $this;
     }

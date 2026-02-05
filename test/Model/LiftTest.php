@@ -135,6 +135,24 @@ class LiftTest extends TestCase
     }
 
     /**
+     * Test attribute "bubble"
+     */
+    public function testPropertyBubble()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "heated"
+     */
+    public function testPropertyHeated()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "status"
      */
     public function testPropertyStatus()

@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **status** | [**\MtnManager\Model\RunStatus**](RunStatus.md) | Current operational status (open, closed, or unknown). |
 **last_groomed** | **\DateTime** | When the run was last groomed.  &#x60;null&#x60; if never groomed, or if the runs grooming feature is disabled. | [optional]
 **groomed_today** | **bool** | Whether the run was groomed within the last 24 hours. |
+**snowmaking** | **bool** | Whether the run has snowmaking capabilities. |
+**night_skiing** | **bool** | Whether the run is available for night skiing. |
 **condition_notes** | **string** | Notes about current conditions on this run. |
 **area_uuid** | **string** | UUID of the area this run belongs to, if assigned. | [optional]
 **area_name** | **string** | Name of the area this run belongs to, if assigned. | [optional]

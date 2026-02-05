@@ -1,6 +1,6 @@
 <?php
 /**
- * FullReport
+ * ParkingLot
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
- * FullReport Class Doc Comment
+ * ParkingLot Class Doc Comment
  *
  * @category Class
- * @description The all-in-one endpoint containing the full report — resort information, current status,  runs, lifts, snow, terrain parks, summer trails, hours, and weather.
+ * @description Represents a parking lot at the resort with its current status and amenities.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
+class ParkingLot implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FullReport';
+    protected static $openAPIModelName = 'ParkingLot';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,16 +59,15 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'resort' => '\MtnManager\Model\ResortInfo',
-        'status' => '\MtnManager\Model\Overview',
-        'snow' => '\MtnManager\Model\SnowReport[]',
-        'lifts' => '\MtnManager\Model\Lift[]',
-        'runs' => '\MtnManager\Model\Run[]',
-        'terrain_parks' => '\MtnManager\Model\TerrainPark[]',
-        'parking_lots' => '\MtnManager\Model\ParkingLot[]',
-        'summer_trails' => '\MtnManager\Model\SummerTrail[]',
-        'hours' => '\MtnManager\Model\OperatingHours',
-        'weather' => '\MtnManager\Model\Weather'
+        'uuid' => 'string',
+        'name' => 'string',
+        'slug' => 'string',
+        'status' => '\MtnManager\Model\ParkingLotStatus',
+        'capacity' => 'int',
+        'shuttle' => 'bool',
+        'paid' => 'bool',
+        'reservation_required' => 'bool',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -79,16 +78,15 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'resort' => null,
+        'uuid' => null,
+        'name' => null,
+        'slug' => null,
         'status' => null,
-        'snow' => null,
-        'lifts' => null,
-        'runs' => null,
-        'terrain_parks' => null,
-        'parking_lots' => null,
-        'summer_trails' => null,
-        'hours' => null,
-        'weather' => null
+        'capacity' => 'int32',
+        'shuttle' => null,
+        'paid' => null,
+        'reservation_required' => null,
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -97,16 +95,15 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'resort' => false,
+        'uuid' => false,
+        'name' => false,
+        'slug' => false,
         'status' => false,
-        'snow' => false,
-        'lifts' => false,
-        'runs' => false,
-        'terrain_parks' => false,
-        'parking_lots' => false,
-        'summer_trails' => false,
-        'hours' => false,
-        'weather' => true
+        'capacity' => true,
+        'shuttle' => false,
+        'paid' => false,
+        'reservation_required' => false,
+        'updated_at' => false
     ];
 
     /**
@@ -195,16 +192,15 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'resort' => 'resort',
+        'uuid' => 'uuid',
+        'name' => 'name',
+        'slug' => 'slug',
         'status' => 'status',
-        'snow' => 'snow',
-        'lifts' => 'lifts',
-        'runs' => 'runs',
-        'terrain_parks' => 'terrain_parks',
-        'parking_lots' => 'parking_lots',
-        'summer_trails' => 'summer_trails',
-        'hours' => 'hours',
-        'weather' => 'weather'
+        'capacity' => 'capacity',
+        'shuttle' => 'shuttle',
+        'paid' => 'paid',
+        'reservation_required' => 'reservation_required',
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -213,16 +209,15 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'resort' => 'setResort',
+        'uuid' => 'setUuid',
+        'name' => 'setName',
+        'slug' => 'setSlug',
         'status' => 'setStatus',
-        'snow' => 'setSnow',
-        'lifts' => 'setLifts',
-        'runs' => 'setRuns',
-        'terrain_parks' => 'setTerrainParks',
-        'parking_lots' => 'setParkingLots',
-        'summer_trails' => 'setSummerTrails',
-        'hours' => 'setHours',
-        'weather' => 'setWeather'
+        'capacity' => 'setCapacity',
+        'shuttle' => 'setShuttle',
+        'paid' => 'setPaid',
+        'reservation_required' => 'setReservationRequired',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -231,16 +226,15 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'resort' => 'getResort',
+        'uuid' => 'getUuid',
+        'name' => 'getName',
+        'slug' => 'getSlug',
         'status' => 'getStatus',
-        'snow' => 'getSnow',
-        'lifts' => 'getLifts',
-        'runs' => 'getRuns',
-        'terrain_parks' => 'getTerrainParks',
-        'parking_lots' => 'getParkingLots',
-        'summer_trails' => 'getSummerTrails',
-        'hours' => 'getHours',
-        'weather' => 'getWeather'
+        'capacity' => 'getCapacity',
+        'shuttle' => 'getShuttle',
+        'paid' => 'getPaid',
+        'reservation_required' => 'getReservationRequired',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -300,16 +294,15 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('resort', $data ?? [], null);
+        $this->setIfExists('uuid', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('slug', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('snow', $data ?? [], null);
-        $this->setIfExists('lifts', $data ?? [], null);
-        $this->setIfExists('runs', $data ?? [], null);
-        $this->setIfExists('terrain_parks', $data ?? [], null);
-        $this->setIfExists('parking_lots', $data ?? [], null);
-        $this->setIfExists('summer_trails', $data ?? [], null);
-        $this->setIfExists('hours', $data ?? [], null);
-        $this->setIfExists('weather', $data ?? [], null);
+        $this->setIfExists('capacity', $data ?? [], null);
+        $this->setIfExists('shuttle', $data ?? [], null);
+        $this->setIfExists('paid', $data ?? [], null);
+        $this->setIfExists('reservation_required', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -339,32 +332,29 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['resort'] === null) {
-            $invalidProperties[] = "'resort' can't be null";
+        if ($this->container['uuid'] === null) {
+            $invalidProperties[] = "'uuid' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['slug'] === null) {
+            $invalidProperties[] = "'slug' can't be null";
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
-        if ($this->container['snow'] === null) {
-            $invalidProperties[] = "'snow' can't be null";
+        if ($this->container['shuttle'] === null) {
+            $invalidProperties[] = "'shuttle' can't be null";
         }
-        if ($this->container['lifts'] === null) {
-            $invalidProperties[] = "'lifts' can't be null";
+        if ($this->container['paid'] === null) {
+            $invalidProperties[] = "'paid' can't be null";
         }
-        if ($this->container['runs'] === null) {
-            $invalidProperties[] = "'runs' can't be null";
+        if ($this->container['reservation_required'] === null) {
+            $invalidProperties[] = "'reservation_required' can't be null";
         }
-        if ($this->container['terrain_parks'] === null) {
-            $invalidProperties[] = "'terrain_parks' can't be null";
-        }
-        if ($this->container['parking_lots'] === null) {
-            $invalidProperties[] = "'parking_lots' can't be null";
-        }
-        if ($this->container['summer_trails'] === null) {
-            $invalidProperties[] = "'summer_trails' can't be null";
-        }
-        if ($this->container['hours'] === null) {
-            $invalidProperties[] = "'hours' can't be null";
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
         }
         return $invalidProperties;
     }
@@ -382,28 +372,82 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets resort
+     * Gets uuid
      *
-     * @return \MtnManager\Model\ResortInfo
+     * @return string
      */
-    public function getResort()
+    public function getUuid()
     {
-        return $this->container['resort'];
+        return $this->container['uuid'];
     }
 
     /**
-     * Sets resort
+     * Sets uuid
      *
-     * @param \MtnManager\Model\ResortInfo $resort resort
+     * @param string $uuid Unique identifier for the parking lot.
      *
      * @return self
      */
-    public function setResort($resort)
+    public function setUuid($uuid)
     {
-        if (is_null($resort)) {
-            throw new \InvalidArgumentException('non-nullable resort cannot be null');
+        if (is_null($uuid)) {
+            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
         }
-        $this->container['resort'] = $resort;
+        $this->container['uuid'] = $uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Display name of the parking lot.
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->container['slug'];
+    }
+
+    /**
+     * Sets slug
+     *
+     * @param string $slug URL-friendly name of the parking lot.
+     *
+     * @return self
+     */
+    public function setSlug($slug)
+    {
+        if (is_null($slug)) {
+            throw new \InvalidArgumentException('non-nullable slug cannot be null');
+        }
+        $this->container['slug'] = $slug;
 
         return $this;
     }
@@ -411,7 +455,7 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return \MtnManager\Model\Overview
+     * @return \MtnManager\Model\ParkingLotStatus
      */
     public function getStatus()
     {
@@ -421,7 +465,7 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param \MtnManager\Model\Overview $status status
+     * @param \MtnManager\Model\ParkingLotStatus $status Current status (open, closed, or full).
      *
      * @return self
      */
@@ -436,224 +480,143 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets snow
+     * Gets capacity
      *
-     * @return \MtnManager\Model\SnowReport[]
+     * @return int|null
      */
-    public function getSnow()
+    public function getCapacity()
     {
-        return $this->container['snow'];
+        return $this->container['capacity'];
     }
 
     /**
-     * Sets snow
+     * Sets capacity
      *
-     * @param \MtnManager\Model\SnowReport[] $snow Provides current snow conditions including base depth, surface conditions,  and snowfall totals in both metric and imperial units.   May contain multiple, representing different reporting areas.
+     * @param int|null $capacity Maximum vehicle capacity, if set.
      *
      * @return self
      */
-    public function setSnow($snow)
+    public function setCapacity($capacity)
     {
-        if (is_null($snow)) {
-            throw new \InvalidArgumentException('non-nullable snow cannot be null');
-        }
-        $this->container['snow'] = $snow;
-
-        return $this;
-    }
-
-    /**
-     * Gets lifts
-     *
-     * @return \MtnManager\Model\Lift[]
-     */
-    public function getLifts()
-    {
-        return $this->container['lifts'];
-    }
-
-    /**
-     * Sets lifts
-     *
-     * @param \MtnManager\Model\Lift[] $lifts List of all lifts at the resort with their current operational status,  type, and optional wait time information.
-     *
-     * @return self
-     */
-    public function setLifts($lifts)
-    {
-        if (is_null($lifts)) {
-            throw new \InvalidArgumentException('non-nullable lifts cannot be null');
-        }
-        $this->container['lifts'] = $lifts;
-
-        return $this;
-    }
-
-    /**
-     * Gets runs
-     *
-     * @return \MtnManager\Model\Run[]
-     */
-    public function getRuns()
-    {
-        return $this->container['runs'];
-    }
-
-    /**
-     * Sets runs
-     *
-     * @param \MtnManager\Model\Run[] $runs List of all runs at the resort with their current status,  grooming information, and difficulty rating.
-     *
-     * @return self
-     */
-    public function setRuns($runs)
-    {
-        if (is_null($runs)) {
-            throw new \InvalidArgumentException('non-nullable runs cannot be null');
-        }
-        $this->container['runs'] = $runs;
-
-        return $this;
-    }
-
-    /**
-     * Gets terrain_parks
-     *
-     * @return \MtnManager\Model\TerrainPark[]
-     */
-    public function getTerrainParks()
-    {
-        return $this->container['terrain_parks'];
-    }
-
-    /**
-     * Sets terrain_parks
-     *
-     * @param \MtnManager\Model\TerrainPark[] $terrain_parks List of all terrain parks at the resort with their current status,  condition notes, and list of features (jumps, boxes, rails, etc.) within them.
-     *
-     * @return self
-     */
-    public function setTerrainParks($terrain_parks)
-    {
-        if (is_null($terrain_parks)) {
-            throw new \InvalidArgumentException('non-nullable terrain_parks cannot be null');
-        }
-        $this->container['terrain_parks'] = $terrain_parks;
-
-        return $this;
-    }
-
-    /**
-     * Gets parking_lots
-     *
-     * @return \MtnManager\Model\ParkingLot[]
-     */
-    public function getParkingLots()
-    {
-        return $this->container['parking_lots'];
-    }
-
-    /**
-     * Sets parking_lots
-     *
-     * @param \MtnManager\Model\ParkingLot[] $parking_lots List of all parking lots at the resort with their current status and amenities.
-     *
-     * @return self
-     */
-    public function setParkingLots($parking_lots)
-    {
-        if (is_null($parking_lots)) {
-            throw new \InvalidArgumentException('non-nullable parking_lots cannot be null');
-        }
-        $this->container['parking_lots'] = $parking_lots;
-
-        return $this;
-    }
-
-    /**
-     * Gets summer_trails
-     *
-     * @return \MtnManager\Model\SummerTrail[]
-     */
-    public function getSummerTrails()
-    {
-        return $this->container['summer_trails'];
-    }
-
-    /**
-     * Sets summer_trails
-     *
-     * @param \MtnManager\Model\SummerTrail[] $summer_trails List of all summer trails at the resort with their current status,  type (e.g. hiking, mountain biking), and optional difficulty rating.
-     *
-     * @return self
-     */
-    public function setSummerTrails($summer_trails)
-    {
-        if (is_null($summer_trails)) {
-            throw new \InvalidArgumentException('non-nullable summer_trails cannot be null');
-        }
-        $this->container['summer_trails'] = $summer_trails;
-
-        return $this;
-    }
-
-    /**
-     * Gets hours
-     *
-     * @return \MtnManager\Model\OperatingHours
-     */
-    public function getHours()
-    {
-        return $this->container['hours'];
-    }
-
-    /**
-     * Sets hours
-     *
-     * @param \MtnManager\Model\OperatingHours $hours hours
-     *
-     * @return self
-     */
-    public function setHours($hours)
-    {
-        if (is_null($hours)) {
-            throw new \InvalidArgumentException('non-nullable hours cannot be null');
-        }
-        $this->container['hours'] = $hours;
-
-        return $this;
-    }
-
-    /**
-     * Gets weather
-     *
-     * @return \MtnManager\Model\Weather|null
-     */
-    public function getWeather()
-    {
-        return $this->container['weather'];
-    }
-
-    /**
-     * Sets weather
-     *
-     * @param \MtnManager\Model\Weather|null $weather weather
-     *
-     * @return self
-     */
-    public function setWeather($weather)
-    {
-        if (is_null($weather)) {
-            array_push($this->openAPINullablesSetToNull, 'weather');
+        if (is_null($capacity)) {
+            array_push($this->openAPINullablesSetToNull, 'capacity');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('weather', $nullablesSetToNull);
+            $index = array_search('capacity', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['weather'] = $weather;
+        $this->container['capacity'] = $capacity;
+
+        return $this;
+    }
+
+    /**
+     * Gets shuttle
+     *
+     * @return bool
+     */
+    public function getShuttle()
+    {
+        return $this->container['shuttle'];
+    }
+
+    /**
+     * Sets shuttle
+     *
+     * @param bool $shuttle Whether shuttle service is available from this lot.
+     *
+     * @return self
+     */
+    public function setShuttle($shuttle)
+    {
+        if (is_null($shuttle)) {
+            throw new \InvalidArgumentException('non-nullable shuttle cannot be null');
+        }
+        $this->container['shuttle'] = $shuttle;
+
+        return $this;
+    }
+
+    /**
+     * Gets paid
+     *
+     * @return bool
+     */
+    public function getPaid()
+    {
+        return $this->container['paid'];
+    }
+
+    /**
+     * Sets paid
+     *
+     * @param bool $paid Whether parking is paid/requires payment.
+     *
+     * @return self
+     */
+    public function setPaid($paid)
+    {
+        if (is_null($paid)) {
+            throw new \InvalidArgumentException('non-nullable paid cannot be null');
+        }
+        $this->container['paid'] = $paid;
+
+        return $this;
+    }
+
+    /**
+     * Gets reservation_required
+     *
+     * @return bool
+     */
+    public function getReservationRequired()
+    {
+        return $this->container['reservation_required'];
+    }
+
+    /**
+     * Sets reservation_required
+     *
+     * @param bool $reservation_required Whether a reservation is required to park here.
+     *
+     * @return self
+     */
+    public function setReservationRequired($reservation_required)
+    {
+        if (is_null($reservation_required)) {
+            throw new \InvalidArgumentException('non-nullable reservation_required cannot be null');
+        }
+        $this->container['reservation_required'] = $reservation_required;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime $updated_at When this parking lot's information was last updated.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+        $this->container['updated_at'] = $updated_at;
 
         return $this;
     }

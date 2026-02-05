@@ -135,6 +135,15 @@ class FullReportTest extends TestCase
     }
 
     /**
+     * Test attribute "parking_lots"
+     */
+    public function testPropertyParkingLots()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "summer_trails"
      */
     public function testPropertySummerTrails()

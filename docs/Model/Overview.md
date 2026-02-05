@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **open_runs** | **int** | Number of runs currently open.  Not included if the runs status feature is disabled. | [optional]
 **groomed_runs** | **int** | Number of runs groomed within the last 24 hours.  Not included if the runs grooming feature is disabled. | [optional]
 **total_runs** | **int** | Total number of runs at the resort. |
+**open_acres** | **int** | Total acres of open runs.  Not included if acres are not tracked or run status feature is disabled. | [optional]
+**total_acres** | **int** | Total acres of all runs.  Not included if acres are not tracked. | [optional]
 **runs_updated_at** | **\DateTime** | When the most recent update to run status was made. |
 **open_lifts** | **int** | Number of lifts currently open.  Not included if the lifts status feature is disabled. | [optional]
 **total_lifts** | **int** | Total number of lifts at the resort. |

@@ -153,6 +153,24 @@ class RunTest extends TestCase
     }
 
     /**
+     * Test attribute "snowmaking"
+     */
+    public function testPropertySnowmaking()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "night_skiing"
+     */
+    public function testPropertyNightSkiing()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "condition_notes"
      */
     public function testPropertyConditionNotes()

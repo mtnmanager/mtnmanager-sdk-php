@@ -75,6 +75,7 @@ Class | Method | HTTP request | Description
 *MtnManagerApi* | [**getHours**](docs/Api/MtnManagerApi.md#gethours) | **GET** /api/v1/report/hours | Get operating hours
 *MtnManagerApi* | [**getLifts**](docs/Api/MtnManagerApi.md#getlifts) | **GET** /api/v1/report/lifts | Get lifts
 *MtnManagerApi* | [**getOverview**](docs/Api/MtnManagerApi.md#getoverview) | **GET** /api/v1/report/overview | Get overview
+*MtnManagerApi* | [**getParkingLots**](docs/Api/MtnManagerApi.md#getparkinglots) | **GET** /api/v1/report/parking-lots | Get parking lots
 *MtnManagerApi* | [**getRuns**](docs/Api/MtnManagerApi.md#getruns) | **GET** /api/v1/report/runs | Get runs
 *MtnManagerApi* | [**getSnow**](docs/Api/MtnManagerApi.md#getsnow) | **GET** /api/v1/report/snow | Get snow conditions
 *MtnManagerApi* | [**getSummerTrails**](docs/Api/MtnManagerApi.md#getsummertrails) | **GET** /api/v1/report/summer-trails | Get summer trails
@@ -103,6 +104,8 @@ Class | Method | HTTP request | Description
 - [LiftType](docs/Model/LiftType.md)
 - [OperatingHours](docs/Model/OperatingHours.md)
 - [Overview](docs/Model/Overview.md)
+- [ParkingLot](docs/Model/ParkingLot.md)
+- [ParkingLotStatus](docs/Model/ParkingLotStatus.md)
 - [ResortInfo](docs/Model/ResortInfo.md)
 - [ResortStatus](docs/Model/ResortStatus.md)
 - [Run](docs/Model/Run.md)

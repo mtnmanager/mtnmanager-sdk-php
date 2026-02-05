@@ -67,6 +67,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => '\MtnManager\Model\RunStatus',
         'last_groomed' => '\DateTime',
         'groomed_today' => 'bool',
+        'snowmaking' => 'bool',
+        'night_skiing' => 'bool',
         'condition_notes' => 'string',
         'area_uuid' => 'string',
         'area_name' => 'string',
@@ -90,6 +92,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => null,
         'last_groomed' => 'date-time',
         'groomed_today' => null,
+        'snowmaking' => null,
+        'night_skiing' => null,
         'condition_notes' => null,
         'area_uuid' => null,
         'area_name' => null,
@@ -111,6 +115,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => false,
         'last_groomed' => true,
         'groomed_today' => false,
+        'snowmaking' => false,
+        'night_skiing' => false,
         'condition_notes' => false,
         'area_uuid' => true,
         'area_name' => true,
@@ -212,6 +218,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'status',
         'last_groomed' => 'last_groomed',
         'groomed_today' => 'groomed_today',
+        'snowmaking' => 'snowmaking',
+        'night_skiing' => 'night_skiing',
         'condition_notes' => 'condition_notes',
         'area_uuid' => 'area_uuid',
         'area_name' => 'area_name',
@@ -233,6 +241,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'setStatus',
         'last_groomed' => 'setLastGroomed',
         'groomed_today' => 'setGroomedToday',
+        'snowmaking' => 'setSnowmaking',
+        'night_skiing' => 'setNightSkiing',
         'condition_notes' => 'setConditionNotes',
         'area_uuid' => 'setAreaUuid',
         'area_name' => 'setAreaName',
@@ -254,6 +264,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'getStatus',
         'last_groomed' => 'getLastGroomed',
         'groomed_today' => 'getGroomedToday',
+        'snowmaking' => 'getSnowmaking',
+        'night_skiing' => 'getNightSkiing',
         'condition_notes' => 'getConditionNotes',
         'area_uuid' => 'getAreaUuid',
         'area_name' => 'getAreaName',
@@ -326,6 +338,8 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('last_groomed', $data ?? [], null);
         $this->setIfExists('groomed_today', $data ?? [], null);
+        $this->setIfExists('snowmaking', $data ?? [], null);
+        $this->setIfExists('night_skiing', $data ?? [], null);
         $this->setIfExists('condition_notes', $data ?? [], null);
         $this->setIfExists('area_uuid', $data ?? [], null);
         $this->setIfExists('area_name', $data ?? [], null);
@@ -377,6 +391,12 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['groomed_today'] === null) {
             $invalidProperties[] = "'groomed_today' can't be null";
+        }
+        if ($this->container['snowmaking'] === null) {
+            $invalidProperties[] = "'snowmaking' can't be null";
+        }
+        if ($this->container['night_skiing'] === null) {
+            $invalidProperties[] = "'night_skiing' can't be null";
         }
         if ($this->container['condition_notes'] === null) {
             $invalidProperties[] = "'condition_notes' can't be null";
@@ -625,6 +645,60 @@ class Run implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable groomed_today cannot be null');
         }
         $this->container['groomed_today'] = $groomed_today;
+
+        return $this;
+    }
+
+    /**
+     * Gets snowmaking
+     *
+     * @return bool
+     */
+    public function getSnowmaking()
+    {
+        return $this->container['snowmaking'];
+    }
+
+    /**
+     * Sets snowmaking
+     *
+     * @param bool $snowmaking Whether the run has snowmaking capabilities.
+     *
+     * @return self
+     */
+    public function setSnowmaking($snowmaking)
+    {
+        if (is_null($snowmaking)) {
+            throw new \InvalidArgumentException('non-nullable snowmaking cannot be null');
+        }
+        $this->container['snowmaking'] = $snowmaking;
+
+        return $this;
+    }
+
+    /**
+     * Gets night_skiing
+     *
+     * @return bool
+     */
+    public function getNightSkiing()
+    {
+        return $this->container['night_skiing'];
+    }
+
+    /**
+     * Sets night_skiing
+     *
+     * @param bool $night_skiing Whether the run is available for night skiing.
+     *
+     * @return self
+     */
+    public function setNightSkiing($night_skiing)
+    {
+        if (is_null($night_skiing)) {
+            throw new \InvalidArgumentException('non-nullable night_skiing cannot be null');
+        }
+        $this->container['night_skiing'] = $night_skiing;
 
         return $this;
     }

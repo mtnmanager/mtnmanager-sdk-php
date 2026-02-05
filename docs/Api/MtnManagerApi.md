@@ -10,6 +10,7 @@ All URIs are relative to https://your-resort.mtnmanager.com, except if the opera
 | [**getHours()**](MtnManagerApi.md#getHours) | **GET** /api/v1/report/hours | Get operating hours |
 | [**getLifts()**](MtnManagerApi.md#getLifts) | **GET** /api/v1/report/lifts | Get lifts |
 | [**getOverview()**](MtnManagerApi.md#getOverview) | **GET** /api/v1/report/overview | Get overview |
+| [**getParkingLots()**](MtnManagerApi.md#getParkingLots) | **GET** /api/v1/report/parking-lots | Get parking lots |
 | [**getRuns()**](MtnManagerApi.md#getRuns) | **GET** /api/v1/report/runs | Get runs |
 | [**getSnow()**](MtnManagerApi.md#getSnow) | **GET** /api/v1/report/snow | Get snow conditions |
 | [**getSummerTrails()**](MtnManagerApi.md#getSummerTrails) | **GET** /api/v1/report/summer-trails | Get summer trails |
@@ -207,6 +208,57 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\MtnManager\Model\Overview**](../Model/Overview.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getParkingLots()`
+
+```php
+getParkingLots(): \MtnManager\Model\ParkingLot[]
+```
+
+Get parking lots
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MtnManager\Api\MtnManagerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->getParkingLots();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MtnManagerApi->getParkingLots: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\MtnManager\Model\ParkingLot[]**](../Model/ParkingLot.md)
 
 ### Authorization
 

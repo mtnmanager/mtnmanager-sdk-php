@@ -171,6 +171,24 @@ class OverviewTest extends TestCase
     }
 
     /**
+     * Test attribute "open_acres"
+     */
+    public function testPropertyOpenAcres()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_acres"
+     */
+    public function testPropertyTotalAcres()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "runs_updated_at"
      */
     public function testPropertyRunsUpdatedAt()

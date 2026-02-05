@@ -65,6 +65,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'number' => 'int',
         'lift_type' => '\MtnManager\Model\LiftType',
         'high_speed' => 'bool',
+        'bubble' => 'bool',
+        'heated' => 'bool',
         'status' => '\MtnManager\Model\LiftStatus',
         'wait_time_minutes' => 'int',
         'area_uuid' => 'string',
@@ -87,6 +89,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'number' => 'int32',
         'lift_type' => null,
         'high_speed' => null,
+        'bubble' => null,
+        'heated' => null,
         'status' => null,
         'wait_time_minutes' => 'int64',
         'area_uuid' => null,
@@ -107,6 +111,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'number' => true,
         'lift_type' => false,
         'high_speed' => false,
+        'bubble' => false,
+        'heated' => false,
         'status' => false,
         'wait_time_minutes' => true,
         'area_uuid' => true,
@@ -207,6 +213,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'number' => 'number',
         'lift_type' => 'lift_type',
         'high_speed' => 'high_speed',
+        'bubble' => 'bubble',
+        'heated' => 'heated',
         'status' => 'status',
         'wait_time_minutes' => 'wait_time_minutes',
         'area_uuid' => 'area_uuid',
@@ -227,6 +235,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'number' => 'setNumber',
         'lift_type' => 'setLiftType',
         'high_speed' => 'setHighSpeed',
+        'bubble' => 'setBubble',
+        'heated' => 'setHeated',
         'status' => 'setStatus',
         'wait_time_minutes' => 'setWaitTimeMinutes',
         'area_uuid' => 'setAreaUuid',
@@ -247,6 +257,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'number' => 'getNumber',
         'lift_type' => 'getLiftType',
         'high_speed' => 'getHighSpeed',
+        'bubble' => 'getBubble',
+        'heated' => 'getHeated',
         'status' => 'getStatus',
         'wait_time_minutes' => 'getWaitTimeMinutes',
         'area_uuid' => 'getAreaUuid',
@@ -318,6 +330,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('number', $data ?? [], null);
         $this->setIfExists('lift_type', $data ?? [], null);
         $this->setIfExists('high_speed', $data ?? [], null);
+        $this->setIfExists('bubble', $data ?? [], null);
+        $this->setIfExists('heated', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('wait_time_minutes', $data ?? [], null);
         $this->setIfExists('area_uuid', $data ?? [], null);
@@ -367,6 +381,12 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['high_speed'] === null) {
             $invalidProperties[] = "'high_speed' can't be null";
+        }
+        if ($this->container['bubble'] === null) {
+            $invalidProperties[] = "'bubble' can't be null";
+        }
+        if ($this->container['heated'] === null) {
+            $invalidProperties[] = "'heated' can't be null";
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
@@ -554,6 +574,60 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable high_speed cannot be null');
         }
         $this->container['high_speed'] = $high_speed;
+
+        return $this;
+    }
+
+    /**
+     * Gets bubble
+     *
+     * @return bool
+     */
+    public function getBubble()
+    {
+        return $this->container['bubble'];
+    }
+
+    /**
+     * Sets bubble
+     *
+     * @param bool $bubble Whether the lift has a bubble/cover for weather protection.
+     *
+     * @return self
+     */
+    public function setBubble($bubble)
+    {
+        if (is_null($bubble)) {
+            throw new \InvalidArgumentException('non-nullable bubble cannot be null');
+        }
+        $this->container['bubble'] = $bubble;
+
+        return $this;
+    }
+
+    /**
+     * Gets heated
+     *
+     * @return bool
+     */
+    public function getHeated()
+    {
+        return $this->container['heated'];
+    }
+
+    /**
+     * Sets heated
+     *
+     * @param bool $heated Whether the lift has heated seats.
+     *
+     * @return self
+     */
+    public function setHeated($heated)
+    {
+        if (is_null($heated)) {
+            throw new \InvalidArgumentException('non-nullable heated cannot be null');
+        }
+        $this->container['heated'] = $heated;
 
         return $this;
     }
