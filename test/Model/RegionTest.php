@@ -1,6 +1,6 @@
 <?php
 /**
- * ResortInfoTest
+ * RegionTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ResortInfoTest Class Doc Comment
+ * RegionTest Class Doc Comment
  *
  * @category    Class
- * @description Contains general information about the ski resort and its MtnManager account.
+ * @description Region for an account
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class ResortInfoTest extends TestCase
+class RegionTest extends TestCase
 {
 
     /**
@@ -72,63 +72,9 @@ class ResortInfoTest extends TestCase
     }
 
     /**
-     * Test "ResortInfo"
+     * Test "Region"
      */
-    public function testResortInfo()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "uuid"
-     */
-    public function testPropertyUuid()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "name"
-     */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "slug"
-     */
-    public function testPropertySlug()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "timezone"
-     */
-    public function testPropertyTimezone()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "region"
-     */
-    public function testPropertyRegion()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "unit_preference"
-     */
-    public function testPropertyUnitPreference()
+    public function testRegion()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

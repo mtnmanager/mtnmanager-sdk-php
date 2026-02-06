@@ -63,6 +63,7 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'slug' => 'string',
         'timezone' => 'string',
+        'region' => '\MtnManager\Model\Region',
         'unit_preference' => '\MtnManager\Model\UnitPreference'
     ];
 
@@ -78,6 +79,7 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'slug' => null,
         'timezone' => null,
+        'region' => null,
         'unit_preference' => null
     ];
 
@@ -91,6 +93,7 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
         'slug' => false,
         'timezone' => false,
+        'region' => false,
         'unit_preference' => false
     ];
 
@@ -184,6 +187,7 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'slug' => 'slug',
         'timezone' => 'timezone',
+        'region' => 'region',
         'unit_preference' => 'unit_preference'
     ];
 
@@ -197,6 +201,7 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'slug' => 'setSlug',
         'timezone' => 'setTimezone',
+        'region' => 'setRegion',
         'unit_preference' => 'setUnitPreference'
     ];
 
@@ -210,6 +215,7 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'slug' => 'getSlug',
         'timezone' => 'getTimezone',
+        'region' => 'getRegion',
         'unit_preference' => 'getUnitPreference'
     ];
 
@@ -274,6 +280,7 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('slug', $data ?? [], null);
         $this->setIfExists('timezone', $data ?? [], null);
+        $this->setIfExists('region', $data ?? [], null);
         $this->setIfExists('unit_preference', $data ?? [], null);
     }
 
@@ -315,6 +322,9 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['timezone'] === null) {
             $invalidProperties[] = "'timezone' can't be null";
+        }
+        if ($this->container['region'] === null) {
+            $invalidProperties[] = "'region' can't be null";
         }
         if ($this->container['unit_preference'] === null) {
             $invalidProperties[] = "'unit_preference' can't be null";
@@ -438,6 +448,33 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable timezone cannot be null');
         }
         $this->container['timezone'] = $timezone;
+
+        return $this;
+    }
+
+    /**
+     * Gets region
+     *
+     * @return \MtnManager\Model\Region
+     */
+    public function getRegion()
+    {
+        return $this->container['region'];
+    }
+
+    /**
+     * Sets region
+     *
+     * @param \MtnManager\Model\Region $region Region, affects difficulty icon style.
+     *
+     * @return self
+     */
+    public function setRegion($region)
+    {
+        if (is_null($region)) {
+            throw new \InvalidArgumentException('non-nullable region cannot be null');
+        }
+        $this->container['region'] = $region;
 
         return $this;
     }

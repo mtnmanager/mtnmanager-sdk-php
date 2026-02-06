@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
 - [Overview](docs/Model/Overview.md)
 - [ParkingLot](docs/Model/ParkingLot.md)
 - [ParkingLotStatus](docs/Model/ParkingLotStatus.md)
+- [Region](docs/Model/Region.md)
 - [ResortInfo](docs/Model/ResortInfo.md)
 - [ResortStatus](docs/Model/ResortStatus.md)
 - [Run](docs/Model/Run.md)
