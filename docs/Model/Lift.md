@@ -14,6 +14,8 @@ Name | Type | Description | Notes
 **heated** | **bool** | Whether the lift has heated seats. |
 **status** | [**\MtnManager\Model\LiftStatus**](LiftStatus.md) | Current operational status (open, closed, on_hold, or unknown). |
 **wait_time_minutes** | **int** | Current estimated wait time in minutes, if available. | [optional]
+**opens_at** | **string** | Today&#39;s scheduled opening time in 24-hour format (HH:MM), in resort&#39;s local timezone.  &#x60;null&#x60; if the lift has no scheduled hours for today. | [optional]
+**closes_at** | **string** | Today&#39;s scheduled closing time in 24-hour format (HH:MM), in resort&#39;s local timezone.  &#x60;null&#x60; if the lift has no scheduled hours for today. | [optional]
 **area_uuid** | **string** | UUID of the area this lift belongs to, if assigned. | [optional]
 **area_name** | **string** | Name of the area this lift belongs to, if assigned. | [optional]
 **area_display_order** | **int** | Display order of the area this lift belongs to, if assigned, for sorting purposes. | [optional]

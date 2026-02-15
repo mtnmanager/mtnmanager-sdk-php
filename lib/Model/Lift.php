@@ -69,6 +69,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'heated' => 'bool',
         'status' => '\MtnManager\Model\LiftStatus',
         'wait_time_minutes' => 'int',
+        'opens_at' => 'string',
+        'closes_at' => 'string',
         'area_uuid' => 'string',
         'area_name' => 'string',
         'area_display_order' => 'int',
@@ -93,6 +95,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'heated' => null,
         'status' => null,
         'wait_time_minutes' => 'int64',
+        'opens_at' => null,
+        'closes_at' => null,
         'area_uuid' => null,
         'area_name' => null,
         'area_display_order' => 'int32',
@@ -115,6 +119,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'heated' => false,
         'status' => false,
         'wait_time_minutes' => true,
+        'opens_at' => true,
+        'closes_at' => true,
         'area_uuid' => true,
         'area_name' => true,
         'area_display_order' => true,
@@ -217,6 +223,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'heated' => 'heated',
         'status' => 'status',
         'wait_time_minutes' => 'wait_time_minutes',
+        'opens_at' => 'opens_at',
+        'closes_at' => 'closes_at',
         'area_uuid' => 'area_uuid',
         'area_name' => 'area_name',
         'area_display_order' => 'area_display_order',
@@ -239,6 +247,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'heated' => 'setHeated',
         'status' => 'setStatus',
         'wait_time_minutes' => 'setWaitTimeMinutes',
+        'opens_at' => 'setOpensAt',
+        'closes_at' => 'setClosesAt',
         'area_uuid' => 'setAreaUuid',
         'area_name' => 'setAreaName',
         'area_display_order' => 'setAreaDisplayOrder',
@@ -261,6 +271,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'heated' => 'getHeated',
         'status' => 'getStatus',
         'wait_time_minutes' => 'getWaitTimeMinutes',
+        'opens_at' => 'getOpensAt',
+        'closes_at' => 'getClosesAt',
         'area_uuid' => 'getAreaUuid',
         'area_name' => 'getAreaName',
         'area_display_order' => 'getAreaDisplayOrder',
@@ -334,6 +346,8 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('heated', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('wait_time_minutes', $data ?? [], null);
+        $this->setIfExists('opens_at', $data ?? [], null);
+        $this->setIfExists('closes_at', $data ?? [], null);
         $this->setIfExists('area_uuid', $data ?? [], null);
         $this->setIfExists('area_name', $data ?? [], null);
         $this->setIfExists('area_display_order', $data ?? [], null);
@@ -689,6 +703,74 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['wait_time_minutes'] = $wait_time_minutes;
+
+        return $this;
+    }
+
+    /**
+     * Gets opens_at
+     *
+     * @return string|null
+     */
+    public function getOpensAt()
+    {
+        return $this->container['opens_at'];
+    }
+
+    /**
+     * Sets opens_at
+     *
+     * @param string|null $opens_at Today's scheduled opening time in 24-hour format (HH:MM), in resort's local timezone.  `null` if the lift has no scheduled hours for today.
+     *
+     * @return self
+     */
+    public function setOpensAt($opens_at)
+    {
+        if (is_null($opens_at)) {
+            array_push($this->openAPINullablesSetToNull, 'opens_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('opens_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['opens_at'] = $opens_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets closes_at
+     *
+     * @return string|null
+     */
+    public function getClosesAt()
+    {
+        return $this->container['closes_at'];
+    }
+
+    /**
+     * Sets closes_at
+     *
+     * @param string|null $closes_at Today's scheduled closing time in 24-hour format (HH:MM), in resort's local timezone.  `null` if the lift has no scheduled hours for today.
+     *
+     * @return self
+     */
+    public function setClosesAt($closes_at)
+    {
+        if (is_null($closes_at)) {
+            array_push($this->openAPINullablesSetToNull, 'closes_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('closes_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['closes_at'] = $closes_at;
 
         return $this;
     }

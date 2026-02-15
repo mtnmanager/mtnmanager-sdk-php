@@ -1,6 +1,6 @@
 <?php
 /**
- * OperatingHours
+ * AmenitySchedule
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
- * OperatingHours Class Doc Comment
+ * AmenitySchedule Class Doc Comment
  *
  * @category Class
- * @description Resort&#39;s operating hours, including the recurring schedule, and list of individual calendar days.
+ * @description Amenity schedule for the OperatingHours response
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
+class AmenitySchedule implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'OperatingHours';
+    protected static $openAPIModelName = 'AmenitySchedule';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +59,10 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'schedules' => '\MtnManager\Model\Schedule[]',
-        'calendar_days' => '\MtnManager\Model\CalendarDay[]',
-        'amenity_schedules' => '\MtnManager\Model\AmenitySchedule[]'
+        'uuid' => 'string',
+        'name' => 'string',
+        'category' => '\MtnManager\Model\AmenityCategory',
+        'schedules' => '\MtnManager\Model\Schedule[]'
     ];
 
     /**
@@ -72,9 +73,10 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'schedules' => null,
-        'calendar_days' => null,
-        'amenity_schedules' => null
+        'uuid' => null,
+        'name' => null,
+        'category' => null,
+        'schedules' => null
     ];
 
     /**
@@ -83,9 +85,10 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'schedules' => false,
-        'calendar_days' => false,
-        'amenity_schedules' => false
+        'uuid' => false,
+        'name' => false,
+        'category' => false,
+        'schedules' => false
     ];
 
     /**
@@ -174,9 +177,10 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'schedules' => 'schedules',
-        'calendar_days' => 'calendar_days',
-        'amenity_schedules' => 'amenity_schedules'
+        'uuid' => 'uuid',
+        'name' => 'name',
+        'category' => 'category',
+        'schedules' => 'schedules'
     ];
 
     /**
@@ -185,9 +189,10 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'schedules' => 'setSchedules',
-        'calendar_days' => 'setCalendarDays',
-        'amenity_schedules' => 'setAmenitySchedules'
+        'uuid' => 'setUuid',
+        'name' => 'setName',
+        'category' => 'setCategory',
+        'schedules' => 'setSchedules'
     ];
 
     /**
@@ -196,9 +201,10 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'schedules' => 'getSchedules',
-        'calendar_days' => 'getCalendarDays',
-        'amenity_schedules' => 'getAmenitySchedules'
+        'uuid' => 'getUuid',
+        'name' => 'getName',
+        'category' => 'getCategory',
+        'schedules' => 'getSchedules'
     ];
 
     /**
@@ -258,9 +264,10 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('uuid', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('schedules', $data ?? [], null);
-        $this->setIfExists('calendar_days', $data ?? [], null);
-        $this->setIfExists('amenity_schedules', $data ?? [], null);
     }
 
     /**
@@ -290,14 +297,17 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['uuid'] === null) {
+            $invalidProperties[] = "'uuid' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['category'] === null) {
+            $invalidProperties[] = "'category' can't be null";
+        }
         if ($this->container['schedules'] === null) {
             $invalidProperties[] = "'schedules' can't be null";
-        }
-        if ($this->container['calendar_days'] === null) {
-            $invalidProperties[] = "'calendar_days' can't be null";
-        }
-        if ($this->container['amenity_schedules'] === null) {
-            $invalidProperties[] = "'amenity_schedules' can't be null";
         }
         return $invalidProperties;
     }
@@ -315,6 +325,87 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
+     * Gets uuid
+     *
+     * @return string
+     */
+    public function getUuid()
+    {
+        return $this->container['uuid'];
+    }
+
+    /**
+     * Sets uuid
+     *
+     * @param string $uuid Amenity UUID
+     *
+     * @return self
+     */
+    public function setUuid($uuid)
+    {
+        if (is_null($uuid)) {
+            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
+        }
+        $this->container['uuid'] = $uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string $name Amenity name
+     *
+     * @return self
+     */
+    public function setName($name)
+    {
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets category
+     *
+     * @return \MtnManager\Model\AmenityCategory
+     */
+    public function getCategory()
+    {
+        return $this->container['category'];
+    }
+
+    /**
+     * Sets category
+     *
+     * @param \MtnManager\Model\AmenityCategory $category Amenity category
+     *
+     * @return self
+     */
+    public function setCategory($category)
+    {
+        if (is_null($category)) {
+            throw new \InvalidArgumentException('non-nullable category cannot be null');
+        }
+        $this->container['category'] = $category;
+
+        return $this;
+    }
+
+    /**
      * Gets schedules
      *
      * @return \MtnManager\Model\Schedule[]
@@ -327,7 +418,7 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets schedules
      *
-     * @param \MtnManager\Model\Schedule[] $schedules Recurring operating schedules currently in effect or upcoming.  Excludes single-day overrides and past schedules.
+     * @param \MtnManager\Model\Schedule[] $schedules Operating schedules for this amenity
      *
      * @return self
      */
@@ -337,60 +428,6 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable schedules cannot be null');
         }
         $this->container['schedules'] = $schedules;
-
-        return $this;
-    }
-
-    /**
-     * Gets calendar_days
-     *
-     * @return \MtnManager\Model\CalendarDay[]
-     */
-    public function getCalendarDays()
-    {
-        return $this->container['calendar_days'];
-    }
-
-    /**
-     * Sets calendar_days
-     *
-     * @param \MtnManager\Model\CalendarDay[] $calendar_days List of all days the resort is open (or a closure override).  Ordered chronologically, spanning from the earliest scheduled date  to the latest scheduled date in the currently defined operating hours.
-     *
-     * @return self
-     */
-    public function setCalendarDays($calendar_days)
-    {
-        if (is_null($calendar_days)) {
-            throw new \InvalidArgumentException('non-nullable calendar_days cannot be null');
-        }
-        $this->container['calendar_days'] = $calendar_days;
-
-        return $this;
-    }
-
-    /**
-     * Gets amenity_schedules
-     *
-     * @return \MtnManager\Model\AmenitySchedule[]
-     */
-    public function getAmenitySchedules()
-    {
-        return $this->container['amenity_schedules'];
-    }
-
-    /**
-     * Sets amenity_schedules
-     *
-     * @param \MtnManager\Model\AmenitySchedule[] $amenity_schedules Per-amenity operating schedules. Only included when amenity hours are configured.
-     *
-     * @return self
-     */
-    public function setAmenitySchedules($amenity_schedules)
-    {
-        if (is_null($amenity_schedules)) {
-            throw new \InvalidArgumentException('non-nullable amenity_schedules cannot be null');
-        }
-        $this->container['amenity_schedules'] = $amenity_schedules;
 
         return $this;
     }

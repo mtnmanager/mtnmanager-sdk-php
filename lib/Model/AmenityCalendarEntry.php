@@ -1,6 +1,6 @@
 <?php
 /**
- * CalendarDay
+ * AmenityCalendarEntry
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
- * CalendarDay Class Doc Comment
+ * AmenityCalendarEntry Class Doc Comment
  *
  * @category Class
- * @description Operating hours for a specific calendar date.   Represents the calculated open/close times for a single day, combining  information from recurring schedules and any single-day overrides.
+ * @description Amenity entry within a CalendarDay, showing per-amenity hours for a specific date.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
+class AmenityCalendarEntry implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'CalendarDay';
+    protected static $openAPIModelName = 'AmenityCalendarEntry';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,14 +59,11 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'date' => '\DateTime',
-        'day_of_week' => '\MtnManager\Model\DayOfWeek',
-        'is_open' => 'bool',
+        'uuid' => 'string',
+        'name' => 'string',
+        'category' => '\MtnManager\Model\AmenityCategory',
         'opens_at' => 'string',
-        'closes_at' => 'string',
-        'closure_reason' => '\MtnManager\Model\ClosureReason',
-        'special_event' => 'string',
-        'amenities' => '\MtnManager\Model\AmenityCalendarEntry[]'
+        'closes_at' => 'string'
     ];
 
     /**
@@ -77,14 +74,11 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'date' => 'date',
-        'day_of_week' => null,
-        'is_open' => null,
+        'uuid' => null,
+        'name' => null,
+        'category' => null,
         'opens_at' => null,
-        'closes_at' => null,
-        'closure_reason' => null,
-        'special_event' => null,
-        'amenities' => null
+        'closes_at' => null
     ];
 
     /**
@@ -93,14 +87,11 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'date' => false,
-        'day_of_week' => false,
-        'is_open' => false,
+        'uuid' => false,
+        'name' => false,
+        'category' => false,
         'opens_at' => true,
-        'closes_at' => true,
-        'closure_reason' => true,
-        'special_event' => true,
-        'amenities' => false
+        'closes_at' => true
     ];
 
     /**
@@ -189,14 +180,11 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'date' => 'date',
-        'day_of_week' => 'day_of_week',
-        'is_open' => 'is_open',
+        'uuid' => 'uuid',
+        'name' => 'name',
+        'category' => 'category',
         'opens_at' => 'opens_at',
-        'closes_at' => 'closes_at',
-        'closure_reason' => 'closure_reason',
-        'special_event' => 'special_event',
-        'amenities' => 'amenities'
+        'closes_at' => 'closes_at'
     ];
 
     /**
@@ -205,14 +193,11 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'date' => 'setDate',
-        'day_of_week' => 'setDayOfWeek',
-        'is_open' => 'setIsOpen',
+        'uuid' => 'setUuid',
+        'name' => 'setName',
+        'category' => 'setCategory',
         'opens_at' => 'setOpensAt',
-        'closes_at' => 'setClosesAt',
-        'closure_reason' => 'setClosureReason',
-        'special_event' => 'setSpecialEvent',
-        'amenities' => 'setAmenities'
+        'closes_at' => 'setClosesAt'
     ];
 
     /**
@@ -221,14 +206,11 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'date' => 'getDate',
-        'day_of_week' => 'getDayOfWeek',
-        'is_open' => 'getIsOpen',
+        'uuid' => 'getUuid',
+        'name' => 'getName',
+        'category' => 'getCategory',
         'opens_at' => 'getOpensAt',
-        'closes_at' => 'getClosesAt',
-        'closure_reason' => 'getClosureReason',
-        'special_event' => 'getSpecialEvent',
-        'amenities' => 'getAmenities'
+        'closes_at' => 'getClosesAt'
     ];
 
     /**
@@ -288,14 +270,11 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('date', $data ?? [], null);
-        $this->setIfExists('day_of_week', $data ?? [], null);
-        $this->setIfExists('is_open', $data ?? [], null);
+        $this->setIfExists('uuid', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('opens_at', $data ?? [], null);
         $this->setIfExists('closes_at', $data ?? [], null);
-        $this->setIfExists('closure_reason', $data ?? [], null);
-        $this->setIfExists('special_event', $data ?? [], null);
-        $this->setIfExists('amenities', $data ?? [], null);
     }
 
     /**
@@ -325,25 +304,14 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['date'] === null) {
-            $invalidProperties[] = "'date' can't be null";
+        if ($this->container['uuid'] === null) {
+            $invalidProperties[] = "'uuid' can't be null";
         }
-        if ($this->container['day_of_week'] === null) {
-            $invalidProperties[] = "'day_of_week' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['is_open'] === null) {
-            $invalidProperties[] = "'is_open' can't be null";
-        }
-        if (!is_null($this->container['opens_at']) && !preg_match("/^([01]\\d|2[0-3]):[0-5]\\d$/", $this->container['opens_at'])) {
-            $invalidProperties[] = "invalid value for 'opens_at', must be conform to the pattern /^([01]\\d|2[0-3]):[0-5]\\d$/.";
-        }
-
-        if (!is_null($this->container['closes_at']) && !preg_match("/^([01]\\d|2[0-3]):[0-5]\\d$/", $this->container['closes_at'])) {
-            $invalidProperties[] = "invalid value for 'closes_at', must be conform to the pattern /^([01]\\d|2[0-3]):[0-5]\\d$/.";
-        }
-
-        if ($this->container['amenities'] === null) {
-            $invalidProperties[] = "'amenities' can't be null";
+        if ($this->container['category'] === null) {
+            $invalidProperties[] = "'category' can't be null";
         }
         return $invalidProperties;
     }
@@ -361,82 +329,82 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets date
+     * Gets uuid
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getDate()
+    public function getUuid()
     {
-        return $this->container['date'];
+        return $this->container['uuid'];
     }
 
     /**
-     * Sets date
+     * Sets uuid
      *
-     * @param \DateTime $date Calendar date (YYYY-MM-DD).
+     * @param string $uuid Amenity UUID.
      *
      * @return self
      */
-    public function setDate($date)
+    public function setUuid($uuid)
     {
-        if (is_null($date)) {
-            throw new \InvalidArgumentException('non-nullable date cannot be null');
+        if (is_null($uuid)) {
+            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
         }
-        $this->container['date'] = $date;
+        $this->container['uuid'] = $uuid;
 
         return $this;
     }
 
     /**
-     * Gets day_of_week
+     * Gets name
      *
-     * @return \MtnManager\Model\DayOfWeek
+     * @return string
      */
-    public function getDayOfWeek()
+    public function getName()
     {
-        return $this->container['day_of_week'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets day_of_week
+     * Sets name
      *
-     * @param \MtnManager\Model\DayOfWeek $day_of_week Day of the week.
+     * @param string $name Amenity name.
      *
      * @return self
      */
-    public function setDayOfWeek($day_of_week)
+    public function setName($name)
     {
-        if (is_null($day_of_week)) {
-            throw new \InvalidArgumentException('non-nullable day_of_week cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['day_of_week'] = $day_of_week;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets is_open
+     * Gets category
      *
-     * @return bool
+     * @return \MtnManager\Model\AmenityCategory
      */
-    public function getIsOpen()
+    public function getCategory()
     {
-        return $this->container['is_open'];
+        return $this->container['category'];
     }
 
     /**
-     * Sets is_open
+     * Sets category
      *
-     * @param bool $is_open Whether the resort is open on this day.
+     * @param \MtnManager\Model\AmenityCategory $category Amenity category.
      *
      * @return self
      */
-    public function setIsOpen($is_open)
+    public function setCategory($category)
     {
-        if (is_null($is_open)) {
-            throw new \InvalidArgumentException('non-nullable is_open cannot be null');
+        if (is_null($category)) {
+            throw new \InvalidArgumentException('non-nullable category cannot be null');
         }
-        $this->container['is_open'] = $is_open;
+        $this->container['category'] = $category;
 
         return $this;
     }
@@ -454,7 +422,7 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets opens_at
      *
-     * @param string|null $opens_at Opening time in 24-hour format (HH:MM), in resort's local timezone.  `null` if closed on this day.
+     * @param string|null $opens_at Opening time in 24-hour format (HH:MM), in resort's local timezone.  `null` if this amenity is closed on this day.
      *
      * @return self
      */
@@ -470,11 +438,6 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-        if (!is_null($opens_at) && (!preg_match("/^([01]\\d|2[0-3]):[0-5]\\d$/", ObjectSerializer::toString($opens_at)))) {
-            throw new \InvalidArgumentException("invalid value for \$opens_at when calling CalendarDay., must conform to the pattern /^([01]\\d|2[0-3]):[0-5]\\d$/.");
-        }
-
         $this->container['opens_at'] = $opens_at;
 
         return $this;
@@ -493,7 +456,7 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets closes_at
      *
-     * @param string|null $closes_at Closing time in 24-hour format (HH:MM), in resort's local timezone.  `null` if closed on this day.
+     * @param string|null $closes_at Closing time in 24-hour format (HH:MM), in resort's local timezone.  `null` if this amenity is closed on this day.
      *
      * @return self
      */
@@ -509,107 +472,7 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-
-        if (!is_null($closes_at) && (!preg_match("/^([01]\\d|2[0-3]):[0-5]\\d$/", ObjectSerializer::toString($closes_at)))) {
-            throw new \InvalidArgumentException("invalid value for \$closes_at when calling CalendarDay., must conform to the pattern /^([01]\\d|2[0-3]):[0-5]\\d$/.");
-        }
-
         $this->container['closes_at'] = $closes_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets closure_reason
-     *
-     * @return \MtnManager\Model\ClosureReason|null
-     */
-    public function getClosureReason()
-    {
-        return $this->container['closure_reason'];
-    }
-
-    /**
-     * Sets closure_reason
-     *
-     * @param \MtnManager\Model\ClosureReason|null $closure_reason closure_reason
-     *
-     * @return self
-     */
-    public function setClosureReason($closure_reason)
-    {
-        if (is_null($closure_reason)) {
-            array_push($this->openAPINullablesSetToNull, 'closure_reason');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('closure_reason', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['closure_reason'] = $closure_reason;
-
-        return $this;
-    }
-
-    /**
-     * Gets special_event
-     *
-     * @return string|null
-     */
-    public function getSpecialEvent()
-    {
-        return $this->container['special_event'];
-    }
-
-    /**
-     * Sets special_event
-     *
-     * @param string|null $special_event Special event for this day.
-     *
-     * @return self
-     */
-    public function setSpecialEvent($special_event)
-    {
-        if (is_null($special_event)) {
-            array_push($this->openAPINullablesSetToNull, 'special_event');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('special_event', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['special_event'] = $special_event;
-
-        return $this;
-    }
-
-    /**
-     * Gets amenities
-     *
-     * @return \MtnManager\Model\AmenityCalendarEntry[]
-     */
-    public function getAmenities()
-    {
-        return $this->container['amenities'];
-    }
-
-    /**
-     * Sets amenities
-     *
-     * @param \MtnManager\Model\AmenityCalendarEntry[] $amenities Per-amenity hours for this day. Only included when amenity hours are configured.
-     *
-     * @return self
-     */
-    public function setAmenities($amenities)
-    {
-        if (is_null($amenities)) {
-            throw new \InvalidArgumentException('non-nullable amenities cannot be null');
-        }
-        $this->container['amenities'] = $amenities;
 
         return $this;
     }

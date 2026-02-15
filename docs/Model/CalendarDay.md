@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **closes_at** | **string** | Closing time in 24-hour format (HH:MM), in resort&#39;s local timezone.  &#x60;null&#x60; if closed on this day. | [optional]
 **closure_reason** | [**\MtnManager\Model\ClosureReason**](ClosureReason.md) |  | [optional]
 **special_event** | **string** | Special event for this day. | [optional]
+**amenities** | [**\MtnManager\Model\AmenityCalendarEntry[]**](AmenityCalendarEntry.md) | Per-amenity hours for this day. Only included when amenity hours are configured. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

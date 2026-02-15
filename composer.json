@@ -1,6 +1,6 @@
 {
     "name": "mtnmanager/mtnmanager-sdk-php",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "description": "The MtnManager API provides real-time access to your ski resort’s public operational data. Use it to display current conditions on your website, mobile app, or digital signage.",
     "keywords": [
         "openapitools",

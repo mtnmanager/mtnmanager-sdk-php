@@ -84,6 +84,9 @@ Class | Method | HTTP request | Description
 
 ## Models
 
+- [AmenityCalendarEntry](docs/Model/AmenityCalendarEntry.md)
+- [AmenityCategory](docs/Model/AmenityCategory.md)
+- [AmenitySchedule](docs/Model/AmenitySchedule.md)
 - [CalendarDay](docs/Model/CalendarDay.md)
 - [ClosureReason](docs/Model/ClosureReason.md)
 - [CurrentWeather](docs/Model/CurrentWeather.md)

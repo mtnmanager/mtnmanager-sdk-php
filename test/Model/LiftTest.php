@@ -171,6 +171,24 @@ class LiftTest extends TestCase
     }
 
     /**
+     * Test attribute "opens_at"
+     */
+    public function testPropertyOpensAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "closes_at"
+     */
+    public function testPropertyClosesAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "area_uuid"
      */
     public function testPropertyAreaUuid()

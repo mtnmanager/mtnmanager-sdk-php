@@ -1,6 +1,6 @@
 <?php
 /**
- * OperatingHoursTest
+ * AmenityCategoryTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * OperatingHoursTest Class Doc Comment
+ * AmenityCategoryTest Class Doc Comment
  *
  * @category    Class
- * @description Resort&#39;s operating hours, including the recurring schedule, and list of individual calendar days.
+ * @description Category classification for amenities
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class OperatingHoursTest extends TestCase
+class AmenityCategoryTest extends TestCase
 {
 
     /**
@@ -72,36 +72,9 @@ class OperatingHoursTest extends TestCase
     }
 
     /**
-     * Test "OperatingHours"
+     * Test "AmenityCategory"
      */
-    public function testOperatingHours()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "schedules"
-     */
-    public function testPropertySchedules()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "calendar_days"
-     */
-    public function testPropertyCalendarDays()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "amenity_schedules"
-     */
-    public function testPropertyAmenitySchedules()
+    public function testAmenityCategory()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

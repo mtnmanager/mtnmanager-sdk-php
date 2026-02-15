@@ -1,6 +1,6 @@
 <?php
 /**
- * CalendarDayTest
+ * AmenityScheduleTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * CalendarDayTest Class Doc Comment
+ * AmenityScheduleTest Class Doc Comment
  *
  * @category    Class
- * @description Operating hours for a specific calendar date.   Represents the calculated open/close times for a single day, combining  information from recurring schedules and any single-day overrides.
+ * @description Amenity schedule for the OperatingHours response
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class CalendarDayTest extends TestCase
+class AmenityScheduleTest extends TestCase
 {
 
     /**
@@ -72,81 +72,45 @@ class CalendarDayTest extends TestCase
     }
 
     /**
-     * Test "CalendarDay"
+     * Test "AmenitySchedule"
      */
-    public function testCalendarDay()
+    public function testAmenitySchedule()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "date"
+     * Test attribute "uuid"
      */
-    public function testPropertyDate()
+    public function testPropertyUuid()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "day_of_week"
+     * Test attribute "name"
      */
-    public function testPropertyDayOfWeek()
+    public function testPropertyName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "is_open"
+     * Test attribute "category"
      */
-    public function testPropertyIsOpen()
+    public function testPropertyCategory()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "opens_at"
+     * Test attribute "schedules"
      */
-    public function testPropertyOpensAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "closes_at"
-     */
-    public function testPropertyClosesAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "closure_reason"
-     */
-    public function testPropertyClosureReason()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "special_event"
-     */
-    public function testPropertySpecialEvent()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "amenities"
-     */
-    public function testPropertyAmenities()
+    public function testPropertySchedules()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
