@@ -342,9 +342,6 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
             $invalidProperties[] = "invalid value for 'closes_at', must be conform to the pattern /^([01]\\d|2[0-3]):[0-5]\\d$/.";
         }
 
-        if ($this->container['amenities'] === null) {
-            $invalidProperties[] = "'amenities' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -590,7 +587,7 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amenities
      *
-     * @return \MtnManager\Model\AmenityCalendarEntry[]
+     * @return \MtnManager\Model\AmenityCalendarEntry[]|null
      */
     public function getAmenities()
     {
@@ -600,7 +597,7 @@ class CalendarDay implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amenities
      *
-     * @param \MtnManager\Model\AmenityCalendarEntry[] $amenities Per-amenity hours for this day. Only included when amenity hours are configured.
+     * @param \MtnManager\Model\AmenityCalendarEntry[]|null $amenities Per-amenity hours for this day. Only included when amenity hours are configured.
      *
      * @return self
      */

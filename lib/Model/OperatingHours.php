@@ -296,9 +296,6 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['calendar_days'] === null) {
             $invalidProperties[] = "'calendar_days' can't be null";
         }
-        if ($this->container['amenity_schedules'] === null) {
-            $invalidProperties[] = "'amenity_schedules' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -371,7 +368,7 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets amenity_schedules
      *
-     * @return \MtnManager\Model\AmenitySchedule[]
+     * @return \MtnManager\Model\AmenitySchedule[]|null
      */
     public function getAmenitySchedules()
     {
@@ -381,7 +378,7 @@ class OperatingHours implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets amenity_schedules
      *
-     * @param \MtnManager\Model\AmenitySchedule[] $amenity_schedules Per-amenity operating schedules. Only included when amenity hours are configured.
+     * @param \MtnManager\Model\AmenitySchedule[]|null $amenity_schedules Per-amenity operating schedules. Only included when amenity hours are configured.
      *
      * @return self
      */
