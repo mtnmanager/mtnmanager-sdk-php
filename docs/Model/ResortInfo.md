@@ -1,4 +1,4 @@
-# # ResortInfo
+# ResortInfo
 
 ## Properties
 

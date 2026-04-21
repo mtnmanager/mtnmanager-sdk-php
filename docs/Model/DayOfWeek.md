@@ -1,4 +1,4 @@
-# # DayOfWeek
+# DayOfWeek
 
 ## Properties
 

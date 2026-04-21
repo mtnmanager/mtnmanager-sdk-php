@@ -1,4 +1,4 @@
-# # CurrentWeatherImperial
+# CurrentWeatherImperial
 
 ## Properties
 

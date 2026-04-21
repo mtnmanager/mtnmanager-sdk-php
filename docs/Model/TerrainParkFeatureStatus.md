@@ -1,4 +1,4 @@
-# # TerrainParkFeatureStatus
+# TerrainParkFeatureStatus
 
 ## Properties
 

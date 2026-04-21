@@ -1,4 +1,4 @@
-# # AmenityCalendarEntry
+# AmenityCalendarEntry
 
 ## Properties
 

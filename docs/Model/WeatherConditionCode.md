@@ -1,4 +1,4 @@
-# # WeatherConditionCode
+# WeatherConditionCode
 
 ## Properties
 

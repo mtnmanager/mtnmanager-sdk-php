@@ -1,4 +1,4 @@
-# # LiftStatus
+# LiftStatus
 
 ## Properties
 

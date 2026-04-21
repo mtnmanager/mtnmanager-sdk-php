@@ -1,4 +1,4 @@
-# # RunDifficulty
+# RunDifficulty
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # FeatureSize
+# FeatureSize
 
 ## Properties
 

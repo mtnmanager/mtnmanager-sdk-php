@@ -1,4 +1,4 @@
-# # Lift
+# Lift
 
 ## Properties
 
@@ -12,6 +12,11 @@ Name | Type | Description | Notes
 **high_speed** | **bool** | Whether this is a high-speed/detachable lift. |
 **bubble** | **bool** | Whether the lift has a bubble/cover for weather protection. |
 **heated** | **bool** | Whether the lift has heated seats. |
+**travel_time** | **float** | Estimated travel time in minutes. | [optional]
+**length_ft** | **int** | Length of the lift in feet. | [optional]
+**length_m** | **int** | Length of the lift in meters. | [optional]
+**vertical_rise_ft** | **int** | Vertical rise of the lift in feet. | [optional]
+**vertical_rise_m** | **int** | Vertical rise of the lift in meters. | [optional]
 **status** | [**\MtnManager\Model\LiftStatus**](LiftStatus.md) | Current operational status (open, closed, on_hold, or unknown). |
 **wait_time_minutes** | **int** | Current estimated wait time in minutes, if available. | [optional]
 **opens_at** | **string** | Today&#39;s scheduled opening time in 24-hour format (HH:MM), in resort&#39;s local timezone.  &#x60;null&#x60; if the lift has no scheduled hours for today. | [optional]

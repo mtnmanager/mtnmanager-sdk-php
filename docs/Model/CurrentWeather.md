@@ -1,4 +1,4 @@
-# # CurrentWeather
+# CurrentWeather
 
 ## Properties
 

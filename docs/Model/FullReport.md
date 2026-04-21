@@ -1,4 +1,4 @@
-# # FullReport
+# FullReport
 
 ## Properties
 

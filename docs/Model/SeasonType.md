@@ -1,4 +1,4 @@
-# # SeasonType
+# SeasonType
 
 ## Properties
 

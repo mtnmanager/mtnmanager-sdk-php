@@ -1,4 +1,4 @@
-# # RunStatus
+# RunStatus
 
 ## Properties
 

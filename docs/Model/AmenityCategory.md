@@ -1,4 +1,4 @@
-# # AmenityCategory
+# AmenityCategory
 
 ## Properties
 

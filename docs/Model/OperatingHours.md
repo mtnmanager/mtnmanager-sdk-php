@@ -1,4 +1,4 @@
-# # OperatingHours
+# OperatingHours
 
 ## Properties
 

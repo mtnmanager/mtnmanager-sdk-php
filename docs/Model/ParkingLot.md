@@ -1,4 +1,4 @@
-# # ParkingLot
+# ParkingLot
 
 ## Properties
 

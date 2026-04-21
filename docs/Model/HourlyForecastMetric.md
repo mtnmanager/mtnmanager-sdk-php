@@ -1,4 +1,4 @@
-# # HourlyForecastMetric
+# HourlyForecastMetric
 
 ## Properties
 

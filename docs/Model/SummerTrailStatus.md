@@ -1,4 +1,4 @@
-# # SummerTrailStatus
+# SummerTrailStatus
 
 ## Properties
 

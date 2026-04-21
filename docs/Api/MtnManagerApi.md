@@ -15,6 +15,8 @@ All URIs are relative to https://your-resort.mtnmanager.com, except if the opera
 | [**getSnow()**](MtnManagerApi.md#getSnow) | **GET** /api/v1/report/snow | Get snow conditions |
 | [**getSummerTrails()**](MtnManagerApi.md#getSummerTrails) | **GET** /api/v1/report/summer-trails | Get summer trails |
 | [**getTerrainParks()**](MtnManagerApi.md#getTerrainParks) | **GET** /api/v1/report/terrain-parks | Get terrain parks |
+| [**getTrailMap()**](MtnManagerApi.md#getTrailMap) | **GET** /api/v1/report/trail-map/{uuid} | Get trail map |
+| [**getTrailMaps()**](MtnManagerApi.md#getTrailMaps) | **GET** /api/v1/report/trail-maps | Get trail maps |
 | [**getWeather()**](MtnManagerApi.md#getWeather) | **GET** /api/v1/report/weather | Get weather |
 
 
@@ -463,6 +465,111 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**\MtnManager\Model\TerrainPark[]**](../Model/TerrainPark.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTrailMap()`
+
+```php
+getTrailMap($uuid): \MtnManager\Model\TrailMap
+```
+
+Get trail map
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MtnManager\Api\MtnManagerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$uuid = 'uuid_example'; // string | Resource UUID
+
+try {
+    $result = $apiInstance->getTrailMap($uuid);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MtnManagerApi->getTrailMap: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uuid** | **string**| Resource UUID | |
+
+### Return type
+
+[**\MtnManager\Model\TrailMap**](../Model/TrailMap.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getTrailMaps()`
+
+```php
+getTrailMaps(): \MtnManager\Model\TrailMapSummary[]
+```
+
+Get trail maps
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MtnManager\Api\MtnManagerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->getTrailMaps();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MtnManagerApi->getTrailMaps: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\MtnManager\Model\TrailMapSummary[]**](../Model/TrailMapSummary.md)
 
 ### Authorization
 

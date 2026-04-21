@@ -1,4 +1,4 @@
-# # DailyForecastMetric
+# DailyForecastMetric
 
 ## Properties
 

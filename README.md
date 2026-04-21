@@ -80,10 +80,13 @@ Class | Method | HTTP request | Description
 *MtnManagerApi* | [**getSnow**](docs/Api/MtnManagerApi.md#getsnow) | **GET** /api/v1/report/snow | Get snow conditions
 *MtnManagerApi* | [**getSummerTrails**](docs/Api/MtnManagerApi.md#getsummertrails) | **GET** /api/v1/report/summer-trails | Get summer trails
 *MtnManagerApi* | [**getTerrainParks**](docs/Api/MtnManagerApi.md#getterrainparks) | **GET** /api/v1/report/terrain-parks | Get terrain parks
+*MtnManagerApi* | [**getTrailMap**](docs/Api/MtnManagerApi.md#gettrailmap) | **GET** /api/v1/report/trail-map/{uuid} | Get trail map
+*MtnManagerApi* | [**getTrailMaps**](docs/Api/MtnManagerApi.md#gettrailmaps) | **GET** /api/v1/report/trail-maps | Get trail maps
 *MtnManagerApi* | [**getWeather**](docs/Api/MtnManagerApi.md#getweather) | **GET** /api/v1/report/weather | Get weather
 
 ## Models
 
+- [Amenity](docs/Model/Amenity.md)
 - [AmenityCalendarEntry](docs/Model/AmenityCalendarEntry.md)
 - [AmenityCategory](docs/Model/AmenityCategory.md)
 - [AmenitySchedule](docs/Model/AmenitySchedule.md)
@@ -99,16 +102,24 @@ Class | Method | HTTP request | Description
 - [FeatureSize](docs/Model/FeatureSize.md)
 - [FeatureType](docs/Model/FeatureType.md)
 - [FullReport](docs/Model/FullReport.md)
+- [GeoControlPoint](docs/Model/GeoControlPoint.md)
 - [HourlyForecast](docs/Model/HourlyForecast.md)
 - [HourlyForecastImperial](docs/Model/HourlyForecastImperial.md)
 - [HourlyForecastMetric](docs/Model/HourlyForecastMetric.md)
+- [LabelOffset](docs/Model/LabelOffset.md)
 - [Lift](docs/Model/Lift.md)
 - [LiftStatus](docs/Model/LiftStatus.md)
 - [LiftType](docs/Model/LiftType.md)
+- [MarkerIcon](docs/Model/MarkerIcon.md)
 - [OperatingHours](docs/Model/OperatingHours.md)
 - [Overview](docs/Model/Overview.md)
 - [ParkingLot](docs/Model/ParkingLot.md)
 - [ParkingLotStatus](docs/Model/ParkingLotStatus.md)
+- [PathUuid](docs/Model/PathUuid.md)
+- [PointMarker](docs/Model/PointMarker.md)
+- [PointMarkerOneOf](docs/Model/PointMarkerOneOf.md)
+- [PointMarkerOneOf1](docs/Model/PointMarkerOneOf1.md)
+- [PointMarkerOneOf2](docs/Model/PointMarkerOneOf2.md)
 - [Region](docs/Model/Region.md)
 - [ResortInfo](docs/Model/ResortInfo.md)
 - [ResortStatus](docs/Model/ResortStatus.md)
@@ -128,6 +139,14 @@ Class | Method | HTTP request | Description
 - [TerrainParkFeature](docs/Model/TerrainParkFeature.md)
 - [TerrainParkFeatureStatus](docs/Model/TerrainParkFeatureStatus.md)
 - [TerrainParkStatus](docs/Model/TerrainParkStatus.md)
+- [TrailMap](docs/Model/TrailMap.md)
+- [TrailMapElement](docs/Model/TrailMapElement.md)
+- [TrailMapElementOneOf](docs/Model/TrailMapElementOneOf.md)
+- [TrailMapElementOneOf1](docs/Model/TrailMapElementOneOf1.md)
+- [TrailMapElementOneOf2](docs/Model/TrailMapElementOneOf2.md)
+- [TrailMapElementOneOf3](docs/Model/TrailMapElementOneOf3.md)
+- [TrailMapElementOneOf4](docs/Model/TrailMapElementOneOf4.md)
+- [TrailMapSummary](docs/Model/TrailMapSummary.md)
 - [UnitPreference](docs/Model/UnitPreference.md)
 - [Weather](docs/Model/Weather.md)
 - [WeatherConditionCode](docs/Model/WeatherConditionCode.md)

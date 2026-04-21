@@ -1,4 +1,4 @@
-# # CurrentWeatherMetric
+# CurrentWeatherMetric
 
 ## Properties
 

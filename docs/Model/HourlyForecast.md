@@ -1,4 +1,4 @@
-# # HourlyForecast
+# HourlyForecast
 
 ## Properties
 

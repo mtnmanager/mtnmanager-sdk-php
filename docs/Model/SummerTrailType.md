@@ -1,4 +1,4 @@
-# # SummerTrailType
+# SummerTrailType
 
 ## Properties
 

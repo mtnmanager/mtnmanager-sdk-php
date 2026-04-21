@@ -1,4 +1,4 @@
-# # SummerTrail
+# SummerTrail
 
 ## Properties
 
@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **slug** | **string** | URL-friendly name of the trail. |
 **number** | **int** | Optional trail number. | [optional]
 **trail_type** | [**\MtnManager\Model\SummerTrailType[]**](SummerTrailType.md) | Type of trail activity (e.g. hiking, mountain_biking). Can have multiple. |
-**difficulty** | [**\MtnManager\Model\SummerTrailDifficulty**](SummerTrailDifficulty.md) |  | [optional]
+**difficulty** | [**\MtnManager\Model\SummerTrailDifficulty**](SummerTrailDifficulty.md) | Difficulty rating of the trail (optional for summer trails). | [optional]
 **status** | [**\MtnManager\Model\SummerTrailStatus**](SummerTrailStatus.md) | Current operational status (open, closed, or unknown). |
 **condition_notes** | **string** | Notes about current conditions on this trail. |
 **area_uuid** | **string** | UUID of the area this trail belongs to, if assigned. | [optional]

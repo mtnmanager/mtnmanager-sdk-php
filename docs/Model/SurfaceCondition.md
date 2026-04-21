@@ -1,4 +1,4 @@
-# # SurfaceCondition
+# SurfaceCondition
 
 ## Properties
 

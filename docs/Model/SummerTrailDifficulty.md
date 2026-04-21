@@ -1,4 +1,4 @@
-# # SummerTrailDifficulty
+# SummerTrailDifficulty
 
 ## Properties
 

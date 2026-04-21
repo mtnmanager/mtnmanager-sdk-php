@@ -1,4 +1,4 @@
-# # ClosureReason
+# ClosureReason
 
 ## Properties
 

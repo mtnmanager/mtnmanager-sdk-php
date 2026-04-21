@@ -1,4 +1,4 @@
-# # LiftType
+# LiftType
 
 ## Properties
 

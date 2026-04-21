@@ -1,4 +1,4 @@
-# # AmenitySchedule
+# AmenitySchedule
 
 ## Properties
 

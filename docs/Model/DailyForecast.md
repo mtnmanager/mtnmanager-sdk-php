@@ -1,4 +1,4 @@
-# # DailyForecast
+# DailyForecast
 
 ## Properties
 

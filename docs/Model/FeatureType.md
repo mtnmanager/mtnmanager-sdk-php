@@ -1,4 +1,4 @@
-# # FeatureType
+# FeatureType
 
 ## Properties
 
