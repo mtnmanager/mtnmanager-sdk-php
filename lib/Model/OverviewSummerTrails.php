@@ -1,6 +1,6 @@
 <?php
 /**
- * SeasonType
+ * OverviewSummerTrails
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
- * SeasonType Class Doc Comment
+ * OverviewSummerTrails Class Doc Comment
  *
  * @category Class
- * @description Current operating season of the resort.
+ * @description Summer trail statistics: open/total counts and last-updated timestamp.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
+class OverviewSummerTrails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'SeasonType';
+    protected static $openAPIModelName = 'OverviewSummerTrails';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        
+        'open' => 'int',
+        'total' => 'int',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -70,7 +72,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        
+        'open' => 'int64',
+        'total' => 'int64',
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -79,7 +83,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        
+        'open' => true,
+        'total' => false,
+        'updated_at' => false
     ];
 
     /**
@@ -168,7 +174,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'open' => 'open',
+        'total' => 'total',
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -177,7 +185,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'open' => 'setOpen',
+        'total' => 'setTotal',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -186,7 +196,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'open' => 'getOpen',
+        'total' => 'getTotal',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -246,6 +258,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('open', $data ?? [], null);
+        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -275,6 +290,12 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['total'] === null) {
+            $invalidProperties[] = "'total' can't be null";
+        }
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -289,6 +310,94 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets open
+     *
+     * @return int|null
+     */
+    public function getOpen()
+    {
+        return $this->container['open'];
+    }
+
+    /**
+     * Sets open
+     *
+     * @param int|null $open Number of summer trails currently open.  Not included if the summer trails status feature is disabled.
+     *
+     * @return self
+     */
+    public function setOpen($open)
+    {
+        if (is_null($open)) {
+            array_push($this->openAPINullablesSetToNull, 'open');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('open', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['open'] = $open;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total Total number of summer trails at the resort.
+     *
+     * @return self
+     */
+    public function setTotal($total)
+    {
+        if (is_null($total)) {
+            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        }
+        $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime $updated_at When the most recent update to summer trail status was made.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

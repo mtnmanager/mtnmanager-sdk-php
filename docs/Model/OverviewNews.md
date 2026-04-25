@@ -1,13 +1,11 @@
-# TrailMapSummary
+# OverviewNews
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | **string** |  |
-**name** | **string** |  |
-**season** | [**\MtnManager\Model\SeasonType**](SeasonType.md) |  |
-**display_order** | **int** |  |
-**hosted_url** | **string** |  |
+**raw** | **string** | Raw Markdown source. |
+**html** | **string** | Rendered HTML (from Markdown). |
+**updated_at** | **\DateTime** | When the news was last updated. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

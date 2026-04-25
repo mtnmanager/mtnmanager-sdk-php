@@ -108,6 +108,24 @@ class TrailMapTest extends TestCase
     }
 
     /**
+     * Test attribute "season"
+     */
+    public function testPropertySeason()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "display_order"
+     */
+    public function testPropertyDisplayOrder()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "background_image_url"
      */
     public function testPropertyBackgroundImageUrl()

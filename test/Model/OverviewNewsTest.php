@@ -1,6 +1,6 @@
 <?php
 /**
- * OverviewTest
+ * OverviewNewsTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * OverviewTest Class Doc Comment
+ * OverviewNewsTest Class Doc Comment
  *
  * @category    Class
- * @description Provides a snapshot of the resort&#39;s current operational state including  today&#39;s scheduled hours (calculated from operating hour rules), run/lift  overview counts, the current season, and written news.
+ * @description Written news — daily update, announcements, etc.
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class OverviewTest extends TestCase
+class OverviewNewsTest extends TestCase
 {
 
     /**
@@ -72,90 +72,36 @@ class OverviewTest extends TestCase
     }
 
     /**
-     * Test "Overview"
+     * Test "OverviewNews"
      */
-    public function testOverview()
+    public function testOverviewNews()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "status"
+     * Test attribute "raw"
      */
-    public function testPropertyStatus()
+    public function testPropertyRaw()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "opens_at"
+     * Test attribute "html"
      */
-    public function testPropertyOpensAt()
+    public function testPropertyHtml()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "closes_at"
+     * Test attribute "updated_at"
      */
-    public function testPropertyClosesAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "season"
-     */
-    public function testPropertySeason()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "news"
-     */
-    public function testPropertyNews()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "runs"
-     */
-    public function testPropertyRuns()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "lifts"
-     */
-    public function testPropertyLifts()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "summer_trails"
-     */
-    public function testPropertySummerTrails()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "terrain_parks"
-     */
-    public function testPropertyTerrainParks()
+    public function testPropertyUpdatedAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

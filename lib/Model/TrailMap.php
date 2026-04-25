@@ -62,6 +62,8 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         'uuid' => 'string',
         'name' => 'string',
         'slug' => 'string',
+        'season' => '\MtnManager\Model\SeasonType',
+        'display_order' => 'int',
         'background_image_url' => 'string',
         'resort' => '\MtnManager\Model\ResortInfo',
         'elements' => '\MtnManager\Model\TrailMapElement[]',
@@ -79,6 +81,8 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         'uuid' => null,
         'name' => null,
         'slug' => null,
+        'season' => null,
+        'display_order' => 'int64',
         'background_image_url' => null,
         'resort' => null,
         'elements' => null,
@@ -94,6 +98,8 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         'uuid' => false,
         'name' => false,
         'slug' => false,
+        'season' => false,
+        'display_order' => false,
         'background_image_url' => false,
         'resort' => false,
         'elements' => false,
@@ -189,6 +195,8 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         'uuid' => 'uuid',
         'name' => 'name',
         'slug' => 'slug',
+        'season' => 'season',
+        'display_order' => 'display_order',
         'background_image_url' => 'background_image_url',
         'resort' => 'resort',
         'elements' => 'elements',
@@ -204,6 +212,8 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         'uuid' => 'setUuid',
         'name' => 'setName',
         'slug' => 'setSlug',
+        'season' => 'setSeason',
+        'display_order' => 'setDisplayOrder',
         'background_image_url' => 'setBackgroundImageUrl',
         'resort' => 'setResort',
         'elements' => 'setElements',
@@ -219,6 +229,8 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         'uuid' => 'getUuid',
         'name' => 'getName',
         'slug' => 'getSlug',
+        'season' => 'getSeason',
+        'display_order' => 'getDisplayOrder',
         'background_image_url' => 'getBackgroundImageUrl',
         'resort' => 'getResort',
         'elements' => 'getElements',
@@ -285,6 +297,8 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('uuid', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('slug', $data ?? [], null);
+        $this->setIfExists('season', $data ?? [], null);
+        $this->setIfExists('display_order', $data ?? [], null);
         $this->setIfExists('background_image_url', $data ?? [], null);
         $this->setIfExists('resort', $data ?? [], null);
         $this->setIfExists('elements', $data ?? [], null);
@@ -326,6 +340,12 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['slug'] === null) {
             $invalidProperties[] = "'slug' can't be null";
+        }
+        if ($this->container['season'] === null) {
+            $invalidProperties[] = "'season' can't be null";
+        }
+        if ($this->container['display_order'] === null) {
+            $invalidProperties[] = "'display_order' can't be null";
         }
         if ($this->container['background_image_url'] === null) {
             $invalidProperties[] = "'background_image_url' can't be null";
@@ -428,6 +448,60 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable slug cannot be null');
         }
         $this->container['slug'] = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Gets season
+     *
+     * @return \MtnManager\Model\SeasonType
+     */
+    public function getSeason()
+    {
+        return $this->container['season'];
+    }
+
+    /**
+     * Sets season
+     *
+     * @param \MtnManager\Model\SeasonType $season season
+     *
+     * @return self
+     */
+    public function setSeason($season)
+    {
+        if (is_null($season)) {
+            throw new \InvalidArgumentException('non-nullable season cannot be null');
+        }
+        $this->container['season'] = $season;
+
+        return $this;
+    }
+
+    /**
+     * Gets display_order
+     *
+     * @return int
+     */
+    public function getDisplayOrder()
+    {
+        return $this->container['display_order'];
+    }
+
+    /**
+     * Sets display_order
+     *
+     * @param int $display_order display_order
+     *
+     * @return self
+     */
+    public function setDisplayOrder($display_order)
+    {
+        if (is_null($display_order)) {
+            throw new \InvalidArgumentException('non-nullable display_order cannot be null');
+        }
+        $this->container['display_order'] = $display_order;
 
         return $this;
     }

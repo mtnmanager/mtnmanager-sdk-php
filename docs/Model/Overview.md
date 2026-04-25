@@ -8,23 +8,10 @@ Name | Type | Description | Notes
 **opens_at** | **string** | Today&#39;s scheduled opening time in 24-hour format (HH:MM).  &#x60;null&#x60; if the resort is not scheduled to open today. | [optional]
 **closes_at** | **string** | Today&#39;s scheduled closing time in 24-hour format (HH:MM).  &#x60;null&#x60; if the resort is not scheduled to open today. | [optional]
 **season** | [**\MtnManager\Model\SeasonType**](SeasonType.md) | Current operating season (winter, summer, or closed/off-season). |
-**news** | **string** | Written news — daily update, announcements, etc. (Markdown source). |
-**news_html** | **string** | Written news — daily update, announcements, etc. (rendered as HTML from Markdown). |
-**news_updated_at** | **\DateTime** | When the written news was last updated. |
-**open_runs** | **int** | Number of runs currently open.  Not included if the runs status feature is disabled. | [optional]
-**groomed_runs** | **int** | Number of runs groomed within the last 24 hours.  Not included if the runs grooming feature is disabled. | [optional]
-**total_runs** | **int** | Total number of runs at the resort. |
-**open_acres** | **int** | Total acres of open runs.  Not included if acres are not tracked or run status feature is disabled. | [optional]
-**total_acres** | **int** | Total acres of all runs.  Not included if acres are not tracked. | [optional]
-**runs_updated_at** | **\DateTime** | When the most recent update to run status was made. |
-**open_lifts** | **int** | Number of lifts currently open.  Not included if the lifts status feature is disabled. | [optional]
-**total_lifts** | **int** | Total number of lifts at the resort. |
-**lifts_updated_at** | **\DateTime** | When the most recent update to lift status was made. |
-**open_summer_trails** | **int** | Number of summer trails currently open.  Not included if the summer trails status feature is disabled. | [optional]
-**total_summer_trails** | **int** | Total number of summer trails at the resort. |
-**summer_trails_updated_at** | **\DateTime** | When the most recent update to summer trail status was made. |
-**open_terrain_parks** | **int** | Number of terrain parks currently open.  Not included if the terrain parks status feature is disabled. | [optional]
-**total_terrain_parks** | **int** | Total number of terrain parks at the resort. |
-**terrain_parks_updated_at** | **\DateTime** | When the most recent update to terrain park status was made. |
+**news** | [**\MtnManager\Model\OverviewNews**](OverviewNews.md) | Written news — daily update, announcements, etc. |
+**runs** | [**\MtnManager\Model\OverviewRuns**](OverviewRuns.md) | Run statistics: counts, acres, and last-updated timestamp. |
+**lifts** | [**\MtnManager\Model\OverviewLifts**](OverviewLifts.md) | Lift statistics: counts and last-updated timestamp. |
+**summer_trails** | [**\MtnManager\Model\OverviewSummerTrails**](OverviewSummerTrails.md) | Summer trail statistics: counts and last-updated timestamp. |
+**terrain_parks** | [**\MtnManager\Model\OverviewTerrainParks**](OverviewTerrainParks.md) | Terrain park statistics: counts and last-updated timestamp. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

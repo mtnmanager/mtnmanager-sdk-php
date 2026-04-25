@@ -7,6 +7,8 @@ Name | Type | Description | Notes
 **uuid** | **string** |  |
 **name** | **string** |  |
 **slug** | **string** |  |
+**season** | [**\MtnManager\Model\SeasonType**](SeasonType.md) |  |
+**display_order** | **int** |  |
 **background_image_url** | **string** |  |
 **resort** | [**\MtnManager\Model\ResortInfo**](ResortInfo.md) |  |
 **elements** | [**\MtnManager\Model\TrailMapElement[]**](TrailMapElement.md) |  |

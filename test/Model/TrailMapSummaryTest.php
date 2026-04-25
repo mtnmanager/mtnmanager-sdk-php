@@ -99,6 +99,24 @@ class TrailMapSummaryTest extends TestCase
     }
 
     /**
+     * Test attribute "season"
+     */
+    public function testPropertySeason()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "display_order"
+     */
+    public function testPropertyDisplayOrder()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "hosted_url"
      */
     public function testPropertyHostedUrl()

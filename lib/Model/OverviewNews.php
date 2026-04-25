@@ -1,6 +1,6 @@
 <?php
 /**
- * SeasonType
+ * OverviewNews
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
- * SeasonType Class Doc Comment
+ * OverviewNews Class Doc Comment
  *
  * @category Class
- * @description Current operating season of the resort.
+ * @description Written news — daily update, announcements, etc.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
+class OverviewNews implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'SeasonType';
+    protected static $openAPIModelName = 'OverviewNews';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        
+        'raw' => 'string',
+        'html' => 'string',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -70,7 +72,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        
+        'raw' => null,
+        'html' => null,
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -79,7 +83,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        
+        'raw' => false,
+        'html' => false,
+        'updated_at' => false
     ];
 
     /**
@@ -168,7 +174,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'raw' => 'raw',
+        'html' => 'html',
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -177,7 +185,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'raw' => 'setRaw',
+        'html' => 'setHtml',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -186,7 +196,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'raw' => 'getRaw',
+        'html' => 'getHtml',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -246,6 +258,9 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('raw', $data ?? [], null);
+        $this->setIfExists('html', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -275,6 +290,15 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['raw'] === null) {
+            $invalidProperties[] = "'raw' can't be null";
+        }
+        if ($this->container['html'] === null) {
+            $invalidProperties[] = "'html' can't be null";
+        }
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -289,6 +313,87 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets raw
+     *
+     * @return string
+     */
+    public function getRaw()
+    {
+        return $this->container['raw'];
+    }
+
+    /**
+     * Sets raw
+     *
+     * @param string $raw Raw Markdown source.
+     *
+     * @return self
+     */
+    public function setRaw($raw)
+    {
+        if (is_null($raw)) {
+            throw new \InvalidArgumentException('non-nullable raw cannot be null');
+        }
+        $this->container['raw'] = $raw;
+
+        return $this;
+    }
+
+    /**
+     * Gets html
+     *
+     * @return string
+     */
+    public function getHtml()
+    {
+        return $this->container['html'];
+    }
+
+    /**
+     * Sets html
+     *
+     * @param string $html Rendered HTML (from Markdown).
+     *
+     * @return self
+     */
+    public function setHtml($html)
+    {
+        if (is_null($html)) {
+            throw new \InvalidArgumentException('non-nullable html cannot be null');
+        }
+        $this->container['html'] = $html;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime $updated_at When the news was last updated.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

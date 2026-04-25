@@ -1,6 +1,6 @@
 <?php
 /**
- * SeasonType
+ * OverviewRuns
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
- * SeasonType Class Doc Comment
+ * OverviewRuns Class Doc Comment
  *
  * @category Class
- * @description Current operating season of the resort.
+ * @description Run statistics: open/groomed/total counts, open/total acres, and last-updated timestamp.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
+class OverviewRuns implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'SeasonType';
+    protected static $openAPIModelName = 'OverviewRuns';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,12 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        
+        'open' => 'int',
+        'groomed' => 'int',
+        'total' => 'int',
+        'open_acres' => 'int',
+        'total_acres' => 'int',
+        'updated_at' => '\DateTime'
     ];
 
     /**
@@ -70,7 +75,12 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        
+        'open' => 'int64',
+        'groomed' => 'int64',
+        'total' => 'int64',
+        'open_acres' => 'int64',
+        'total_acres' => 'int64',
+        'updated_at' => 'date-time'
     ];
 
     /**
@@ -79,7 +89,12 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        
+        'open' => true,
+        'groomed' => true,
+        'total' => false,
+        'open_acres' => true,
+        'total_acres' => true,
+        'updated_at' => false
     ];
 
     /**
@@ -168,7 +183,12 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'open' => 'open',
+        'groomed' => 'groomed',
+        'total' => 'total',
+        'open_acres' => 'open_acres',
+        'total_acres' => 'total_acres',
+        'updated_at' => 'updated_at'
     ];
 
     /**
@@ -177,7 +197,12 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        
+        'open' => 'setOpen',
+        'groomed' => 'setGroomed',
+        'total' => 'setTotal',
+        'open_acres' => 'setOpenAcres',
+        'total_acres' => 'setTotalAcres',
+        'updated_at' => 'setUpdatedAt'
     ];
 
     /**
@@ -186,7 +211,12 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        
+        'open' => 'getOpen',
+        'groomed' => 'getGroomed',
+        'total' => 'getTotal',
+        'open_acres' => 'getOpenAcres',
+        'total_acres' => 'getTotalAcres',
+        'updated_at' => 'getUpdatedAt'
     ];
 
     /**
@@ -246,6 +276,12 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('open', $data ?? [], null);
+        $this->setIfExists('groomed', $data ?? [], null);
+        $this->setIfExists('total', $data ?? [], null);
+        $this->setIfExists('open_acres', $data ?? [], null);
+        $this->setIfExists('total_acres', $data ?? [], null);
+        $this->setIfExists('updated_at', $data ?? [], null);
     }
 
     /**
@@ -275,6 +311,12 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['total'] === null) {
+            $invalidProperties[] = "'total' can't be null";
+        }
+        if ($this->container['updated_at'] === null) {
+            $invalidProperties[] = "'updated_at' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -289,6 +331,196 @@ class SeasonType implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets open
+     *
+     * @return int|null
+     */
+    public function getOpen()
+    {
+        return $this->container['open'];
+    }
+
+    /**
+     * Sets open
+     *
+     * @param int|null $open Number of runs currently open.  Not included if the runs status feature is disabled.
+     *
+     * @return self
+     */
+    public function setOpen($open)
+    {
+        if (is_null($open)) {
+            array_push($this->openAPINullablesSetToNull, 'open');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('open', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['open'] = $open;
+
+        return $this;
+    }
+
+    /**
+     * Gets groomed
+     *
+     * @return int|null
+     */
+    public function getGroomed()
+    {
+        return $this->container['groomed'];
+    }
+
+    /**
+     * Sets groomed
+     *
+     * @param int|null $groomed Number of runs groomed within the last 24 hours.  Not included if the runs grooming feature is disabled.
+     *
+     * @return self
+     */
+    public function setGroomed($groomed)
+    {
+        if (is_null($groomed)) {
+            array_push($this->openAPINullablesSetToNull, 'groomed');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('groomed', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['groomed'] = $groomed;
+
+        return $this;
+    }
+
+    /**
+     * Gets total
+     *
+     * @return int
+     */
+    public function getTotal()
+    {
+        return $this->container['total'];
+    }
+
+    /**
+     * Sets total
+     *
+     * @param int $total Total number of runs at the resort.
+     *
+     * @return self
+     */
+    public function setTotal($total)
+    {
+        if (is_null($total)) {
+            throw new \InvalidArgumentException('non-nullable total cannot be null');
+        }
+        $this->container['total'] = $total;
+
+        return $this;
+    }
+
+    /**
+     * Gets open_acres
+     *
+     * @return int|null
+     */
+    public function getOpenAcres()
+    {
+        return $this->container['open_acres'];
+    }
+
+    /**
+     * Sets open_acres
+     *
+     * @param int|null $open_acres Total acres of open runs.  Not included if acres are not tracked or the runs status feature is disabled.
+     *
+     * @return self
+     */
+    public function setOpenAcres($open_acres)
+    {
+        if (is_null($open_acres)) {
+            array_push($this->openAPINullablesSetToNull, 'open_acres');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('open_acres', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['open_acres'] = $open_acres;
+
+        return $this;
+    }
+
+    /**
+     * Gets total_acres
+     *
+     * @return int|null
+     */
+    public function getTotalAcres()
+    {
+        return $this->container['total_acres'];
+    }
+
+    /**
+     * Sets total_acres
+     *
+     * @param int|null $total_acres Total acres of all runs.  Not included if acres are not tracked.
+     *
+     * @return self
+     */
+    public function setTotalAcres($total_acres)
+    {
+        if (is_null($total_acres)) {
+            array_push($this->openAPINullablesSetToNull, 'total_acres');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('total_acres', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['total_acres'] = $total_acres;
+
+        return $this;
+    }
+
+    /**
+     * Gets updated_at
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->container['updated_at'];
+    }
+
+    /**
+     * Sets updated_at
+     *
+     * @param \DateTime $updated_at When the most recent update to run status was made.
+     *
+     * @return self
+     */
+    public function setUpdatedAt($updated_at)
+    {
+        if (is_null($updated_at)) {
+            throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
+        }
+        $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *

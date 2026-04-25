@@ -63,24 +63,11 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'opens_at' => 'string',
         'closes_at' => 'string',
         'season' => '\MtnManager\Model\SeasonType',
-        'news' => 'string',
-        'news_html' => 'string',
-        'news_updated_at' => '\DateTime',
-        'open_runs' => 'int',
-        'groomed_runs' => 'int',
-        'total_runs' => 'int',
-        'open_acres' => 'int',
-        'total_acres' => 'int',
-        'runs_updated_at' => '\DateTime',
-        'open_lifts' => 'int',
-        'total_lifts' => 'int',
-        'lifts_updated_at' => '\DateTime',
-        'open_summer_trails' => 'int',
-        'total_summer_trails' => 'int',
-        'summer_trails_updated_at' => '\DateTime',
-        'open_terrain_parks' => 'int',
-        'total_terrain_parks' => 'int',
-        'terrain_parks_updated_at' => '\DateTime'
+        'news' => '\MtnManager\Model\OverviewNews',
+        'runs' => '\MtnManager\Model\OverviewRuns',
+        'lifts' => '\MtnManager\Model\OverviewLifts',
+        'summer_trails' => '\MtnManager\Model\OverviewSummerTrails',
+        'terrain_parks' => '\MtnManager\Model\OverviewTerrainParks'
     ];
 
     /**
@@ -96,23 +83,10 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'closes_at' => null,
         'season' => null,
         'news' => null,
-        'news_html' => null,
-        'news_updated_at' => 'date-time',
-        'open_runs' => 'int64',
-        'groomed_runs' => 'int64',
-        'total_runs' => 'int64',
-        'open_acres' => 'int64',
-        'total_acres' => 'int64',
-        'runs_updated_at' => 'date-time',
-        'open_lifts' => 'int64',
-        'total_lifts' => 'int64',
-        'lifts_updated_at' => 'date-time',
-        'open_summer_trails' => 'int64',
-        'total_summer_trails' => 'int64',
-        'summer_trails_updated_at' => 'date-time',
-        'open_terrain_parks' => 'int64',
-        'total_terrain_parks' => 'int64',
-        'terrain_parks_updated_at' => 'date-time'
+        'runs' => null,
+        'lifts' => null,
+        'summer_trails' => null,
+        'terrain_parks' => null
     ];
 
     /**
@@ -126,23 +100,10 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'closes_at' => true,
         'season' => false,
         'news' => false,
-        'news_html' => false,
-        'news_updated_at' => false,
-        'open_runs' => true,
-        'groomed_runs' => true,
-        'total_runs' => false,
-        'open_acres' => true,
-        'total_acres' => true,
-        'runs_updated_at' => false,
-        'open_lifts' => true,
-        'total_lifts' => false,
-        'lifts_updated_at' => false,
-        'open_summer_trails' => true,
-        'total_summer_trails' => false,
-        'summer_trails_updated_at' => false,
-        'open_terrain_parks' => true,
-        'total_terrain_parks' => false,
-        'terrain_parks_updated_at' => false
+        'runs' => false,
+        'lifts' => false,
+        'summer_trails' => false,
+        'terrain_parks' => false
     ];
 
     /**
@@ -236,23 +197,10 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'closes_at' => 'closes_at',
         'season' => 'season',
         'news' => 'news',
-        'news_html' => 'news_html',
-        'news_updated_at' => 'news_updated_at',
-        'open_runs' => 'open_runs',
-        'groomed_runs' => 'groomed_runs',
-        'total_runs' => 'total_runs',
-        'open_acres' => 'open_acres',
-        'total_acres' => 'total_acres',
-        'runs_updated_at' => 'runs_updated_at',
-        'open_lifts' => 'open_lifts',
-        'total_lifts' => 'total_lifts',
-        'lifts_updated_at' => 'lifts_updated_at',
-        'open_summer_trails' => 'open_summer_trails',
-        'total_summer_trails' => 'total_summer_trails',
-        'summer_trails_updated_at' => 'summer_trails_updated_at',
-        'open_terrain_parks' => 'open_terrain_parks',
-        'total_terrain_parks' => 'total_terrain_parks',
-        'terrain_parks_updated_at' => 'terrain_parks_updated_at'
+        'runs' => 'runs',
+        'lifts' => 'lifts',
+        'summer_trails' => 'summer_trails',
+        'terrain_parks' => 'terrain_parks'
     ];
 
     /**
@@ -266,23 +214,10 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'closes_at' => 'setClosesAt',
         'season' => 'setSeason',
         'news' => 'setNews',
-        'news_html' => 'setNewsHtml',
-        'news_updated_at' => 'setNewsUpdatedAt',
-        'open_runs' => 'setOpenRuns',
-        'groomed_runs' => 'setGroomedRuns',
-        'total_runs' => 'setTotalRuns',
-        'open_acres' => 'setOpenAcres',
-        'total_acres' => 'setTotalAcres',
-        'runs_updated_at' => 'setRunsUpdatedAt',
-        'open_lifts' => 'setOpenLifts',
-        'total_lifts' => 'setTotalLifts',
-        'lifts_updated_at' => 'setLiftsUpdatedAt',
-        'open_summer_trails' => 'setOpenSummerTrails',
-        'total_summer_trails' => 'setTotalSummerTrails',
-        'summer_trails_updated_at' => 'setSummerTrailsUpdatedAt',
-        'open_terrain_parks' => 'setOpenTerrainParks',
-        'total_terrain_parks' => 'setTotalTerrainParks',
-        'terrain_parks_updated_at' => 'setTerrainParksUpdatedAt'
+        'runs' => 'setRuns',
+        'lifts' => 'setLifts',
+        'summer_trails' => 'setSummerTrails',
+        'terrain_parks' => 'setTerrainParks'
     ];
 
     /**
@@ -296,23 +231,10 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'closes_at' => 'getClosesAt',
         'season' => 'getSeason',
         'news' => 'getNews',
-        'news_html' => 'getNewsHtml',
-        'news_updated_at' => 'getNewsUpdatedAt',
-        'open_runs' => 'getOpenRuns',
-        'groomed_runs' => 'getGroomedRuns',
-        'total_runs' => 'getTotalRuns',
-        'open_acres' => 'getOpenAcres',
-        'total_acres' => 'getTotalAcres',
-        'runs_updated_at' => 'getRunsUpdatedAt',
-        'open_lifts' => 'getOpenLifts',
-        'total_lifts' => 'getTotalLifts',
-        'lifts_updated_at' => 'getLiftsUpdatedAt',
-        'open_summer_trails' => 'getOpenSummerTrails',
-        'total_summer_trails' => 'getTotalSummerTrails',
-        'summer_trails_updated_at' => 'getSummerTrailsUpdatedAt',
-        'open_terrain_parks' => 'getOpenTerrainParks',
-        'total_terrain_parks' => 'getTotalTerrainParks',
-        'terrain_parks_updated_at' => 'getTerrainParksUpdatedAt'
+        'runs' => 'getRuns',
+        'lifts' => 'getLifts',
+        'summer_trails' => 'getSummerTrails',
+        'terrain_parks' => 'getTerrainParks'
     ];
 
     /**
@@ -377,23 +299,10 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('closes_at', $data ?? [], null);
         $this->setIfExists('season', $data ?? [], null);
         $this->setIfExists('news', $data ?? [], null);
-        $this->setIfExists('news_html', $data ?? [], null);
-        $this->setIfExists('news_updated_at', $data ?? [], null);
-        $this->setIfExists('open_runs', $data ?? [], null);
-        $this->setIfExists('groomed_runs', $data ?? [], null);
-        $this->setIfExists('total_runs', $data ?? [], null);
-        $this->setIfExists('open_acres', $data ?? [], null);
-        $this->setIfExists('total_acres', $data ?? [], null);
-        $this->setIfExists('runs_updated_at', $data ?? [], null);
-        $this->setIfExists('open_lifts', $data ?? [], null);
-        $this->setIfExists('total_lifts', $data ?? [], null);
-        $this->setIfExists('lifts_updated_at', $data ?? [], null);
-        $this->setIfExists('open_summer_trails', $data ?? [], null);
-        $this->setIfExists('total_summer_trails', $data ?? [], null);
-        $this->setIfExists('summer_trails_updated_at', $data ?? [], null);
-        $this->setIfExists('open_terrain_parks', $data ?? [], null);
-        $this->setIfExists('total_terrain_parks', $data ?? [], null);
-        $this->setIfExists('terrain_parks_updated_at', $data ?? [], null);
+        $this->setIfExists('runs', $data ?? [], null);
+        $this->setIfExists('lifts', $data ?? [], null);
+        $this->setIfExists('summer_trails', $data ?? [], null);
+        $this->setIfExists('terrain_parks', $data ?? [], null);
     }
 
     /**
@@ -432,35 +341,17 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['news'] === null) {
             $invalidProperties[] = "'news' can't be null";
         }
-        if ($this->container['news_html'] === null) {
-            $invalidProperties[] = "'news_html' can't be null";
+        if ($this->container['runs'] === null) {
+            $invalidProperties[] = "'runs' can't be null";
         }
-        if ($this->container['news_updated_at'] === null) {
-            $invalidProperties[] = "'news_updated_at' can't be null";
+        if ($this->container['lifts'] === null) {
+            $invalidProperties[] = "'lifts' can't be null";
         }
-        if ($this->container['total_runs'] === null) {
-            $invalidProperties[] = "'total_runs' can't be null";
+        if ($this->container['summer_trails'] === null) {
+            $invalidProperties[] = "'summer_trails' can't be null";
         }
-        if ($this->container['runs_updated_at'] === null) {
-            $invalidProperties[] = "'runs_updated_at' can't be null";
-        }
-        if ($this->container['total_lifts'] === null) {
-            $invalidProperties[] = "'total_lifts' can't be null";
-        }
-        if ($this->container['lifts_updated_at'] === null) {
-            $invalidProperties[] = "'lifts_updated_at' can't be null";
-        }
-        if ($this->container['total_summer_trails'] === null) {
-            $invalidProperties[] = "'total_summer_trails' can't be null";
-        }
-        if ($this->container['summer_trails_updated_at'] === null) {
-            $invalidProperties[] = "'summer_trails_updated_at' can't be null";
-        }
-        if ($this->container['total_terrain_parks'] === null) {
-            $invalidProperties[] = "'total_terrain_parks' can't be null";
-        }
-        if ($this->container['terrain_parks_updated_at'] === null) {
-            $invalidProperties[] = "'terrain_parks_updated_at' can't be null";
+        if ($this->container['terrain_parks'] === null) {
+            $invalidProperties[] = "'terrain_parks' can't be null";
         }
         return $invalidProperties;
     }
@@ -602,7 +493,7 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets news
      *
-     * @return string
+     * @return \MtnManager\Model\OverviewNews
      */
     public function getNews()
     {
@@ -612,7 +503,7 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets news
      *
-     * @param string $news Written news — daily update, announcements, etc. (Markdown source).
+     * @param \MtnManager\Model\OverviewNews $news Written news — daily update, announcements, etc.
      *
      * @return self
      */
@@ -627,509 +518,109 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets news_html
+     * Gets runs
      *
-     * @return string
+     * @return \MtnManager\Model\OverviewRuns
      */
-    public function getNewsHtml()
+    public function getRuns()
     {
-        return $this->container['news_html'];
+        return $this->container['runs'];
     }
 
     /**
-     * Sets news_html
+     * Sets runs
      *
-     * @param string $news_html Written news — daily update, announcements, etc. (rendered as HTML from Markdown).
+     * @param \MtnManager\Model\OverviewRuns $runs Run statistics: counts, acres, and last-updated timestamp.
      *
      * @return self
      */
-    public function setNewsHtml($news_html)
+    public function setRuns($runs)
     {
-        if (is_null($news_html)) {
-            throw new \InvalidArgumentException('non-nullable news_html cannot be null');
+        if (is_null($runs)) {
+            throw new \InvalidArgumentException('non-nullable runs cannot be null');
         }
-        $this->container['news_html'] = $news_html;
+        $this->container['runs'] = $runs;
 
         return $this;
     }
 
     /**
-     * Gets news_updated_at
+     * Gets lifts
      *
-     * @return \DateTime
+     * @return \MtnManager\Model\OverviewLifts
      */
-    public function getNewsUpdatedAt()
+    public function getLifts()
     {
-        return $this->container['news_updated_at'];
+        return $this->container['lifts'];
     }
 
     /**
-     * Sets news_updated_at
+     * Sets lifts
      *
-     * @param \DateTime $news_updated_at When the written news was last updated.
+     * @param \MtnManager\Model\OverviewLifts $lifts Lift statistics: counts and last-updated timestamp.
      *
      * @return self
      */
-    public function setNewsUpdatedAt($news_updated_at)
+    public function setLifts($lifts)
     {
-        if (is_null($news_updated_at)) {
-            throw new \InvalidArgumentException('non-nullable news_updated_at cannot be null');
+        if (is_null($lifts)) {
+            throw new \InvalidArgumentException('non-nullable lifts cannot be null');
         }
-        $this->container['news_updated_at'] = $news_updated_at;
+        $this->container['lifts'] = $lifts;
 
         return $this;
     }
 
     /**
-     * Gets open_runs
+     * Gets summer_trails
      *
-     * @return int|null
+     * @return \MtnManager\Model\OverviewSummerTrails
      */
-    public function getOpenRuns()
+    public function getSummerTrails()
     {
-        return $this->container['open_runs'];
+        return $this->container['summer_trails'];
     }
 
     /**
-     * Sets open_runs
+     * Sets summer_trails
      *
-     * @param int|null $open_runs Number of runs currently open.  Not included if the runs status feature is disabled.
+     * @param \MtnManager\Model\OverviewSummerTrails $summer_trails Summer trail statistics: counts and last-updated timestamp.
      *
      * @return self
      */
-    public function setOpenRuns($open_runs)
+    public function setSummerTrails($summer_trails)
     {
-        if (is_null($open_runs)) {
-            array_push($this->openAPINullablesSetToNull, 'open_runs');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('open_runs', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($summer_trails)) {
+            throw new \InvalidArgumentException('non-nullable summer_trails cannot be null');
         }
-        $this->container['open_runs'] = $open_runs;
+        $this->container['summer_trails'] = $summer_trails;
 
         return $this;
     }
 
     /**
-     * Gets groomed_runs
+     * Gets terrain_parks
      *
-     * @return int|null
+     * @return \MtnManager\Model\OverviewTerrainParks
      */
-    public function getGroomedRuns()
+    public function getTerrainParks()
     {
-        return $this->container['groomed_runs'];
+        return $this->container['terrain_parks'];
     }
 
     /**
-     * Sets groomed_runs
+     * Sets terrain_parks
      *
-     * @param int|null $groomed_runs Number of runs groomed within the last 24 hours.  Not included if the runs grooming feature is disabled.
+     * @param \MtnManager\Model\OverviewTerrainParks $terrain_parks Terrain park statistics: counts and last-updated timestamp.
      *
      * @return self
      */
-    public function setGroomedRuns($groomed_runs)
+    public function setTerrainParks($terrain_parks)
     {
-        if (is_null($groomed_runs)) {
-            array_push($this->openAPINullablesSetToNull, 'groomed_runs');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('groomed_runs', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($terrain_parks)) {
+            throw new \InvalidArgumentException('non-nullable terrain_parks cannot be null');
         }
-        $this->container['groomed_runs'] = $groomed_runs;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_runs
-     *
-     * @return int
-     */
-    public function getTotalRuns()
-    {
-        return $this->container['total_runs'];
-    }
-
-    /**
-     * Sets total_runs
-     *
-     * @param int $total_runs Total number of runs at the resort.
-     *
-     * @return self
-     */
-    public function setTotalRuns($total_runs)
-    {
-        if (is_null($total_runs)) {
-            throw new \InvalidArgumentException('non-nullable total_runs cannot be null');
-        }
-        $this->container['total_runs'] = $total_runs;
-
-        return $this;
-    }
-
-    /**
-     * Gets open_acres
-     *
-     * @return int|null
-     */
-    public function getOpenAcres()
-    {
-        return $this->container['open_acres'];
-    }
-
-    /**
-     * Sets open_acres
-     *
-     * @param int|null $open_acres Total acres of open runs.  Not included if acres are not tracked or run status feature is disabled.
-     *
-     * @return self
-     */
-    public function setOpenAcres($open_acres)
-    {
-        if (is_null($open_acres)) {
-            array_push($this->openAPINullablesSetToNull, 'open_acres');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('open_acres', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['open_acres'] = $open_acres;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_acres
-     *
-     * @return int|null
-     */
-    public function getTotalAcres()
-    {
-        return $this->container['total_acres'];
-    }
-
-    /**
-     * Sets total_acres
-     *
-     * @param int|null $total_acres Total acres of all runs.  Not included if acres are not tracked.
-     *
-     * @return self
-     */
-    public function setTotalAcres($total_acres)
-    {
-        if (is_null($total_acres)) {
-            array_push($this->openAPINullablesSetToNull, 'total_acres');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('total_acres', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['total_acres'] = $total_acres;
-
-        return $this;
-    }
-
-    /**
-     * Gets runs_updated_at
-     *
-     * @return \DateTime
-     */
-    public function getRunsUpdatedAt()
-    {
-        return $this->container['runs_updated_at'];
-    }
-
-    /**
-     * Sets runs_updated_at
-     *
-     * @param \DateTime $runs_updated_at When the most recent update to run status was made.
-     *
-     * @return self
-     */
-    public function setRunsUpdatedAt($runs_updated_at)
-    {
-        if (is_null($runs_updated_at)) {
-            throw new \InvalidArgumentException('non-nullable runs_updated_at cannot be null');
-        }
-        $this->container['runs_updated_at'] = $runs_updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets open_lifts
-     *
-     * @return int|null
-     */
-    public function getOpenLifts()
-    {
-        return $this->container['open_lifts'];
-    }
-
-    /**
-     * Sets open_lifts
-     *
-     * @param int|null $open_lifts Number of lifts currently open.  Not included if the lifts status feature is disabled.
-     *
-     * @return self
-     */
-    public function setOpenLifts($open_lifts)
-    {
-        if (is_null($open_lifts)) {
-            array_push($this->openAPINullablesSetToNull, 'open_lifts');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('open_lifts', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['open_lifts'] = $open_lifts;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_lifts
-     *
-     * @return int
-     */
-    public function getTotalLifts()
-    {
-        return $this->container['total_lifts'];
-    }
-
-    /**
-     * Sets total_lifts
-     *
-     * @param int $total_lifts Total number of lifts at the resort.
-     *
-     * @return self
-     */
-    public function setTotalLifts($total_lifts)
-    {
-        if (is_null($total_lifts)) {
-            throw new \InvalidArgumentException('non-nullable total_lifts cannot be null');
-        }
-        $this->container['total_lifts'] = $total_lifts;
-
-        return $this;
-    }
-
-    /**
-     * Gets lifts_updated_at
-     *
-     * @return \DateTime
-     */
-    public function getLiftsUpdatedAt()
-    {
-        return $this->container['lifts_updated_at'];
-    }
-
-    /**
-     * Sets lifts_updated_at
-     *
-     * @param \DateTime $lifts_updated_at When the most recent update to lift status was made.
-     *
-     * @return self
-     */
-    public function setLiftsUpdatedAt($lifts_updated_at)
-    {
-        if (is_null($lifts_updated_at)) {
-            throw new \InvalidArgumentException('non-nullable lifts_updated_at cannot be null');
-        }
-        $this->container['lifts_updated_at'] = $lifts_updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets open_summer_trails
-     *
-     * @return int|null
-     */
-    public function getOpenSummerTrails()
-    {
-        return $this->container['open_summer_trails'];
-    }
-
-    /**
-     * Sets open_summer_trails
-     *
-     * @param int|null $open_summer_trails Number of summer trails currently open.  Not included if the summer trails status feature is disabled.
-     *
-     * @return self
-     */
-    public function setOpenSummerTrails($open_summer_trails)
-    {
-        if (is_null($open_summer_trails)) {
-            array_push($this->openAPINullablesSetToNull, 'open_summer_trails');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('open_summer_trails', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['open_summer_trails'] = $open_summer_trails;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_summer_trails
-     *
-     * @return int
-     */
-    public function getTotalSummerTrails()
-    {
-        return $this->container['total_summer_trails'];
-    }
-
-    /**
-     * Sets total_summer_trails
-     *
-     * @param int $total_summer_trails Total number of summer trails at the resort.
-     *
-     * @return self
-     */
-    public function setTotalSummerTrails($total_summer_trails)
-    {
-        if (is_null($total_summer_trails)) {
-            throw new \InvalidArgumentException('non-nullable total_summer_trails cannot be null');
-        }
-        $this->container['total_summer_trails'] = $total_summer_trails;
-
-        return $this;
-    }
-
-    /**
-     * Gets summer_trails_updated_at
-     *
-     * @return \DateTime
-     */
-    public function getSummerTrailsUpdatedAt()
-    {
-        return $this->container['summer_trails_updated_at'];
-    }
-
-    /**
-     * Sets summer_trails_updated_at
-     *
-     * @param \DateTime $summer_trails_updated_at When the most recent update to summer trail status was made.
-     *
-     * @return self
-     */
-    public function setSummerTrailsUpdatedAt($summer_trails_updated_at)
-    {
-        if (is_null($summer_trails_updated_at)) {
-            throw new \InvalidArgumentException('non-nullable summer_trails_updated_at cannot be null');
-        }
-        $this->container['summer_trails_updated_at'] = $summer_trails_updated_at;
-
-        return $this;
-    }
-
-    /**
-     * Gets open_terrain_parks
-     *
-     * @return int|null
-     */
-    public function getOpenTerrainParks()
-    {
-        return $this->container['open_terrain_parks'];
-    }
-
-    /**
-     * Sets open_terrain_parks
-     *
-     * @param int|null $open_terrain_parks Number of terrain parks currently open.  Not included if the terrain parks status feature is disabled.
-     *
-     * @return self
-     */
-    public function setOpenTerrainParks($open_terrain_parks)
-    {
-        if (is_null($open_terrain_parks)) {
-            array_push($this->openAPINullablesSetToNull, 'open_terrain_parks');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('open_terrain_parks', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['open_terrain_parks'] = $open_terrain_parks;
-
-        return $this;
-    }
-
-    /**
-     * Gets total_terrain_parks
-     *
-     * @return int
-     */
-    public function getTotalTerrainParks()
-    {
-        return $this->container['total_terrain_parks'];
-    }
-
-    /**
-     * Sets total_terrain_parks
-     *
-     * @param int $total_terrain_parks Total number of terrain parks at the resort.
-     *
-     * @return self
-     */
-    public function setTotalTerrainParks($total_terrain_parks)
-    {
-        if (is_null($total_terrain_parks)) {
-            throw new \InvalidArgumentException('non-nullable total_terrain_parks cannot be null');
-        }
-        $this->container['total_terrain_parks'] = $total_terrain_parks;
-
-        return $this;
-    }
-
-    /**
-     * Gets terrain_parks_updated_at
-     *
-     * @return \DateTime
-     */
-    public function getTerrainParksUpdatedAt()
-    {
-        return $this->container['terrain_parks_updated_at'];
-    }
-
-    /**
-     * Sets terrain_parks_updated_at
-     *
-     * @param \DateTime $terrain_parks_updated_at When the most recent update to terrain park status was made.
-     *
-     * @return self
-     */
-    public function setTerrainParksUpdatedAt($terrain_parks_updated_at)
-    {
-        if (is_null($terrain_parks_updated_at)) {
-            throw new \InvalidArgumentException('non-nullable terrain_parks_updated_at cannot be null');
-        }
-        $this->container['terrain_parks_updated_at'] = $terrain_parks_updated_at;
+        $this->container['terrain_parks'] = $terrain_parks;
 
         return $this;
     }
