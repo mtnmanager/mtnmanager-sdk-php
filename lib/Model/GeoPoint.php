@@ -1,6 +1,6 @@
 <?php
 /**
- * TrailMapSummary
+ * GeoPoint
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
- * TrailMapSummary Class Doc Comment
+ * GeoPoint Class Doc Comment
  *
  * @category Class
- * @description Summary metadata for a trail map.
+ * @description A latitude/longitude point.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
+class GeoPoint implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TrailMapSummary';
+    protected static $openAPIModelName = 'GeoPoint';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -59,13 +59,8 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'uuid' => 'string',
-        'name' => 'string',
-        'season' => '\MtnManager\Model\SeasonType',
-        'display_order' => 'int',
-        'hosted_url' => 'string',
-        'geo_bounds' => '\MtnManager\Model\GeoBounds',
-        'entity_uuids' => 'string[]'
+        'lat' => 'float',
+        'lng' => 'float'
     ];
 
     /**
@@ -76,13 +71,8 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'uuid' => null,
-        'name' => null,
-        'season' => null,
-        'display_order' => 'int64',
-        'hosted_url' => null,
-        'geo_bounds' => null,
-        'entity_uuids' => null
+        'lat' => 'double',
+        'lng' => 'double'
     ];
 
     /**
@@ -91,13 +81,8 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'uuid' => false,
-        'name' => false,
-        'season' => false,
-        'display_order' => false,
-        'hosted_url' => false,
-        'geo_bounds' => true,
-        'entity_uuids' => false
+        'lat' => false,
+        'lng' => false
     ];
 
     /**
@@ -186,13 +171,8 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'uuid' => 'uuid',
-        'name' => 'name',
-        'season' => 'season',
-        'display_order' => 'display_order',
-        'hosted_url' => 'hosted_url',
-        'geo_bounds' => 'geo_bounds',
-        'entity_uuids' => 'entity_uuids'
+        'lat' => 'lat',
+        'lng' => 'lng'
     ];
 
     /**
@@ -201,13 +181,8 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'uuid' => 'setUuid',
-        'name' => 'setName',
-        'season' => 'setSeason',
-        'display_order' => 'setDisplayOrder',
-        'hosted_url' => 'setHostedUrl',
-        'geo_bounds' => 'setGeoBounds',
-        'entity_uuids' => 'setEntityUuids'
+        'lat' => 'setLat',
+        'lng' => 'setLng'
     ];
 
     /**
@@ -216,13 +191,8 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'uuid' => 'getUuid',
-        'name' => 'getName',
-        'season' => 'getSeason',
-        'display_order' => 'getDisplayOrder',
-        'hosted_url' => 'getHostedUrl',
-        'geo_bounds' => 'getGeoBounds',
-        'entity_uuids' => 'getEntityUuids'
+        'lat' => 'getLat',
+        'lng' => 'getLng'
     ];
 
     /**
@@ -282,13 +252,8 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('uuid', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('season', $data ?? [], null);
-        $this->setIfExists('display_order', $data ?? [], null);
-        $this->setIfExists('hosted_url', $data ?? [], null);
-        $this->setIfExists('geo_bounds', $data ?? [], null);
-        $this->setIfExists('entity_uuids', $data ?? [], null);
+        $this->setIfExists('lat', $data ?? [], null);
+        $this->setIfExists('lng', $data ?? [], null);
     }
 
     /**
@@ -318,23 +283,11 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['uuid'] === null) {
-            $invalidProperties[] = "'uuid' can't be null";
+        if ($this->container['lat'] === null) {
+            $invalidProperties[] = "'lat' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['season'] === null) {
-            $invalidProperties[] = "'season' can't be null";
-        }
-        if ($this->container['display_order'] === null) {
-            $invalidProperties[] = "'display_order' can't be null";
-        }
-        if ($this->container['hosted_url'] === null) {
-            $invalidProperties[] = "'hosted_url' can't be null";
-        }
-        if ($this->container['entity_uuids'] === null) {
-            $invalidProperties[] = "'entity_uuids' can't be null";
+        if ($this->container['lng'] === null) {
+            $invalidProperties[] = "'lng' can't be null";
         }
         return $invalidProperties;
     }
@@ -352,197 +305,55 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets uuid
+     * Gets lat
      *
-     * @return string
+     * @return float
      */
-    public function getUuid()
+    public function getLat()
     {
-        return $this->container['uuid'];
+        return $this->container['lat'];
     }
 
     /**
-     * Sets uuid
+     * Sets lat
      *
-     * @param string $uuid uuid
+     * @param float $lat lat
      *
      * @return self
      */
-    public function setUuid($uuid)
+    public function setLat($lat)
     {
-        if (is_null($uuid)) {
-            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
+        if (is_null($lat)) {
+            throw new \InvalidArgumentException('non-nullable lat cannot be null');
         }
-        $this->container['uuid'] = $uuid;
+        $this->container['lat'] = $lat;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets lng
      *
-     * @return string
+     * @return float
      */
-    public function getName()
+    public function getLng()
     {
-        return $this->container['name'];
+        return $this->container['lng'];
     }
 
     /**
-     * Sets name
+     * Sets lng
      *
-     * @param string $name name
+     * @param float $lng lng
      *
      * @return self
      */
-    public function setName($name)
+    public function setLng($lng)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($lng)) {
+            throw new \InvalidArgumentException('non-nullable lng cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets season
-     *
-     * @return \MtnManager\Model\SeasonType
-     */
-    public function getSeason()
-    {
-        return $this->container['season'];
-    }
-
-    /**
-     * Sets season
-     *
-     * @param \MtnManager\Model\SeasonType $season season
-     *
-     * @return self
-     */
-    public function setSeason($season)
-    {
-        if (is_null($season)) {
-            throw new \InvalidArgumentException('non-nullable season cannot be null');
-        }
-        $this->container['season'] = $season;
-
-        return $this;
-    }
-
-    /**
-     * Gets display_order
-     *
-     * @return int
-     */
-    public function getDisplayOrder()
-    {
-        return $this->container['display_order'];
-    }
-
-    /**
-     * Sets display_order
-     *
-     * @param int $display_order display_order
-     *
-     * @return self
-     */
-    public function setDisplayOrder($display_order)
-    {
-        if (is_null($display_order)) {
-            throw new \InvalidArgumentException('non-nullable display_order cannot be null');
-        }
-        $this->container['display_order'] = $display_order;
-
-        return $this;
-    }
-
-    /**
-     * Gets hosted_url
-     *
-     * @return string
-     */
-    public function getHostedUrl()
-    {
-        return $this->container['hosted_url'];
-    }
-
-    /**
-     * Sets hosted_url
-     *
-     * @param string $hosted_url hosted_url
-     *
-     * @return self
-     */
-    public function setHostedUrl($hosted_url)
-    {
-        if (is_null($hosted_url)) {
-            throw new \InvalidArgumentException('non-nullable hosted_url cannot be null');
-        }
-        $this->container['hosted_url'] = $hosted_url;
-
-        return $this;
-    }
-
-    /**
-     * Gets geo_bounds
-     *
-     * @return \MtnManager\Model\GeoBounds|null
-     */
-    public function getGeoBounds()
-    {
-        return $this->container['geo_bounds'];
-    }
-
-    /**
-     * Sets geo_bounds
-     *
-     * @param \MtnManager\Model\GeoBounds|null $geo_bounds Lat/lng bounding box of this map's georeferenced area, plus the  centroid of its control points (used for tie-breaking when multiple  maps cover the same point). Omitted when the map has no georeferencing.
-     *
-     * @return self
-     */
-    public function setGeoBounds($geo_bounds)
-    {
-        if (is_null($geo_bounds)) {
-            array_push($this->openAPINullablesSetToNull, 'geo_bounds');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('geo_bounds', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['geo_bounds'] = $geo_bounds;
-
-        return $this;
-    }
-
-    /**
-     * Gets entity_uuids
-     *
-     * @return string[]
-     */
-    public function getEntityUuids()
-    {
-        return $this->container['entity_uuids'];
-    }
-
-    /**
-     * Sets entity_uuids
-     *
-     * @param string[] $entity_uuids Deduplicated UUIDs of every entity (lift, run, terrain park,  summer trail, amenity, parking lot) referenced by this map's elements.
-     *
-     * @return self
-     */
-    public function setEntityUuids($entity_uuids)
-    {
-        if (is_null($entity_uuids)) {
-            throw new \InvalidArgumentException('non-nullable entity_uuids cannot be null');
-        }
-        $this->container['entity_uuids'] = $entity_uuids;
+        $this->container['lng'] = $lng;
 
         return $this;
     }

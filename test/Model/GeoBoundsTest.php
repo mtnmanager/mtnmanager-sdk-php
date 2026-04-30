@@ -1,6 +1,6 @@
 <?php
 /**
- * TrailMapSummaryTest
+ * GeoBoundsTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TrailMapSummaryTest Class Doc Comment
+ * GeoBoundsTest Class Doc Comment
  *
  * @category    Class
- * @description Summary metadata for a trail map.
+ * @description Lat/lng bounding box and centroid for a trail map&#39;s georeferenced area.
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TrailMapSummaryTest extends TestCase
+class GeoBoundsTest extends TestCase
 {
 
     /**
@@ -72,72 +72,54 @@ class TrailMapSummaryTest extends TestCase
     }
 
     /**
-     * Test "TrailMapSummary"
+     * Test "GeoBounds"
      */
-    public function testTrailMapSummary()
+    public function testGeoBounds()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "uuid"
+     * Test attribute "min_lat"
      */
-    public function testPropertyUuid()
+    public function testPropertyMinLat()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "max_lat"
      */
-    public function testPropertyName()
+    public function testPropertyMaxLat()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "season"
+     * Test attribute "min_lng"
      */
-    public function testPropertySeason()
+    public function testPropertyMinLng()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "display_order"
+     * Test attribute "max_lng"
      */
-    public function testPropertyDisplayOrder()
+    public function testPropertyMaxLng()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "hosted_url"
+     * Test attribute "center"
      */
-    public function testPropertyHostedUrl()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "geo_bounds"
-     */
-    public function testPropertyGeoBounds()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "entity_uuids"
-     */
-    public function testPropertyEntityUuids()
+    public function testPropertyCenter()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

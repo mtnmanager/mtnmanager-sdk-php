@@ -1,6 +1,6 @@
 <?php
 /**
- * TrailMapSummaryTest
+ * GeoPointTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TrailMapSummaryTest Class Doc Comment
+ * GeoPointTest Class Doc Comment
  *
  * @category    Class
- * @description Summary metadata for a trail map.
+ * @description A latitude/longitude point.
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TrailMapSummaryTest extends TestCase
+class GeoPointTest extends TestCase
 {
 
     /**
@@ -72,72 +72,27 @@ class TrailMapSummaryTest extends TestCase
     }
 
     /**
-     * Test "TrailMapSummary"
+     * Test "GeoPoint"
      */
-    public function testTrailMapSummary()
+    public function testGeoPoint()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "uuid"
+     * Test attribute "lat"
      */
-    public function testPropertyUuid()
+    public function testPropertyLat()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "lng"
      */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "season"
-     */
-    public function testPropertySeason()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "display_order"
-     */
-    public function testPropertyDisplayOrder()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "hosted_url"
-     */
-    public function testPropertyHostedUrl()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "geo_bounds"
-     */
-    public function testPropertyGeoBounds()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "entity_uuids"
-     */
-    public function testPropertyEntityUuids()
+    public function testPropertyLng()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
