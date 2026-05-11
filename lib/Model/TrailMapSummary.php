@@ -63,6 +63,7 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'season' => '\MtnManager\Model\SeasonType',
         'display_order' => 'int',
+        'version' => 'int',
         'hosted_url' => 'string',
         'geo_bounds' => '\MtnManager\Model\GeoBounds',
         'entity_uuids' => 'string[]'
@@ -80,6 +81,7 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'season' => null,
         'display_order' => 'int64',
+        'version' => 'int64',
         'hosted_url' => null,
         'geo_bounds' => null,
         'entity_uuids' => null
@@ -95,6 +97,7 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
         'season' => false,
         'display_order' => false,
+        'version' => false,
         'hosted_url' => false,
         'geo_bounds' => true,
         'entity_uuids' => false
@@ -190,6 +193,7 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'season' => 'season',
         'display_order' => 'display_order',
+        'version' => 'version',
         'hosted_url' => 'hosted_url',
         'geo_bounds' => 'geo_bounds',
         'entity_uuids' => 'entity_uuids'
@@ -205,6 +209,7 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'season' => 'setSeason',
         'display_order' => 'setDisplayOrder',
+        'version' => 'setVersion',
         'hosted_url' => 'setHostedUrl',
         'geo_bounds' => 'setGeoBounds',
         'entity_uuids' => 'setEntityUuids'
@@ -220,6 +225,7 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'season' => 'getSeason',
         'display_order' => 'getDisplayOrder',
+        'version' => 'getVersion',
         'hosted_url' => 'getHostedUrl',
         'geo_bounds' => 'getGeoBounds',
         'entity_uuids' => 'getEntityUuids'
@@ -286,6 +292,7 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('season', $data ?? [], null);
         $this->setIfExists('display_order', $data ?? [], null);
+        $this->setIfExists('version', $data ?? [], null);
         $this->setIfExists('hosted_url', $data ?? [], null);
         $this->setIfExists('geo_bounds', $data ?? [], null);
         $this->setIfExists('entity_uuids', $data ?? [], null);
@@ -329,6 +336,9 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['display_order'] === null) {
             $invalidProperties[] = "'display_order' can't be null";
+        }
+        if ($this->container['version'] === null) {
+            $invalidProperties[] = "'version' can't be null";
         }
         if ($this->container['hosted_url'] === null) {
             $invalidProperties[] = "'hosted_url' can't be null";
@@ -455,6 +465,33 @@ class TrailMapSummary implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable display_order cannot be null');
         }
         $this->container['display_order'] = $display_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param int $version Monotonically incremented on every update. Clients can compare this  against a cached value to decide whether to reload the trail map.
+     *
+     * @return self
+     */
+    public function setVersion($version)
+    {
+        if (is_null($version)) {
+            throw new \InvalidArgumentException('non-nullable version cannot be null');
+        }
+        $this->container['version'] = $version;
 
         return $this;
     }

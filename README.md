@@ -57,10 +57,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
 );
 
 try {
-    $result = $apiInstance->getFullReport();
+    $result = $apiInstance->getAmenities();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling MtnManagerApi->getFullReport: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling MtnManagerApi->getAmenities: ', $e->getMessage(), PHP_EOL;
 }
 
 ```
@@ -71,6 +71,7 @@ All URIs are relative to *https://your-resort.mtnmanager.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*MtnManagerApi* | [**getAmenities**](docs/Api/MtnManagerApi.md#getamenities) | **GET** /api/v1/report/amenities | Get amenities
 *MtnManagerApi* | [**getFullReport**](docs/Api/MtnManagerApi.md#getfullreport) | **GET** /api/v1/report | Get full report
 *MtnManagerApi* | [**getHours**](docs/Api/MtnManagerApi.md#gethours) | **GET** /api/v1/report/hours | Get operating hours
 *MtnManagerApi* | [**getLifts**](docs/Api/MtnManagerApi.md#getlifts) | **GET** /api/v1/report/lifts | Get lifts

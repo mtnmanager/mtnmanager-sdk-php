@@ -73,6 +73,18 @@ class MtnManagerApiTest extends TestCase
     }
 
     /**
+     * Test case for getAmenities
+     *
+     * Get amenities.
+     *
+     */
+    public function testGetAmenities()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getFullReport
      *
      * Get full report.

@@ -64,6 +64,7 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'string',
         'season' => '\MtnManager\Model\SeasonType',
         'display_order' => 'int',
+        'version' => 'int',
         'background_image_url' => 'string',
         'resort' => '\MtnManager\Model\ResortInfo',
         'elements' => '\MtnManager\Model\TrailMapElement[]',
@@ -83,6 +84,7 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => null,
         'season' => null,
         'display_order' => 'int64',
+        'version' => 'int64',
         'background_image_url' => null,
         'resort' => null,
         'elements' => null,
@@ -100,6 +102,7 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => false,
         'season' => false,
         'display_order' => false,
+        'version' => false,
         'background_image_url' => false,
         'resort' => false,
         'elements' => false,
@@ -197,6 +200,7 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'slug',
         'season' => 'season',
         'display_order' => 'display_order',
+        'version' => 'version',
         'background_image_url' => 'background_image_url',
         'resort' => 'resort',
         'elements' => 'elements',
@@ -214,6 +218,7 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'setSlug',
         'season' => 'setSeason',
         'display_order' => 'setDisplayOrder',
+        'version' => 'setVersion',
         'background_image_url' => 'setBackgroundImageUrl',
         'resort' => 'setResort',
         'elements' => 'setElements',
@@ -231,6 +236,7 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'getSlug',
         'season' => 'getSeason',
         'display_order' => 'getDisplayOrder',
+        'version' => 'getVersion',
         'background_image_url' => 'getBackgroundImageUrl',
         'resort' => 'getResort',
         'elements' => 'getElements',
@@ -299,6 +305,7 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('slug', $data ?? [], null);
         $this->setIfExists('season', $data ?? [], null);
         $this->setIfExists('display_order', $data ?? [], null);
+        $this->setIfExists('version', $data ?? [], null);
         $this->setIfExists('background_image_url', $data ?? [], null);
         $this->setIfExists('resort', $data ?? [], null);
         $this->setIfExists('elements', $data ?? [], null);
@@ -346,6 +353,9 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['display_order'] === null) {
             $invalidProperties[] = "'display_order' can't be null";
+        }
+        if ($this->container['version'] === null) {
+            $invalidProperties[] = "'version' can't be null";
         }
         if ($this->container['background_image_url'] === null) {
             $invalidProperties[] = "'background_image_url' can't be null";
@@ -502,6 +512,33 @@ class TrailMap implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable display_order cannot be null');
         }
         $this->container['display_order'] = $display_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets version
+     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->container['version'];
+    }
+
+    /**
+     * Sets version
+     *
+     * @param int $version Monotonically incremented on every update. Clients can compare this  against a cached value to decide whether to reload the trail map.
+     *
+     * @return self
+     */
+    public function setVersion($version)
+    {
+        if (is_null($version)) {
+            throw new \InvalidArgumentException('non-nullable version cannot be null');
+        }
+        $this->container['version'] = $version;
 
         return $this;
     }

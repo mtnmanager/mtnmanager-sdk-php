@@ -6,6 +6,7 @@ All URIs are relative to https://your-resort.mtnmanager.com, except if the opera
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**getAmenities()**](MtnManagerApi.md#getAmenities) | **GET** /api/v1/report/amenities | Get amenities |
 | [**getFullReport()**](MtnManagerApi.md#getFullReport) | **GET** /api/v1/report | Get full report |
 | [**getHours()**](MtnManagerApi.md#getHours) | **GET** /api/v1/report/hours | Get operating hours |
 | [**getLifts()**](MtnManagerApi.md#getLifts) | **GET** /api/v1/report/lifts | Get lifts |
@@ -19,6 +20,57 @@ All URIs are relative to https://your-resort.mtnmanager.com, except if the opera
 | [**getTrailMaps()**](MtnManagerApi.md#getTrailMaps) | **GET** /api/v1/report/trail-maps | Get trail maps |
 | [**getWeather()**](MtnManagerApi.md#getWeather) | **GET** /api/v1/report/weather | Get weather |
 
+
+## `getAmenities()`
+
+```php
+getAmenities(): \MtnManager\Model\Amenity[]
+```
+
+Get amenities
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MtnManager\Api\MtnManagerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+
+try {
+    $result = $apiInstance->getAmenities();
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MtnManagerApi->getAmenities: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**\MtnManager\Model\Amenity[]**](../Model/Amenity.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `getFullReport()`
 

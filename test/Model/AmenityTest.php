@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * AmenityTest Class Doc Comment
  *
  * @category    Class
- * @description Minimal amenity info for trail map markers.
+ * @description Represents an amenity at the resort (e.g. lodge, restaurant, ski school)  with its category, description, website, and hours.
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -138,6 +138,15 @@ class AmenityTest extends TestCase
      * Test attribute "closes_at"
      */
     public function testPropertyClosesAt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "schedules"
+     */
+    public function testPropertySchedules()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

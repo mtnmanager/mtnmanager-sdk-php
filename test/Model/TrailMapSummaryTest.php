@@ -117,6 +117,15 @@ class TrailMapSummaryTest extends TestCase
     }
 
     /**
+     * Test attribute "version"
+     */
+    public function testPropertyVersion()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "hosted_url"
      */
     public function testPropertyHostedUrl()

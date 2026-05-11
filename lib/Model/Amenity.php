@@ -36,7 +36,7 @@ use \MtnManager\ObjectSerializer;
  * Amenity Class Doc Comment
  *
  * @category Class
- * @description Minimal amenity info for trail map markers.
+ * @description Represents an amenity at the resort (e.g. lodge, restaurant, ski school)  with its category, description, website, and hours.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -65,7 +65,8 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'category' => '\MtnManager\Model\AmenityCategory',
         'website' => 'string',
         'opens_at' => 'string',
-        'closes_at' => 'string'
+        'closes_at' => 'string',
+        'schedules' => '\MtnManager\Model\Schedule[]'
     ];
 
     /**
@@ -82,7 +83,8 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'category' => null,
         'website' => null,
         'opens_at' => null,
-        'closes_at' => null
+        'closes_at' => null,
+        'schedules' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'category' => false,
         'website' => false,
         'opens_at' => true,
-        'closes_at' => true
+        'closes_at' => true,
+        'schedules' => false
     ];
 
     /**
@@ -192,7 +195,8 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'category' => 'category',
         'website' => 'website',
         'opens_at' => 'opens_at',
-        'closes_at' => 'closes_at'
+        'closes_at' => 'closes_at',
+        'schedules' => 'schedules'
     ];
 
     /**
@@ -207,7 +211,8 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'category' => 'setCategory',
         'website' => 'setWebsite',
         'opens_at' => 'setOpensAt',
-        'closes_at' => 'setClosesAt'
+        'closes_at' => 'setClosesAt',
+        'schedules' => 'setSchedules'
     ];
 
     /**
@@ -222,7 +227,8 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'category' => 'getCategory',
         'website' => 'getWebsite',
         'opens_at' => 'getOpensAt',
-        'closes_at' => 'getClosesAt'
+        'closes_at' => 'getClosesAt',
+        'schedules' => 'getSchedules'
     ];
 
     /**
@@ -289,6 +295,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('website', $data ?? [], null);
         $this->setIfExists('opens_at', $data ?? [], null);
         $this->setIfExists('closes_at', $data ?? [], null);
+        $this->setIfExists('schedules', $data ?? [], null);
     }
 
     /**
@@ -333,6 +340,9 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['website'] === null) {
             $invalidProperties[] = "'website' can't be null";
         }
+        if ($this->container['schedules'] === null) {
+            $invalidProperties[] = "'schedules' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -361,7 +371,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets description
      *
-     * @param string $description description
+     * @param string $description Description of the amenity.
      *
      * @return self
      */
@@ -388,7 +398,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets uuid
      *
-     * @param string $uuid uuid
+     * @param string $uuid Unique identifier for the amenity.
      *
      * @return self
      */
@@ -415,7 +425,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name name
+     * @param string $name Display name of the amenity.
      *
      * @return self
      */
@@ -442,7 +452,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets category
      *
-     * @param \MtnManager\Model\AmenityCategory $category category
+     * @param \MtnManager\Model\AmenityCategory $category Category classification (e.g. restaurant, lodge, ski_school).
      *
      * @return self
      */
@@ -469,7 +479,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets website
      *
-     * @param string $website website
+     * @param string $website Website URL for the amenity, if available.
      *
      * @return self
      */
@@ -547,6 +557,33 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['closes_at'] = $closes_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets schedules
+     *
+     * @return \MtnManager\Model\Schedule[]
+     */
+    public function getSchedules()
+    {
+        return $this->container['schedules'];
+    }
+
+    /**
+     * Sets schedules
+     *
+     * @param \MtnManager\Model\Schedule[] $schedules Recurring operating schedules for this amenity (e.g. \"Saturday & Sunday,  9:00 a.m. to 4:00 p.m.\"), with both human-readable and structured fields.
+     *
+     * @return self
+     */
+    public function setSchedules($schedules)
+    {
+        if (is_null($schedules)) {
+            throw new \InvalidArgumentException('non-nullable schedules cannot be null');
+        }
+        $this->container['schedules'] = $schedules;
 
         return $this;
     }

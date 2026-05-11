@@ -126,6 +126,15 @@ class TrailMapTest extends TestCase
     }
 
     /**
+     * Test attribute "version"
+     */
+    public function testPropertyVersion()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "background_image_url"
      */
     public function testPropertyBackgroundImageUrl()

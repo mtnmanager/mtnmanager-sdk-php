@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **slug** | **string** |  |
 **season** | [**\MtnManager\Model\SeasonType**](SeasonType.md) |  |
 **display_order** | **int** |  |
+**version** | **int** | Monotonically incremented on every update. Clients can compare this  against a cached value to decide whether to reload the trail map. |
 **background_image_url** | **string** |  |
 **resort** | [**\MtnManager\Model\ResortInfo**](ResortInfo.md) |  |
 **elements** | [**\MtnManager\Model\TrailMapElement[]**](TrailMapElement.md) |  |
