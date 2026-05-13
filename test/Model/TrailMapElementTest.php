@@ -207,15 +207,6 @@ class TrailMapElementTest extends TestCase
     }
 
     /**
-     * Test attribute "kind"
-     */
-    public function testPropertyKind()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "parking_lot"
      */
     public function testPropertyParkingLot()

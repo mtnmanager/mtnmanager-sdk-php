@@ -28,6 +28,8 @@
  */
 
 namespace MtnManager\Model;
+
+use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
@@ -39,7 +41,7 @@ use \MtnManager\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TrailMapElementOneOf4 extends PointMarker
+class TrailMapElementOneOf4 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -56,7 +58,13 @@ class TrailMapElementOneOf4 extends PointMarker
      * @var string[]
      */
     protected static $openAPITypes = [
-        'type' => 'string'
+        'type' => 'string',
+        'uuid' => 'string',
+        'x' => 'float',
+        'y' => 'float',
+        'icon' => '\MtnManager\Model\MarkerIcon',
+        'color' => 'string',
+        'amenity' => '\MtnManager\Model\Amenity'
     ];
 
     /**
@@ -67,7 +75,13 @@ class TrailMapElementOneOf4 extends PointMarker
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'type' => null
+        'type' => null,
+        'uuid' => null,
+        'x' => 'double',
+        'y' => 'double',
+        'icon' => null,
+        'color' => null,
+        'amenity' => null
     ];
 
     /**
@@ -76,7 +90,13 @@ class TrailMapElementOneOf4 extends PointMarker
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'type' => false
+        'type' => false,
+        'uuid' => false,
+        'x' => false,
+        'y' => false,
+        'icon' => true,
+        'color' => true,
+        'amenity' => true
     ];
 
     /**
@@ -93,7 +113,7 @@ class TrailMapElementOneOf4 extends PointMarker
      */
     public static function openAPITypes()
     {
-        return self::$openAPITypes + parent::openAPITypes();
+        return self::$openAPITypes;
     }
 
     /**
@@ -103,7 +123,7 @@ class TrailMapElementOneOf4 extends PointMarker
      */
     public static function openAPIFormats()
     {
-        return self::$openAPIFormats + parent::openAPIFormats();
+        return self::$openAPIFormats;
     }
 
     /**
@@ -113,7 +133,7 @@ class TrailMapElementOneOf4 extends PointMarker
      */
     protected static function openAPINullables(): array
     {
-        return self::$openAPINullables + parent::openAPINullables();
+        return self::$openAPINullables;
     }
 
     /**
@@ -165,7 +185,13 @@ class TrailMapElementOneOf4 extends PointMarker
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type'
+        'type' => 'type',
+        'uuid' => 'uuid',
+        'x' => 'x',
+        'y' => 'y',
+        'icon' => 'icon',
+        'color' => 'color',
+        'amenity' => 'amenity'
     ];
 
     /**
@@ -174,7 +200,13 @@ class TrailMapElementOneOf4 extends PointMarker
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType'
+        'type' => 'setType',
+        'uuid' => 'setUuid',
+        'x' => 'setX',
+        'y' => 'setY',
+        'icon' => 'setIcon',
+        'color' => 'setColor',
+        'amenity' => 'setAmenity'
     ];
 
     /**
@@ -183,7 +215,13 @@ class TrailMapElementOneOf4 extends PointMarker
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType'
+        'type' => 'getType',
+        'uuid' => 'getUuid',
+        'x' => 'getX',
+        'y' => 'getY',
+        'icon' => 'getIcon',
+        'color' => 'getColor',
+        'amenity' => 'getAmenity'
     ];
 
     /**
@@ -194,7 +232,7 @@ class TrailMapElementOneOf4 extends PointMarker
      */
     public static function attributeMap()
     {
-        return parent::attributeMap() + self::$attributeMap;
+        return self::$attributeMap;
     }
 
     /**
@@ -204,7 +242,7 @@ class TrailMapElementOneOf4 extends PointMarker
      */
     public static function setters()
     {
-        return parent::setters() + self::$setters;
+        return self::$setters;
     }
 
     /**
@@ -214,7 +252,7 @@ class TrailMapElementOneOf4 extends PointMarker
      */
     public static function getters()
     {
-        return parent::getters() + self::$getters;
+        return self::$getters;
     }
 
     /**
@@ -227,7 +265,7 @@ class TrailMapElementOneOf4 extends PointMarker
         return self::$openAPIModelName;
     }
 
-    public const TYPE_POINT_MARKER = 'point_marker';
+    public const TYPE_AMENITY_MARKER = 'amenity_marker';
 
     /**
      * Gets allowable values of the enum
@@ -237,10 +275,16 @@ class TrailMapElementOneOf4 extends PointMarker
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_POINT_MARKER,
+            self::TYPE_AMENITY_MARKER,
         ];
     }
 
+    /**
+     * Associative array for storing property values
+     *
+     * @var mixed[]
+     */
+    protected $container = [];
 
     /**
      * Constructor
@@ -250,9 +294,13 @@ class TrailMapElementOneOf4 extends PointMarker
      */
     public function __construct(?array $data = null)
     {
-        parent::__construct($data);
-
         $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('uuid', $data ?? [], null);
+        $this->setIfExists('x', $data ?? [], null);
+        $this->setIfExists('y', $data ?? [], null);
+        $this->setIfExists('icon', $data ?? [], null);
+        $this->setIfExists('color', $data ?? [], null);
+        $this->setIfExists('amenity', $data ?? [], null);
     }
 
     /**
@@ -280,7 +328,7 @@ class TrailMapElementOneOf4 extends PointMarker
      */
     public function listInvalidProperties()
     {
-        $invalidProperties = parent::listInvalidProperties();
+        $invalidProperties = [];
 
         if ($this->container['type'] === null) {
             $invalidProperties[] = "'type' can't be null";
@@ -294,6 +342,15 @@ class TrailMapElementOneOf4 extends PointMarker
             );
         }
 
+        if ($this->container['uuid'] === null) {
+            $invalidProperties[] = "'uuid' can't be null";
+        }
+        if ($this->container['x'] === null) {
+            $invalidProperties[] = "'x' can't be null";
+        }
+        if ($this->container['y'] === null) {
+            $invalidProperties[] = "'y' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -342,6 +399,189 @@ class TrailMapElementOneOf4 extends PointMarker
             );
         }
         $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets uuid
+     *
+     * @return string
+     */
+    public function getUuid()
+    {
+        return $this->container['uuid'];
+    }
+
+    /**
+     * Sets uuid
+     *
+     * @param string $uuid uuid
+     *
+     * @return self
+     */
+    public function setUuid($uuid)
+    {
+        if (is_null($uuid)) {
+            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
+        }
+        $this->container['uuid'] = $uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets x
+     *
+     * @return float
+     */
+    public function getX()
+    {
+        return $this->container['x'];
+    }
+
+    /**
+     * Sets x
+     *
+     * @param float $x x
+     *
+     * @return self
+     */
+    public function setX($x)
+    {
+        if (is_null($x)) {
+            throw new \InvalidArgumentException('non-nullable x cannot be null');
+        }
+        $this->container['x'] = $x;
+
+        return $this;
+    }
+
+    /**
+     * Gets y
+     *
+     * @return float
+     */
+    public function getY()
+    {
+        return $this->container['y'];
+    }
+
+    /**
+     * Sets y
+     *
+     * @param float $y y
+     *
+     * @return self
+     */
+    public function setY($y)
+    {
+        if (is_null($y)) {
+            throw new \InvalidArgumentException('non-nullable y cannot be null');
+        }
+        $this->container['y'] = $y;
+
+        return $this;
+    }
+
+    /**
+     * Gets icon
+     *
+     * @return \MtnManager\Model\MarkerIcon|null
+     */
+    public function getIcon()
+    {
+        return $this->container['icon'];
+    }
+
+    /**
+     * Sets icon
+     *
+     * @param \MtnManager\Model\MarkerIcon|null $icon icon
+     *
+     * @return self
+     */
+    public function setIcon($icon)
+    {
+        if (is_null($icon)) {
+            array_push($this->openAPINullablesSetToNull, 'icon');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('icon', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['icon'] = $icon;
+
+        return $this;
+    }
+
+    /**
+     * Gets color
+     *
+     * @return string|null
+     */
+    public function getColor()
+    {
+        return $this->container['color'];
+    }
+
+    /**
+     * Sets color
+     *
+     * @param string|null $color color
+     *
+     * @return self
+     */
+    public function setColor($color)
+    {
+        if (is_null($color)) {
+            array_push($this->openAPINullablesSetToNull, 'color');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('color', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['color'] = $color;
+
+        return $this;
+    }
+
+    /**
+     * Gets amenity
+     *
+     * @return \MtnManager\Model\Amenity|null
+     */
+    public function getAmenity()
+    {
+        return $this->container['amenity'];
+    }
+
+    /**
+     * Sets amenity
+     *
+     * @param \MtnManager\Model\Amenity|null $amenity amenity
+     *
+     * @return self
+     */
+    public function setAmenity($amenity)
+    {
+        if (is_null($amenity)) {
+            array_push($this->openAPINullablesSetToNull, 'amenity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('amenity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['amenity'] = $amenity;
 
         return $this;
     }

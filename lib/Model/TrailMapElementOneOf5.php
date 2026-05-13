@@ -1,6 +1,6 @@
 <?php
 /**
- * PointMarkerOneOf
+ * TrailMapElementOneOf5
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
- * PointMarkerOneOf Class Doc Comment
+ * TrailMapElementOneOf5 Class Doc Comment
  *
  * @category Class
  * @package  MtnManager
@@ -41,7 +41,7 @@ use \MtnManager\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
+class TrailMapElementOneOf5 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'PointMarker_oneOf';
+    protected static $openAPIModelName = 'TrailMapElement_oneOf_5';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,13 +58,13 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        'type' => 'string',
         'uuid' => 'string',
         'x' => 'float',
         'y' => 'float',
         'icon' => '\MtnManager\Model\MarkerIcon',
         'color' => 'string',
-        'amenity' => '\MtnManager\Model\Amenity',
-        'kind' => 'string'
+        'parking_lot' => '\MtnManager\Model\ParkingLot'
     ];
 
     /**
@@ -75,13 +75,13 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'type' => null,
         'uuid' => null,
         'x' => 'double',
         'y' => 'double',
         'icon' => null,
         'color' => null,
-        'amenity' => null,
-        'kind' => null
+        'parking_lot' => null
     ];
 
     /**
@@ -90,13 +90,13 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'type' => false,
         'uuid' => false,
         'x' => false,
         'y' => false,
         'icon' => true,
         'color' => true,
-        'amenity' => true,
-        'kind' => false
+        'parking_lot' => true
     ];
 
     /**
@@ -185,13 +185,13 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'type' => 'type',
         'uuid' => 'uuid',
         'x' => 'x',
         'y' => 'y',
         'icon' => 'icon',
         'color' => 'color',
-        'amenity' => 'amenity',
-        'kind' => 'kind'
+        'parking_lot' => 'parking_lot'
     ];
 
     /**
@@ -200,13 +200,13 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'type' => 'setType',
         'uuid' => 'setUuid',
         'x' => 'setX',
         'y' => 'setY',
         'icon' => 'setIcon',
         'color' => 'setColor',
-        'amenity' => 'setAmenity',
-        'kind' => 'setKind'
+        'parking_lot' => 'setParkingLot'
     ];
 
     /**
@@ -215,13 +215,13 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'type' => 'getType',
         'uuid' => 'getUuid',
         'x' => 'getX',
         'y' => 'getY',
         'icon' => 'getIcon',
         'color' => 'getColor',
-        'amenity' => 'getAmenity',
-        'kind' => 'getKind'
+        'parking_lot' => 'getParkingLot'
     ];
 
     /**
@@ -265,17 +265,17 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
         return self::$openAPIModelName;
     }
 
-    public const KIND_AMENITY = 'amenity';
+    public const TYPE_PARKING_LOT_MARKER = 'parking_lot_marker';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getKindAllowableValues()
+    public function getTypeAllowableValues()
     {
         return [
-            self::KIND_AMENITY,
+            self::TYPE_PARKING_LOT_MARKER,
         ];
     }
 
@@ -294,13 +294,13 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('uuid', $data ?? [], null);
         $this->setIfExists('x', $data ?? [], null);
         $this->setIfExists('y', $data ?? [], null);
         $this->setIfExists('icon', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
-        $this->setIfExists('amenity', $data ?? [], null);
-        $this->setIfExists('kind', $data ?? [], null);
+        $this->setIfExists('parking_lot', $data ?? [], null);
     }
 
     /**
@@ -330,6 +330,18 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['uuid'] === null) {
             $invalidProperties[] = "'uuid' can't be null";
         }
@@ -339,18 +351,6 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['y'] === null) {
             $invalidProperties[] = "'y' can't be null";
         }
-        if ($this->container['kind'] === null) {
-            $invalidProperties[] = "'kind' can't be null";
-        }
-        $allowedValues = $this->getKindAllowableValues();
-        if (!is_null($this->container['kind']) && !in_array($this->container['kind'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'kind', must be one of '%s'",
-                $this->container['kind'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -365,6 +365,43 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $allowedValues = $this->getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
 
     /**
      * Gets uuid
@@ -516,72 +553,35 @@ class PointMarkerOneOf implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets amenity
+     * Gets parking_lot
      *
-     * @return \MtnManager\Model\Amenity|null
+     * @return \MtnManager\Model\ParkingLot|null
      */
-    public function getAmenity()
+    public function getParkingLot()
     {
-        return $this->container['amenity'];
+        return $this->container['parking_lot'];
     }
 
     /**
-     * Sets amenity
+     * Sets parking_lot
      *
-     * @param \MtnManager\Model\Amenity|null $amenity amenity
+     * @param \MtnManager\Model\ParkingLot|null $parking_lot parking_lot
      *
      * @return self
      */
-    public function setAmenity($amenity)
+    public function setParkingLot($parking_lot)
     {
-        if (is_null($amenity)) {
-            array_push($this->openAPINullablesSetToNull, 'amenity');
+        if (is_null($parking_lot)) {
+            array_push($this->openAPINullablesSetToNull, 'parking_lot');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('amenity', $nullablesSetToNull);
+            $index = array_search('parking_lot', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['amenity'] = $amenity;
-
-        return $this;
-    }
-
-    /**
-     * Gets kind
-     *
-     * @return string
-     */
-    public function getKind()
-    {
-        return $this->container['kind'];
-    }
-
-    /**
-     * Sets kind
-     *
-     * @param string $kind kind
-     *
-     * @return self
-     */
-    public function setKind($kind)
-    {
-        if (is_null($kind)) {
-            throw new \InvalidArgumentException('non-nullable kind cannot be null');
-        }
-        $allowedValues = $this->getKindAllowableValues();
-        if (!in_array($kind, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'kind', must be one of '%s'",
-                    $kind,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['kind'] = $kind;
+        $this->container['parking_lot'] = $parking_lot;
 
         return $this;
     }

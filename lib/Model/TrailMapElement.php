@@ -73,7 +73,6 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon' => '\MtnManager\Model\MarkerIcon',
         'color' => 'string',
         'amenity' => '\MtnManager\Model\Amenity',
-        'kind' => 'string',
         'parking_lot' => '\MtnManager\Model\ParkingLot',
         'label' => 'string',
         'searchable' => 'bool'
@@ -101,7 +100,6 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon' => null,
         'color' => null,
         'amenity' => null,
-        'kind' => null,
         'parking_lot' => null,
         'label' => null,
         'searchable' => null
@@ -127,7 +125,6 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon' => false,
         'color' => false,
         'amenity' => false,
-        'kind' => false,
         'parking_lot' => false,
         'label' => false,
         'searchable' => false
@@ -233,7 +230,6 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon' => 'icon',
         'color' => 'color',
         'amenity' => 'amenity',
-        'kind' => 'kind',
         'parking_lot' => 'parking_lot',
         'label' => 'label',
         'searchable' => 'searchable'
@@ -259,7 +255,6 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon' => 'setIcon',
         'color' => 'setColor',
         'amenity' => 'setAmenity',
-        'kind' => 'setKind',
         'parking_lot' => 'setParkingLot',
         'label' => 'setLabel',
         'searchable' => 'setSearchable'
@@ -285,7 +280,6 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon' => 'getIcon',
         'color' => 'getColor',
         'amenity' => 'getAmenity',
-        'kind' => 'getKind',
         'parking_lot' => 'getParkingLot',
         'label' => 'getLabel',
         'searchable' => 'getSearchable'
@@ -336,8 +330,9 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
     public const TYPE_RUN = 'run';
     public const TYPE_TERRAIN_PARK = 'terrain_park';
     public const TYPE_SUMMER_TRAIL = 'summer_trail';
-    public const TYPE_POINT_MARKER = 'point_marker';
-    public const KIND_GENERIC = 'generic';
+    public const TYPE_AMENITY_MARKER = 'amenity_marker';
+    public const TYPE_PARKING_LOT_MARKER = 'parking_lot_marker';
+    public const TYPE_GENERIC_MARKER = 'generic_marker';
 
     /**
      * Gets allowable values of the enum
@@ -351,19 +346,9 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
             self::TYPE_RUN,
             self::TYPE_TERRAIN_PARK,
             self::TYPE_SUMMER_TRAIL,
-            self::TYPE_POINT_MARKER,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getKindAllowableValues()
-    {
-        return [
-            self::KIND_GENERIC,
+            self::TYPE_AMENITY_MARKER,
+            self::TYPE_PARKING_LOT_MARKER,
+            self::TYPE_GENERIC_MARKER,
         ];
     }
 
@@ -396,7 +381,6 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('icon', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
         $this->setIfExists('amenity', $data ?? [], null);
-        $this->setIfExists('kind', $data ?? [], null);
         $this->setIfExists('parking_lot', $data ?? [], null);
         $this->setIfExists('label', $data ?? [], null);
         $this->setIfExists('searchable', $data ?? [], null);
@@ -453,18 +437,6 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['y'] === null) {
             $invalidProperties[] = "'y' can't be null";
         }
-        if ($this->container['kind'] === null) {
-            $invalidProperties[] = "'kind' can't be null";
-        }
-        $allowedValues = $this->getKindAllowableValues();
-        if (!is_null($this->container['kind']) && !in_array($this->container['kind'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'kind', must be one of '%s'",
-                $this->container['kind'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['label'] === null) {
             $invalidProperties[] = "'label' can't be null";
         }
@@ -867,43 +839,6 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable amenity cannot be null');
         }
         $this->container['amenity'] = $amenity;
-
-        return $this;
-    }
-
-    /**
-     * Gets kind
-     *
-     * @return string
-     */
-    public function getKind()
-    {
-        return $this->container['kind'];
-    }
-
-    /**
-     * Sets kind
-     *
-     * @param string $kind kind
-     *
-     * @return self
-     */
-    public function setKind($kind)
-    {
-        if (is_null($kind)) {
-            throw new \InvalidArgumentException('non-nullable kind cannot be null');
-        }
-        $allowedValues = $this->getKindAllowableValues();
-        if (!in_array($kind, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'kind', must be one of '%s'",
-                    $kind,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['kind'] = $kind;
 
         return $this;
     }
