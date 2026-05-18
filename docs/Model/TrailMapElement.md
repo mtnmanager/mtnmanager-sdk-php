@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **icon** | [**\MtnManager\Model\MarkerIcon**](MarkerIcon.md) |  | [optional]
 **color** | **string** |  | [optional]
 **amenity** | [**\MtnManager\Model\Amenity**](Amenity.md) |  | [optional]
+**group_label** | **string** |  | [optional]
 **parking_lot** | [**\MtnManager\Model\ParkingLot**](ParkingLot.md) |  | [optional]
 **label** | **string** |  |
 **searchable** | **bool** |  | [optional]

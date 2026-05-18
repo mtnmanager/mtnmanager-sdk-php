@@ -142,4 +142,13 @@ class TrailMapElementOneOf5Test extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "group_label"
+     */
+    public function testPropertyGroupLabel()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

@@ -207,6 +207,15 @@ class TrailMapElementTest extends TestCase
     }
 
     /**
+     * Test attribute "group_label"
+     */
+    public function testPropertyGroupLabel()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "parking_lot"
      */
     public function testPropertyParkingLot()

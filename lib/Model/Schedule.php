@@ -449,7 +449,7 @@ class Schedule implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets time_string
      *
-     * @param string $time_string Human-readable time range.  Example: \"9:00 a.m. to 4:00 p.m.\"
+     * @param string $time_string Human-readable time range.  Example: \"9:00 AM to 4:00 PM\"
      *
      * @return self
      */

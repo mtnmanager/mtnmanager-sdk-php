@@ -167,15 +167,16 @@ class MtnManagerApi
      *
      * Get amenities
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAmenities'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\Amenity[]
      */
-    public function getAmenities(string $contentType = self::contentTypes['getAmenities'][0])
+    public function getAmenities($accept_language = null, string $contentType = self::contentTypes['getAmenities'][0])
     {
-        list($response) = $this->getAmenitiesWithHttpInfo($contentType);
+        list($response) = $this->getAmenitiesWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -184,15 +185,16 @@ class MtnManagerApi
      *
      * Get amenities
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAmenities'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\Amenity[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAmenitiesWithHttpInfo(string $contentType = self::contentTypes['getAmenities'][0])
+    public function getAmenitiesWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getAmenities'][0])
     {
-        $request = $this->getAmenitiesRequest($contentType);
+        $request = $this->getAmenitiesRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -268,14 +270,15 @@ class MtnManagerApi
      *
      * Get amenities
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAmenities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAmenitiesAsync(string $contentType = self::contentTypes['getAmenities'][0])
+    public function getAmenitiesAsync($accept_language = null, string $contentType = self::contentTypes['getAmenities'][0])
     {
-        return $this->getAmenitiesAsyncWithHttpInfo($contentType)
+        return $this->getAmenitiesAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -288,15 +291,16 @@ class MtnManagerApi
      *
      * Get amenities
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAmenities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAmenitiesAsyncWithHttpInfo(string $contentType = self::contentTypes['getAmenities'][0])
+    public function getAmenitiesAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getAmenities'][0])
     {
         $returnType = '\MtnManager\Model\Amenity[]';
-        $request = $this->getAmenitiesRequest($contentType);
+        $request = $this->getAmenitiesRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -337,13 +341,15 @@ class MtnManagerApi
     /**
      * Create request for operation 'getAmenities'
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAmenities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getAmenitiesRequest(string $contentType = self::contentTypes['getAmenities'][0])
+    public function getAmenitiesRequest($accept_language = null, string $contentType = self::contentTypes['getAmenities'][0])
     {
+
 
 
         $resourcePath = '/api/v1/report/amenities';
@@ -354,6 +360,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
 
@@ -415,15 +425,16 @@ class MtnManagerApi
      *
      * Get full report
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFullReport'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\FullReport
      */
-    public function getFullReport(string $contentType = self::contentTypes['getFullReport'][0])
+    public function getFullReport($accept_language = null, string $contentType = self::contentTypes['getFullReport'][0])
     {
-        list($response) = $this->getFullReportWithHttpInfo($contentType);
+        list($response) = $this->getFullReportWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -432,15 +443,16 @@ class MtnManagerApi
      *
      * Get full report
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFullReport'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\FullReport, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFullReportWithHttpInfo(string $contentType = self::contentTypes['getFullReport'][0])
+    public function getFullReportWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getFullReport'][0])
     {
-        $request = $this->getFullReportRequest($contentType);
+        $request = $this->getFullReportRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -516,14 +528,15 @@ class MtnManagerApi
      *
      * Get full report
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFullReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFullReportAsync(string $contentType = self::contentTypes['getFullReport'][0])
+    public function getFullReportAsync($accept_language = null, string $contentType = self::contentTypes['getFullReport'][0])
     {
-        return $this->getFullReportAsyncWithHttpInfo($contentType)
+        return $this->getFullReportAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -536,15 +549,16 @@ class MtnManagerApi
      *
      * Get full report
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFullReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFullReportAsyncWithHttpInfo(string $contentType = self::contentTypes['getFullReport'][0])
+    public function getFullReportAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getFullReport'][0])
     {
         $returnType = '\MtnManager\Model\FullReport';
-        $request = $this->getFullReportRequest($contentType);
+        $request = $this->getFullReportRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -585,13 +599,15 @@ class MtnManagerApi
     /**
      * Create request for operation 'getFullReport'
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFullReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFullReportRequest(string $contentType = self::contentTypes['getFullReport'][0])
+    public function getFullReportRequest($accept_language = null, string $contentType = self::contentTypes['getFullReport'][0])
     {
+
 
 
         $resourcePath = '/api/v1/report';
@@ -602,6 +618,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
 
@@ -663,15 +683,16 @@ class MtnManagerApi
      *
      * Get operating hours
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHours'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\OperatingHours
      */
-    public function getHours(string $contentType = self::contentTypes['getHours'][0])
+    public function getHours($accept_language = null, string $contentType = self::contentTypes['getHours'][0])
     {
-        list($response) = $this->getHoursWithHttpInfo($contentType);
+        list($response) = $this->getHoursWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -680,15 +701,16 @@ class MtnManagerApi
      *
      * Get operating hours
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHours'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\OperatingHours, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getHoursWithHttpInfo(string $contentType = self::contentTypes['getHours'][0])
+    public function getHoursWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getHours'][0])
     {
-        $request = $this->getHoursRequest($contentType);
+        $request = $this->getHoursRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -764,14 +786,15 @@ class MtnManagerApi
      *
      * Get operating hours
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHours'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getHoursAsync(string $contentType = self::contentTypes['getHours'][0])
+    public function getHoursAsync($accept_language = null, string $contentType = self::contentTypes['getHours'][0])
     {
-        return $this->getHoursAsyncWithHttpInfo($contentType)
+        return $this->getHoursAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -784,15 +807,16 @@ class MtnManagerApi
      *
      * Get operating hours
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHours'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getHoursAsyncWithHttpInfo(string $contentType = self::contentTypes['getHours'][0])
+    public function getHoursAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getHours'][0])
     {
         $returnType = '\MtnManager\Model\OperatingHours';
-        $request = $this->getHoursRequest($contentType);
+        $request = $this->getHoursRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -833,13 +857,15 @@ class MtnManagerApi
     /**
      * Create request for operation 'getHours'
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHours'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getHoursRequest(string $contentType = self::contentTypes['getHours'][0])
+    public function getHoursRequest($accept_language = null, string $contentType = self::contentTypes['getHours'][0])
     {
+
 
 
         $resourcePath = '/api/v1/report/hours';
@@ -850,6 +876,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
 
@@ -911,15 +941,16 @@ class MtnManagerApi
      *
      * Get lifts
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLifts'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\Lift[]
      */
-    public function getLifts(string $contentType = self::contentTypes['getLifts'][0])
+    public function getLifts($accept_language = null, string $contentType = self::contentTypes['getLifts'][0])
     {
-        list($response) = $this->getLiftsWithHttpInfo($contentType);
+        list($response) = $this->getLiftsWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -928,15 +959,16 @@ class MtnManagerApi
      *
      * Get lifts
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLifts'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\Lift[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLiftsWithHttpInfo(string $contentType = self::contentTypes['getLifts'][0])
+    public function getLiftsWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getLifts'][0])
     {
-        $request = $this->getLiftsRequest($contentType);
+        $request = $this->getLiftsRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1012,14 +1044,15 @@ class MtnManagerApi
      *
      * Get lifts
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLifts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLiftsAsync(string $contentType = self::contentTypes['getLifts'][0])
+    public function getLiftsAsync($accept_language = null, string $contentType = self::contentTypes['getLifts'][0])
     {
-        return $this->getLiftsAsyncWithHttpInfo($contentType)
+        return $this->getLiftsAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1032,15 +1065,16 @@ class MtnManagerApi
      *
      * Get lifts
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLifts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLiftsAsyncWithHttpInfo(string $contentType = self::contentTypes['getLifts'][0])
+    public function getLiftsAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getLifts'][0])
     {
         $returnType = '\MtnManager\Model\Lift[]';
-        $request = $this->getLiftsRequest($contentType);
+        $request = $this->getLiftsRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1081,13 +1115,15 @@ class MtnManagerApi
     /**
      * Create request for operation 'getLifts'
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLifts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLiftsRequest(string $contentType = self::contentTypes['getLifts'][0])
+    public function getLiftsRequest($accept_language = null, string $contentType = self::contentTypes['getLifts'][0])
     {
+
 
 
         $resourcePath = '/api/v1/report/lifts';
@@ -1098,6 +1134,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
 
@@ -1159,15 +1199,16 @@ class MtnManagerApi
      *
      * Get overview
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOverview'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\Overview
      */
-    public function getOverview(string $contentType = self::contentTypes['getOverview'][0])
+    public function getOverview($accept_language = null, string $contentType = self::contentTypes['getOverview'][0])
     {
-        list($response) = $this->getOverviewWithHttpInfo($contentType);
+        list($response) = $this->getOverviewWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -1176,15 +1217,16 @@ class MtnManagerApi
      *
      * Get overview
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOverview'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\Overview, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOverviewWithHttpInfo(string $contentType = self::contentTypes['getOverview'][0])
+    public function getOverviewWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getOverview'][0])
     {
-        $request = $this->getOverviewRequest($contentType);
+        $request = $this->getOverviewRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1260,14 +1302,15 @@ class MtnManagerApi
      *
      * Get overview
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOverview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOverviewAsync(string $contentType = self::contentTypes['getOverview'][0])
+    public function getOverviewAsync($accept_language = null, string $contentType = self::contentTypes['getOverview'][0])
     {
-        return $this->getOverviewAsyncWithHttpInfo($contentType)
+        return $this->getOverviewAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1280,15 +1323,16 @@ class MtnManagerApi
      *
      * Get overview
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOverview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOverviewAsyncWithHttpInfo(string $contentType = self::contentTypes['getOverview'][0])
+    public function getOverviewAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getOverview'][0])
     {
         $returnType = '\MtnManager\Model\Overview';
-        $request = $this->getOverviewRequest($contentType);
+        $request = $this->getOverviewRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1329,13 +1373,15 @@ class MtnManagerApi
     /**
      * Create request for operation 'getOverview'
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOverview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOverviewRequest(string $contentType = self::contentTypes['getOverview'][0])
+    public function getOverviewRequest($accept_language = null, string $contentType = self::contentTypes['getOverview'][0])
     {
+
 
 
         $resourcePath = '/api/v1/report/overview';
@@ -1346,6 +1392,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
 
@@ -1407,15 +1457,16 @@ class MtnManagerApi
      *
      * Get parking lots
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getParkingLots'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\ParkingLot[]
      */
-    public function getParkingLots(string $contentType = self::contentTypes['getParkingLots'][0])
+    public function getParkingLots($accept_language = null, string $contentType = self::contentTypes['getParkingLots'][0])
     {
-        list($response) = $this->getParkingLotsWithHttpInfo($contentType);
+        list($response) = $this->getParkingLotsWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -1424,15 +1475,16 @@ class MtnManagerApi
      *
      * Get parking lots
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getParkingLots'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\ParkingLot[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getParkingLotsWithHttpInfo(string $contentType = self::contentTypes['getParkingLots'][0])
+    public function getParkingLotsWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getParkingLots'][0])
     {
-        $request = $this->getParkingLotsRequest($contentType);
+        $request = $this->getParkingLotsRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1508,14 +1560,15 @@ class MtnManagerApi
      *
      * Get parking lots
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getParkingLots'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getParkingLotsAsync(string $contentType = self::contentTypes['getParkingLots'][0])
+    public function getParkingLotsAsync($accept_language = null, string $contentType = self::contentTypes['getParkingLots'][0])
     {
-        return $this->getParkingLotsAsyncWithHttpInfo($contentType)
+        return $this->getParkingLotsAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1528,15 +1581,16 @@ class MtnManagerApi
      *
      * Get parking lots
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getParkingLots'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getParkingLotsAsyncWithHttpInfo(string $contentType = self::contentTypes['getParkingLots'][0])
+    public function getParkingLotsAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getParkingLots'][0])
     {
         $returnType = '\MtnManager\Model\ParkingLot[]';
-        $request = $this->getParkingLotsRequest($contentType);
+        $request = $this->getParkingLotsRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1577,13 +1631,15 @@ class MtnManagerApi
     /**
      * Create request for operation 'getParkingLots'
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getParkingLots'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getParkingLotsRequest(string $contentType = self::contentTypes['getParkingLots'][0])
+    public function getParkingLotsRequest($accept_language = null, string $contentType = self::contentTypes['getParkingLots'][0])
     {
+
 
 
         $resourcePath = '/api/v1/report/parking-lots';
@@ -1594,6 +1650,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
 
@@ -1655,15 +1715,16 @@ class MtnManagerApi
      *
      * Get runs
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\Run[]
      */
-    public function getRuns(string $contentType = self::contentTypes['getRuns'][0])
+    public function getRuns($accept_language = null, string $contentType = self::contentTypes['getRuns'][0])
     {
-        list($response) = $this->getRunsWithHttpInfo($contentType);
+        list($response) = $this->getRunsWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -1672,15 +1733,16 @@ class MtnManagerApi
      *
      * Get runs
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\Run[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getRunsWithHttpInfo(string $contentType = self::contentTypes['getRuns'][0])
+    public function getRunsWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getRuns'][0])
     {
-        $request = $this->getRunsRequest($contentType);
+        $request = $this->getRunsRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1756,14 +1818,15 @@ class MtnManagerApi
      *
      * Get runs
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRunsAsync(string $contentType = self::contentTypes['getRuns'][0])
+    public function getRunsAsync($accept_language = null, string $contentType = self::contentTypes['getRuns'][0])
     {
-        return $this->getRunsAsyncWithHttpInfo($contentType)
+        return $this->getRunsAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1776,15 +1839,16 @@ class MtnManagerApi
      *
      * Get runs
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getRunsAsyncWithHttpInfo(string $contentType = self::contentTypes['getRuns'][0])
+    public function getRunsAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getRuns'][0])
     {
         $returnType = '\MtnManager\Model\Run[]';
-        $request = $this->getRunsRequest($contentType);
+        $request = $this->getRunsRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1825,13 +1889,15 @@ class MtnManagerApi
     /**
      * Create request for operation 'getRuns'
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getRunsRequest(string $contentType = self::contentTypes['getRuns'][0])
+    public function getRunsRequest($accept_language = null, string $contentType = self::contentTypes['getRuns'][0])
     {
+
 
 
         $resourcePath = '/api/v1/report/runs';
@@ -1842,6 +1908,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
 
@@ -1903,15 +1973,16 @@ class MtnManagerApi
      *
      * Get snow conditions
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSnow'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\SnowReport[]
      */
-    public function getSnow(string $contentType = self::contentTypes['getSnow'][0])
+    public function getSnow($accept_language = null, string $contentType = self::contentTypes['getSnow'][0])
     {
-        list($response) = $this->getSnowWithHttpInfo($contentType);
+        list($response) = $this->getSnowWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -1920,15 +1991,16 @@ class MtnManagerApi
      *
      * Get snow conditions
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSnow'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\SnowReport[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSnowWithHttpInfo(string $contentType = self::contentTypes['getSnow'][0])
+    public function getSnowWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getSnow'][0])
     {
-        $request = $this->getSnowRequest($contentType);
+        $request = $this->getSnowRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2004,14 +2076,15 @@ class MtnManagerApi
      *
      * Get snow conditions
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSnow'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSnowAsync(string $contentType = self::contentTypes['getSnow'][0])
+    public function getSnowAsync($accept_language = null, string $contentType = self::contentTypes['getSnow'][0])
     {
-        return $this->getSnowAsyncWithHttpInfo($contentType)
+        return $this->getSnowAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2024,15 +2097,16 @@ class MtnManagerApi
      *
      * Get snow conditions
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSnow'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSnowAsyncWithHttpInfo(string $contentType = self::contentTypes['getSnow'][0])
+    public function getSnowAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getSnow'][0])
     {
         $returnType = '\MtnManager\Model\SnowReport[]';
-        $request = $this->getSnowRequest($contentType);
+        $request = $this->getSnowRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2073,13 +2147,15 @@ class MtnManagerApi
     /**
      * Create request for operation 'getSnow'
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSnow'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSnowRequest(string $contentType = self::contentTypes['getSnow'][0])
+    public function getSnowRequest($accept_language = null, string $contentType = self::contentTypes['getSnow'][0])
     {
+
 
 
         $resourcePath = '/api/v1/report/snow';
@@ -2090,6 +2166,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
 
@@ -2151,15 +2231,16 @@ class MtnManagerApi
      *
      * Get summer trails
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSummerTrails'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\SummerTrail[]
      */
-    public function getSummerTrails(string $contentType = self::contentTypes['getSummerTrails'][0])
+    public function getSummerTrails($accept_language = null, string $contentType = self::contentTypes['getSummerTrails'][0])
     {
-        list($response) = $this->getSummerTrailsWithHttpInfo($contentType);
+        list($response) = $this->getSummerTrailsWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -2168,15 +2249,16 @@ class MtnManagerApi
      *
      * Get summer trails
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSummerTrails'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\SummerTrail[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSummerTrailsWithHttpInfo(string $contentType = self::contentTypes['getSummerTrails'][0])
+    public function getSummerTrailsWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getSummerTrails'][0])
     {
-        $request = $this->getSummerTrailsRequest($contentType);
+        $request = $this->getSummerTrailsRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2252,14 +2334,15 @@ class MtnManagerApi
      *
      * Get summer trails
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSummerTrails'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSummerTrailsAsync(string $contentType = self::contentTypes['getSummerTrails'][0])
+    public function getSummerTrailsAsync($accept_language = null, string $contentType = self::contentTypes['getSummerTrails'][0])
     {
-        return $this->getSummerTrailsAsyncWithHttpInfo($contentType)
+        return $this->getSummerTrailsAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2272,15 +2355,16 @@ class MtnManagerApi
      *
      * Get summer trails
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSummerTrails'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSummerTrailsAsyncWithHttpInfo(string $contentType = self::contentTypes['getSummerTrails'][0])
+    public function getSummerTrailsAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getSummerTrails'][0])
     {
         $returnType = '\MtnManager\Model\SummerTrail[]';
-        $request = $this->getSummerTrailsRequest($contentType);
+        $request = $this->getSummerTrailsRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2321,13 +2405,15 @@ class MtnManagerApi
     /**
      * Create request for operation 'getSummerTrails'
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSummerTrails'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSummerTrailsRequest(string $contentType = self::contentTypes['getSummerTrails'][0])
+    public function getSummerTrailsRequest($accept_language = null, string $contentType = self::contentTypes['getSummerTrails'][0])
     {
+
 
 
         $resourcePath = '/api/v1/report/summer-trails';
@@ -2338,6 +2424,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
 
@@ -2399,15 +2489,16 @@ class MtnManagerApi
      *
      * Get terrain parks
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerrainParks'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\TerrainPark[]
      */
-    public function getTerrainParks(string $contentType = self::contentTypes['getTerrainParks'][0])
+    public function getTerrainParks($accept_language = null, string $contentType = self::contentTypes['getTerrainParks'][0])
     {
-        list($response) = $this->getTerrainParksWithHttpInfo($contentType);
+        list($response) = $this->getTerrainParksWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -2416,15 +2507,16 @@ class MtnManagerApi
      *
      * Get terrain parks
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerrainParks'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\TerrainPark[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTerrainParksWithHttpInfo(string $contentType = self::contentTypes['getTerrainParks'][0])
+    public function getTerrainParksWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getTerrainParks'][0])
     {
-        $request = $this->getTerrainParksRequest($contentType);
+        $request = $this->getTerrainParksRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2500,14 +2592,15 @@ class MtnManagerApi
      *
      * Get terrain parks
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerrainParks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTerrainParksAsync(string $contentType = self::contentTypes['getTerrainParks'][0])
+    public function getTerrainParksAsync($accept_language = null, string $contentType = self::contentTypes['getTerrainParks'][0])
     {
-        return $this->getTerrainParksAsyncWithHttpInfo($contentType)
+        return $this->getTerrainParksAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2520,15 +2613,16 @@ class MtnManagerApi
      *
      * Get terrain parks
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerrainParks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTerrainParksAsyncWithHttpInfo(string $contentType = self::contentTypes['getTerrainParks'][0])
+    public function getTerrainParksAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getTerrainParks'][0])
     {
         $returnType = '\MtnManager\Model\TerrainPark[]';
-        $request = $this->getTerrainParksRequest($contentType);
+        $request = $this->getTerrainParksRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2569,13 +2663,15 @@ class MtnManagerApi
     /**
      * Create request for operation 'getTerrainParks'
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerrainParks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTerrainParksRequest(string $contentType = self::contentTypes['getTerrainParks'][0])
+    public function getTerrainParksRequest($accept_language = null, string $contentType = self::contentTypes['getTerrainParks'][0])
     {
+
 
 
         $resourcePath = '/api/v1/report/terrain-parks';
@@ -2586,6 +2682,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
 
@@ -2648,15 +2748,16 @@ class MtnManagerApi
      * Get trail map
      *
      * @param  string $uuid Resource UUID (required)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMap'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\TrailMap
      */
-    public function getTrailMap($uuid, string $contentType = self::contentTypes['getTrailMap'][0])
+    public function getTrailMap($uuid, $accept_language = null, string $contentType = self::contentTypes['getTrailMap'][0])
     {
-        list($response) = $this->getTrailMapWithHttpInfo($uuid, $contentType);
+        list($response) = $this->getTrailMapWithHttpInfo($uuid, $accept_language, $contentType);
         return $response;
     }
 
@@ -2666,15 +2767,16 @@ class MtnManagerApi
      * Get trail map
      *
      * @param  string $uuid Resource UUID (required)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMap'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\TrailMap, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTrailMapWithHttpInfo($uuid, string $contentType = self::contentTypes['getTrailMap'][0])
+    public function getTrailMapWithHttpInfo($uuid, $accept_language = null, string $contentType = self::contentTypes['getTrailMap'][0])
     {
-        $request = $this->getTrailMapRequest($uuid, $contentType);
+        $request = $this->getTrailMapRequest($uuid, $accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2751,14 +2853,15 @@ class MtnManagerApi
      * Get trail map
      *
      * @param  string $uuid Resource UUID (required)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMap'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrailMapAsync($uuid, string $contentType = self::contentTypes['getTrailMap'][0])
+    public function getTrailMapAsync($uuid, $accept_language = null, string $contentType = self::contentTypes['getTrailMap'][0])
     {
-        return $this->getTrailMapAsyncWithHttpInfo($uuid, $contentType)
+        return $this->getTrailMapAsyncWithHttpInfo($uuid, $accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2772,15 +2875,16 @@ class MtnManagerApi
      * Get trail map
      *
      * @param  string $uuid Resource UUID (required)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMap'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrailMapAsyncWithHttpInfo($uuid, string $contentType = self::contentTypes['getTrailMap'][0])
+    public function getTrailMapAsyncWithHttpInfo($uuid, $accept_language = null, string $contentType = self::contentTypes['getTrailMap'][0])
     {
         $returnType = '\MtnManager\Model\TrailMap';
-        $request = $this->getTrailMapRequest($uuid, $contentType);
+        $request = $this->getTrailMapRequest($uuid, $accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2822,12 +2926,13 @@ class MtnManagerApi
      * Create request for operation 'getTrailMap'
      *
      * @param  string $uuid Resource UUID (required)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMap'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTrailMapRequest($uuid, string $contentType = self::contentTypes['getTrailMap'][0])
+    public function getTrailMapRequest($uuid, $accept_language = null, string $contentType = self::contentTypes['getTrailMap'][0])
     {
 
         // verify the required parameter 'uuid' is set
@@ -2838,6 +2943,7 @@ class MtnManagerApi
         }
 
 
+
         $resourcePath = '/api/v1/report/trail-map/{uuid}';
         $formParams = [];
         $queryParams = [];
@@ -2846,6 +2952,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
         // path params
         if ($uuid !== null) {
@@ -2915,15 +3025,16 @@ class MtnManagerApi
      *
      * Get trail maps
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMaps'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\TrailMapSummary[]
      */
-    public function getTrailMaps(string $contentType = self::contentTypes['getTrailMaps'][0])
+    public function getTrailMaps($accept_language = null, string $contentType = self::contentTypes['getTrailMaps'][0])
     {
-        list($response) = $this->getTrailMapsWithHttpInfo($contentType);
+        list($response) = $this->getTrailMapsWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -2932,15 +3043,16 @@ class MtnManagerApi
      *
      * Get trail maps
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMaps'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\TrailMapSummary[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getTrailMapsWithHttpInfo(string $contentType = self::contentTypes['getTrailMaps'][0])
+    public function getTrailMapsWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getTrailMaps'][0])
     {
-        $request = $this->getTrailMapsRequest($contentType);
+        $request = $this->getTrailMapsRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3016,14 +3128,15 @@ class MtnManagerApi
      *
      * Get trail maps
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMaps'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrailMapsAsync(string $contentType = self::contentTypes['getTrailMaps'][0])
+    public function getTrailMapsAsync($accept_language = null, string $contentType = self::contentTypes['getTrailMaps'][0])
     {
-        return $this->getTrailMapsAsyncWithHttpInfo($contentType)
+        return $this->getTrailMapsAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3036,15 +3149,16 @@ class MtnManagerApi
      *
      * Get trail maps
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMaps'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getTrailMapsAsyncWithHttpInfo(string $contentType = self::contentTypes['getTrailMaps'][0])
+    public function getTrailMapsAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getTrailMaps'][0])
     {
         $returnType = '\MtnManager\Model\TrailMapSummary[]';
-        $request = $this->getTrailMapsRequest($contentType);
+        $request = $this->getTrailMapsRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3085,13 +3199,15 @@ class MtnManagerApi
     /**
      * Create request for operation 'getTrailMaps'
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMaps'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getTrailMapsRequest(string $contentType = self::contentTypes['getTrailMaps'][0])
+    public function getTrailMapsRequest($accept_language = null, string $contentType = self::contentTypes['getTrailMaps'][0])
     {
+
 
 
         $resourcePath = '/api/v1/report/trail-maps';
@@ -3102,6 +3218,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
 
@@ -3163,15 +3283,16 @@ class MtnManagerApi
      *
      * Get weather
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWeather'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return \MtnManager\Model\Weather
      */
-    public function getWeather(string $contentType = self::contentTypes['getWeather'][0])
+    public function getWeather($accept_language = null, string $contentType = self::contentTypes['getWeather'][0])
     {
-        list($response) = $this->getWeatherWithHttpInfo($contentType);
+        list($response) = $this->getWeatherWithHttpInfo($accept_language, $contentType);
         return $response;
     }
 
@@ -3180,15 +3301,16 @@ class MtnManagerApi
      *
      * Get weather
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWeather'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of \MtnManager\Model\Weather, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getWeatherWithHttpInfo(string $contentType = self::contentTypes['getWeather'][0])
+    public function getWeatherWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getWeather'][0])
     {
-        $request = $this->getWeatherRequest($contentType);
+        $request = $this->getWeatherRequest($accept_language, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3264,14 +3386,15 @@ class MtnManagerApi
      *
      * Get weather
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWeather'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWeatherAsync(string $contentType = self::contentTypes['getWeather'][0])
+    public function getWeatherAsync($accept_language = null, string $contentType = self::contentTypes['getWeather'][0])
     {
-        return $this->getWeatherAsyncWithHttpInfo($contentType)
+        return $this->getWeatherAsyncWithHttpInfo($accept_language, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3284,15 +3407,16 @@ class MtnManagerApi
      *
      * Get weather
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWeather'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getWeatherAsyncWithHttpInfo(string $contentType = self::contentTypes['getWeather'][0])
+    public function getWeatherAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getWeather'][0])
     {
         $returnType = '\MtnManager\Model\Weather';
-        $request = $this->getWeatherRequest($contentType);
+        $request = $this->getWeatherRequest($accept_language, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3333,13 +3457,15 @@ class MtnManagerApi
     /**
      * Create request for operation 'getWeather'
      *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWeather'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getWeatherRequest(string $contentType = self::contentTypes['getWeather'][0])
+    public function getWeatherRequest($accept_language = null, string $contentType = self::contentTypes['getWeather'][0])
     {
+
 
 
         $resourcePath = '/api/v1/report/weather';
@@ -3350,6 +3476,10 @@ class MtnManagerApi
         $multipart = false;
 
 
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
 
 
 

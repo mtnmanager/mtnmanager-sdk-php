@@ -24,7 +24,7 @@ All URIs are relative to https://your-resort.mtnmanager.com, except if the opera
 ## `getAmenities()`
 
 ```php
-getAmenities(): \MtnManager\Model\Amenity[]
+getAmenities($accept_language): \MtnManager\Model\Amenity[]
 ```
 
 Get amenities
@@ -42,9 +42,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getAmenities();
+    $result = $apiInstance->getAmenities($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getAmenities: ', $e->getMessage(), PHP_EOL;
@@ -53,7 +54,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 
@@ -75,7 +78,7 @@ No authorization required
 ## `getFullReport()`
 
 ```php
-getFullReport(): \MtnManager\Model\FullReport
+getFullReport($accept_language): \MtnManager\Model\FullReport
 ```
 
 Get full report
@@ -93,9 +96,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getFullReport();
+    $result = $apiInstance->getFullReport($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getFullReport: ', $e->getMessage(), PHP_EOL;
@@ -104,7 +108,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 
@@ -126,7 +132,7 @@ No authorization required
 ## `getHours()`
 
 ```php
-getHours(): \MtnManager\Model\OperatingHours
+getHours($accept_language): \MtnManager\Model\OperatingHours
 ```
 
 Get operating hours
@@ -144,9 +150,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getHours();
+    $result = $apiInstance->getHours($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getHours: ', $e->getMessage(), PHP_EOL;
@@ -155,7 +162,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 
@@ -177,7 +186,7 @@ No authorization required
 ## `getLifts()`
 
 ```php
-getLifts(): \MtnManager\Model\Lift[]
+getLifts($accept_language): \MtnManager\Model\Lift[]
 ```
 
 Get lifts
@@ -195,9 +204,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getLifts();
+    $result = $apiInstance->getLifts($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getLifts: ', $e->getMessage(), PHP_EOL;
@@ -206,7 +216,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 
@@ -228,7 +240,7 @@ No authorization required
 ## `getOverview()`
 
 ```php
-getOverview(): \MtnManager\Model\Overview
+getOverview($accept_language): \MtnManager\Model\Overview
 ```
 
 Get overview
@@ -246,9 +258,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getOverview();
+    $result = $apiInstance->getOverview($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getOverview: ', $e->getMessage(), PHP_EOL;
@@ -257,7 +270,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 
@@ -279,7 +294,7 @@ No authorization required
 ## `getParkingLots()`
 
 ```php
-getParkingLots(): \MtnManager\Model\ParkingLot[]
+getParkingLots($accept_language): \MtnManager\Model\ParkingLot[]
 ```
 
 Get parking lots
@@ -297,9 +312,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getParkingLots();
+    $result = $apiInstance->getParkingLots($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getParkingLots: ', $e->getMessage(), PHP_EOL;
@@ -308,7 +324,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 
@@ -330,7 +348,7 @@ No authorization required
 ## `getRuns()`
 
 ```php
-getRuns(): \MtnManager\Model\Run[]
+getRuns($accept_language): \MtnManager\Model\Run[]
 ```
 
 Get runs
@@ -348,9 +366,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getRuns();
+    $result = $apiInstance->getRuns($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getRuns: ', $e->getMessage(), PHP_EOL;
@@ -359,7 +378,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 
@@ -381,7 +402,7 @@ No authorization required
 ## `getSnow()`
 
 ```php
-getSnow(): \MtnManager\Model\SnowReport[]
+getSnow($accept_language): \MtnManager\Model\SnowReport[]
 ```
 
 Get snow conditions
@@ -399,9 +420,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getSnow();
+    $result = $apiInstance->getSnow($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getSnow: ', $e->getMessage(), PHP_EOL;
@@ -410,7 +432,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 
@@ -432,7 +456,7 @@ No authorization required
 ## `getSummerTrails()`
 
 ```php
-getSummerTrails(): \MtnManager\Model\SummerTrail[]
+getSummerTrails($accept_language): \MtnManager\Model\SummerTrail[]
 ```
 
 Get summer trails
@@ -450,9 +474,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getSummerTrails();
+    $result = $apiInstance->getSummerTrails($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getSummerTrails: ', $e->getMessage(), PHP_EOL;
@@ -461,7 +486,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 
@@ -483,7 +510,7 @@ No authorization required
 ## `getTerrainParks()`
 
 ```php
-getTerrainParks(): \MtnManager\Model\TerrainPark[]
+getTerrainParks($accept_language): \MtnManager\Model\TerrainPark[]
 ```
 
 Get terrain parks
@@ -501,9 +528,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getTerrainParks();
+    $result = $apiInstance->getTerrainParks($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getTerrainParks: ', $e->getMessage(), PHP_EOL;
@@ -512,7 +540,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 
@@ -534,7 +564,7 @@ No authorization required
 ## `getTrailMap()`
 
 ```php
-getTrailMap($uuid): \MtnManager\Model\TrailMap
+getTrailMap($uuid, $accept_language): \MtnManager\Model\TrailMap
 ```
 
 Get trail map
@@ -553,9 +583,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     new GuzzleHttp\Client()
 );
 $uuid = 'uuid_example'; // string | Resource UUID
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getTrailMap($uuid);
+    $result = $apiInstance->getTrailMap($uuid, $accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getTrailMap: ', $e->getMessage(), PHP_EOL;
@@ -567,6 +598,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **uuid** | **string**| Resource UUID | |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 
@@ -588,7 +620,7 @@ No authorization required
 ## `getTrailMaps()`
 
 ```php
-getTrailMaps(): \MtnManager\Model\TrailMapSummary[]
+getTrailMaps($accept_language): \MtnManager\Model\TrailMapSummary[]
 ```
 
 Get trail maps
@@ -606,9 +638,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getTrailMaps();
+    $result = $apiInstance->getTrailMaps($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getTrailMaps: ', $e->getMessage(), PHP_EOL;
@@ -617,7 +650,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 
@@ -639,7 +674,7 @@ No authorization required
 ## `getWeather()`
 
 ```php
-getWeather(): \MtnManager\Model\Weather
+getWeather($accept_language): \MtnManager\Model\Weather
 ```
 
 Get weather
@@ -657,9 +692,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getWeather();
+    $result = $apiInstance->getWeather($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getWeather: ', $e->getMessage(), PHP_EOL;
@@ -668,7 +704,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
 
 ### Return type
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **days_string** | **string** | Human-readable description of which days this schedule applies to.  Examples: \&quot;Daily\&quot;, \&quot;Saturday &amp; Sunday\&quot;, \&quot;Monday, Wednesday, and Friday\&quot; |
 **days_of_week** | [**\MtnManager\Model\DayOfWeek[]**](DayOfWeek.md) | Array of days of the week this schedule applies to.  For programmatic use. |
-**time_string** | **string** | Human-readable time range.  Example: \&quot;9:00 a.m. to 4:00 p.m.\&quot; |
+**time_string** | **string** | Human-readable time range.  Example: \&quot;9:00 AM to 4:00 PM\&quot; |
 **opens_at** | **string** | Opening time in 24-hour format (HH:MM), in resort&#39;s local timezone. |
 **closes_at** | **string** | Closing time in 24-hour format (HH:MM), in resort&#39;s local timezone. |
 **in_effect** | **bool** | Whether this schedule is currently in effect.  &#x60;false&#x60; for upcoming schedules that haven&#39;t started yet. |

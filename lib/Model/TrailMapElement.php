@@ -73,6 +73,7 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon' => '\MtnManager\Model\MarkerIcon',
         'color' => 'string',
         'amenity' => '\MtnManager\Model\Amenity',
+        'group_label' => 'string',
         'parking_lot' => '\MtnManager\Model\ParkingLot',
         'label' => 'string',
         'searchable' => 'bool'
@@ -100,6 +101,7 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon' => null,
         'color' => null,
         'amenity' => null,
+        'group_label' => null,
         'parking_lot' => null,
         'label' => null,
         'searchable' => null
@@ -125,6 +127,7 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon' => false,
         'color' => false,
         'amenity' => false,
+        'group_label' => false,
         'parking_lot' => false,
         'label' => false,
         'searchable' => false
@@ -230,6 +233,7 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon' => 'icon',
         'color' => 'color',
         'amenity' => 'amenity',
+        'group_label' => 'group_label',
         'parking_lot' => 'parking_lot',
         'label' => 'label',
         'searchable' => 'searchable'
@@ -255,6 +259,7 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon' => 'setIcon',
         'color' => 'setColor',
         'amenity' => 'setAmenity',
+        'group_label' => 'setGroupLabel',
         'parking_lot' => 'setParkingLot',
         'label' => 'setLabel',
         'searchable' => 'setSearchable'
@@ -280,6 +285,7 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         'icon' => 'getIcon',
         'color' => 'getColor',
         'amenity' => 'getAmenity',
+        'group_label' => 'getGroupLabel',
         'parking_lot' => 'getParkingLot',
         'label' => 'getLabel',
         'searchable' => 'getSearchable'
@@ -381,6 +387,7 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('icon', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
         $this->setIfExists('amenity', $data ?? [], null);
+        $this->setIfExists('group_label', $data ?? [], null);
         $this->setIfExists('parking_lot', $data ?? [], null);
         $this->setIfExists('label', $data ?? [], null);
         $this->setIfExists('searchable', $data ?? [], null);
@@ -839,6 +846,33 @@ class TrailMapElement implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable amenity cannot be null');
         }
         $this->container['amenity'] = $amenity;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_label
+     *
+     * @return string|null
+     */
+    public function getGroupLabel()
+    {
+        return $this->container['group_label'];
+    }
+
+    /**
+     * Sets group_label
+     *
+     * @param string|null $group_label group_label
+     *
+     * @return self
+     */
+    public function setGroupLabel($group_label)
+    {
+        if (is_null($group_label)) {
+            throw new \InvalidArgumentException('non-nullable group_label cannot be null');
+        }
+        $this->container['group_label'] = $group_label;
 
         return $this;
     }

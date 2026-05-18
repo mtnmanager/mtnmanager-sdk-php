@@ -11,5 +11,6 @@ Name | Type | Description | Notes
 **icon** | [**\MtnManager\Model\MarkerIcon**](MarkerIcon.md) |  | [optional]
 **color** | **string** |  | [optional]
 **parking_lot** | [**\MtnManager\Model\ParkingLot**](ParkingLot.md) |  | [optional]
+**group_label** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

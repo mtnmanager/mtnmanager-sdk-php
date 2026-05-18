@@ -64,7 +64,8 @@ class TrailMapElementOneOf4 implements ModelInterface, ArrayAccess, \JsonSeriali
         'y' => 'float',
         'icon' => '\MtnManager\Model\MarkerIcon',
         'color' => 'string',
-        'amenity' => '\MtnManager\Model\Amenity'
+        'amenity' => '\MtnManager\Model\Amenity',
+        'group_label' => 'string'
     ];
 
     /**
@@ -81,7 +82,8 @@ class TrailMapElementOneOf4 implements ModelInterface, ArrayAccess, \JsonSeriali
         'y' => 'double',
         'icon' => null,
         'color' => null,
-        'amenity' => null
+        'amenity' => null,
+        'group_label' => null
     ];
 
     /**
@@ -96,7 +98,8 @@ class TrailMapElementOneOf4 implements ModelInterface, ArrayAccess, \JsonSeriali
         'y' => false,
         'icon' => true,
         'color' => true,
-        'amenity' => true
+        'amenity' => true,
+        'group_label' => true
     ];
 
     /**
@@ -191,7 +194,8 @@ class TrailMapElementOneOf4 implements ModelInterface, ArrayAccess, \JsonSeriali
         'y' => 'y',
         'icon' => 'icon',
         'color' => 'color',
-        'amenity' => 'amenity'
+        'amenity' => 'amenity',
+        'group_label' => 'group_label'
     ];
 
     /**
@@ -206,7 +210,8 @@ class TrailMapElementOneOf4 implements ModelInterface, ArrayAccess, \JsonSeriali
         'y' => 'setY',
         'icon' => 'setIcon',
         'color' => 'setColor',
-        'amenity' => 'setAmenity'
+        'amenity' => 'setAmenity',
+        'group_label' => 'setGroupLabel'
     ];
 
     /**
@@ -221,7 +226,8 @@ class TrailMapElementOneOf4 implements ModelInterface, ArrayAccess, \JsonSeriali
         'y' => 'getY',
         'icon' => 'getIcon',
         'color' => 'getColor',
-        'amenity' => 'getAmenity'
+        'amenity' => 'getAmenity',
+        'group_label' => 'getGroupLabel'
     ];
 
     /**
@@ -301,6 +307,7 @@ class TrailMapElementOneOf4 implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('icon', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
         $this->setIfExists('amenity', $data ?? [], null);
+        $this->setIfExists('group_label', $data ?? [], null);
     }
 
     /**
@@ -582,6 +589,40 @@ class TrailMapElementOneOf4 implements ModelInterface, ArrayAccess, \JsonSeriali
             }
         }
         $this->container['amenity'] = $amenity;
+
+        return $this;
+    }
+
+    /**
+     * Gets group_label
+     *
+     * @return string|null
+     */
+    public function getGroupLabel()
+    {
+        return $this->container['group_label'];
+    }
+
+    /**
+     * Sets group_label
+     *
+     * @param string|null $group_label group_label
+     *
+     * @return self
+     */
+    public function setGroupLabel($group_label)
+    {
+        if (is_null($group_label)) {
+            array_push($this->openAPINullablesSetToNull, 'group_label');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('group_label', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['group_label'] = $group_label;
 
         return $this;
     }

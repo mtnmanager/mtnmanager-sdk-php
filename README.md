@@ -2,7 +2,7 @@
 
 SDK for interacting with the MtnManager API, providing real-time access to your ski resort’s public operational data.
 
-For more information, please visit [https://mtnmanager.com](https://mtnmanager.com)
+For more information, please visit [https://docs.mtnmanager.com/developer/](https://docs.mtnmanager.com/developer/)
 
 ## Installation & Usage
 
@@ -55,9 +55,10 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
-    $result = $apiInstance->getAmenities();
+    $result = $apiInstance->getAmenities($accept_language);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling MtnManagerApi->getAmenities: ', $e->getMessage(), PHP_EOL;
