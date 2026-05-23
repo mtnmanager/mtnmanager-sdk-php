@@ -10,6 +10,7 @@ All URIs are relative to https://your-resort.mtnmanager.com, except if the opera
 | [**getFullReport()**](MtnManagerApi.md#getFullReport) | **GET** /api/v1/report | Get full report |
 | [**getHours()**](MtnManagerApi.md#getHours) | **GET** /api/v1/report/hours | Get operating hours |
 | [**getLifts()**](MtnManagerApi.md#getLifts) | **GET** /api/v1/report/lifts | Get lifts |
+| [**getMobileApp()**](MtnManagerApi.md#getMobileApp) | **GET** /api/v1/report/mobile-app | Get mobile app data |
 | [**getOverview()**](MtnManagerApi.md#getOverview) | **GET** /api/v1/report/overview | Get overview |
 | [**getParkingLots()**](MtnManagerApi.md#getParkingLots) | **GET** /api/v1/report/parking-lots | Get parking lots |
 | [**getRuns()**](MtnManagerApi.md#getRuns) | **GET** /api/v1/report/runs | Get runs |
@@ -223,6 +224,60 @@ try {
 ### Return type
 
 [**\MtnManager\Model\Lift[]**](../Model/Lift.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getMobileApp()`
+
+```php
+getMobileApp($accept_language): \MtnManager\Model\MobileAppResponse
+```
+
+Get mobile app data
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MtnManager\Api\MtnManagerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
+
+try {
+    $result = $apiInstance->getMobileApp($accept_language);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MtnManagerApi->getMobileApp: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
+
+### Return type
+
+[**\MtnManager\Model\MobileAppResponse**](../Model/MobileAppResponse.md)
 
 ### Authorization
 

@@ -121,6 +121,18 @@ class MtnManagerApiTest extends TestCase
     }
 
     /**
+     * Test case for getMobileApp
+     *
+     * Get mobile app data.
+     *
+     */
+    public function testGetMobileApp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getOverview
      *
      * Get overview.
