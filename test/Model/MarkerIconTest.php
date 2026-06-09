@@ -1,6 +1,6 @@
 <?php
 /**
- * WeatherConditionCodeTest
+ * MarkerIconTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * WeatherConditionCodeTest Class Doc Comment
+ * MarkerIconTest Class Doc Comment
  *
  * @category    Class
- * @description Weather condition code
+ * @description MarkerIcon
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class WeatherConditionCodeTest extends TestCase
+class MarkerIconTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class WeatherConditionCodeTest extends TestCase
     }
 
     /**
-     * Test "WeatherConditionCode"
+     * Test "MarkerIcon"
      */
-    public function testWeatherConditionCode()
+    public function testMarkerIcon()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

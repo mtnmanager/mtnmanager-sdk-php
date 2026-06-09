@@ -34,7 +34,7 @@ use \MtnManager\ObjectSerializer;
  * WeatherConditionCode Class Doc Comment
  *
  * @category Class
- * @description Weather condition code   Variants mirror Apple&#39;s &#x60;WeatherCondition&#x60; enum exactly so they match the  &#x60;conditionCode&#x60; strings returned by the WeatherKit REST API verbatim.  See https://developer.apple.com/documentation/weatherkit/weathercondition
+ * @description Weather condition code
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

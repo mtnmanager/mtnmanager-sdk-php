@@ -1,6 +1,6 @@
 <?php
 /**
- * WeatherConditionCodeTest
+ * LabelOffsetTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * WeatherConditionCodeTest Class Doc Comment
+ * LabelOffsetTest Class Doc Comment
  *
  * @category    Class
- * @description Weather condition code
+ * @description LabelOffset
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class WeatherConditionCodeTest extends TestCase
+class LabelOffsetTest extends TestCase
 {
 
     /**
@@ -72,9 +72,27 @@ class WeatherConditionCodeTest extends TestCase
     }
 
     /**
-     * Test "WeatherConditionCode"
+     * Test "LabelOffset"
      */
-    public function testWeatherConditionCode()
+    public function testLabelOffset()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "x"
+     */
+    public function testPropertyX()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "y"
+     */
+    public function testPropertyY()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
