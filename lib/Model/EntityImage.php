@@ -1,6 +1,6 @@
 <?php
 /**
- * TerrainParkFeature
+ * EntityImage
  *
  * PHP version 8.1
  *
@@ -33,16 +33,16 @@ use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
- * TerrainParkFeature Class Doc Comment
+ * EntityImage Class Doc Comment
  *
  * @category Class
- * @description Represents a single feature within a terrain park (jump, box, rail, etc.)  with its current status and size rating.
+ * @description A single image attached to a resort entity, with a client-supplied ThumbHash  for rendering a blurred placeholder while the full image loads.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TerrainParkFeature implements ModelInterface, ArrayAccess, \JsonSerializable
+class EntityImage implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class TerrainParkFeature implements ModelInterface, ArrayAccess, \JsonSerializab
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TerrainParkFeature';
+    protected static $openAPIModelName = 'EntityImage';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -59,14 +59,8 @@ class TerrainParkFeature implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $openAPITypes = [
-        'uuid' => 'string',
-        'name' => 'string',
-        'slug' => 'string',
-        'number' => 'int',
-        'feature_type' => '\MtnManager\Model\FeatureType',
-        'size' => '\MtnManager\Model\FeatureSize',
-        'status' => '\MtnManager\Model\TerrainParkFeatureStatus',
-        'images' => '\MtnManager\Model\EntityImage[]'
+        'url' => 'string',
+        'thumb_hash' => 'string'
     ];
 
     /**
@@ -77,14 +71,8 @@ class TerrainParkFeature implements ModelInterface, ArrayAccess, \JsonSerializab
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'uuid' => null,
-        'name' => null,
-        'slug' => null,
-        'number' => 'int32',
-        'feature_type' => null,
-        'size' => null,
-        'status' => null,
-        'images' => null
+        'url' => null,
+        'thumb_hash' => null
     ];
 
     /**
@@ -93,14 +81,8 @@ class TerrainParkFeature implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'uuid' => false,
-        'name' => false,
-        'slug' => false,
-        'number' => true,
-        'feature_type' => false,
-        'size' => true,
-        'status' => false,
-        'images' => false
+        'url' => false,
+        'thumb_hash' => false
     ];
 
     /**
@@ -189,14 +171,8 @@ class TerrainParkFeature implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $attributeMap = [
-        'uuid' => 'uuid',
-        'name' => 'name',
-        'slug' => 'slug',
-        'number' => 'number',
-        'feature_type' => 'feature_type',
-        'size' => 'size',
-        'status' => 'status',
-        'images' => 'images'
+        'url' => 'url',
+        'thumb_hash' => 'thumb_hash'
     ];
 
     /**
@@ -205,14 +181,8 @@ class TerrainParkFeature implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $setters = [
-        'uuid' => 'setUuid',
-        'name' => 'setName',
-        'slug' => 'setSlug',
-        'number' => 'setNumber',
-        'feature_type' => 'setFeatureType',
-        'size' => 'setSize',
-        'status' => 'setStatus',
-        'images' => 'setImages'
+        'url' => 'setUrl',
+        'thumb_hash' => 'setThumbHash'
     ];
 
     /**
@@ -221,14 +191,8 @@ class TerrainParkFeature implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var string[]
      */
     protected static $getters = [
-        'uuid' => 'getUuid',
-        'name' => 'getName',
-        'slug' => 'getSlug',
-        'number' => 'getNumber',
-        'feature_type' => 'getFeatureType',
-        'size' => 'getSize',
-        'status' => 'getStatus',
-        'images' => 'getImages'
+        'url' => 'getUrl',
+        'thumb_hash' => 'getThumbHash'
     ];
 
     /**
@@ -288,14 +252,8 @@ class TerrainParkFeature implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('uuid', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('slug', $data ?? [], null);
-        $this->setIfExists('number', $data ?? [], null);
-        $this->setIfExists('feature_type', $data ?? [], null);
-        $this->setIfExists('size', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('images', $data ?? [], null);
+        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('thumb_hash', $data ?? [], null);
     }
 
     /**
@@ -325,20 +283,11 @@ class TerrainParkFeature implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['uuid'] === null) {
-            $invalidProperties[] = "'uuid' can't be null";
+        if ($this->container['url'] === null) {
+            $invalidProperties[] = "'url' can't be null";
         }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['slug'] === null) {
-            $invalidProperties[] = "'slug' can't be null";
-        }
-        if ($this->container['feature_type'] === null) {
-            $invalidProperties[] = "'feature_type' can't be null";
-        }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
+        if ($this->container['thumb_hash'] === null) {
+            $invalidProperties[] = "'thumb_hash' can't be null";
         }
         return $invalidProperties;
     }
@@ -356,231 +305,55 @@ class TerrainParkFeature implements ModelInterface, ArrayAccess, \JsonSerializab
 
 
     /**
-     * Gets uuid
+     * Gets url
      *
      * @return string
      */
-    public function getUuid()
+    public function getUrl()
     {
-        return $this->container['uuid'];
+        return $this->container['url'];
     }
 
     /**
-     * Sets uuid
+     * Sets url
      *
-     * @param string $uuid Unique identifier for the feature.
+     * @param string $url Full public URL to the image.
      *
      * @return self
      */
-    public function setUuid($uuid)
+    public function setUrl($url)
     {
-        if (is_null($uuid)) {
-            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
+        if (is_null($url)) {
+            throw new \InvalidArgumentException('non-nullable url cannot be null');
         }
-        $this->container['uuid'] = $uuid;
+        $this->container['url'] = $url;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets thumb_hash
      *
      * @return string
      */
-    public function getName()
+    public function getThumbHash()
     {
-        return $this->container['name'];
+        return $this->container['thumb_hash'];
     }
 
     /**
-     * Sets name
+     * Sets thumb_hash
      *
-     * @param string $name Display name of the feature.
+     * @param string $thumb_hash Base64-encoded ThumbHash for placeholder rendering.
      *
      * @return self
      */
-    public function setName($name)
+    public function setThumbHash($thumb_hash)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($thumb_hash)) {
+            throw new \InvalidArgumentException('non-nullable thumb_hash cannot be null');
         }
-        $this->container['name'] = $name;
-
-        return $this;
-    }
-
-    /**
-     * Gets slug
-     *
-     * @return string
-     */
-    public function getSlug()
-    {
-        return $this->container['slug'];
-    }
-
-    /**
-     * Sets slug
-     *
-     * @param string $slug URL-friendly name of the run.
-     *
-     * @return self
-     */
-    public function setSlug($slug)
-    {
-        if (is_null($slug)) {
-            throw new \InvalidArgumentException('non-nullable slug cannot be null');
-        }
-        $this->container['slug'] = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Gets number
-     *
-     * @return int|null
-     */
-    public function getNumber()
-    {
-        return $this->container['number'];
-    }
-
-    /**
-     * Sets number
-     *
-     * @param int|null $number Optional feature number.
-     *
-     * @return self
-     */
-    public function setNumber($number)
-    {
-        if (is_null($number)) {
-            array_push($this->openAPINullablesSetToNull, 'number');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('number', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['number'] = $number;
-
-        return $this;
-    }
-
-    /**
-     * Gets feature_type
-     *
-     * @return \MtnManager\Model\FeatureType
-     */
-    public function getFeatureType()
-    {
-        return $this->container['feature_type'];
-    }
-
-    /**
-     * Sets feature_type
-     *
-     * @param \MtnManager\Model\FeatureType $feature_type Type of feature (jump, box, rail, other).
-     *
-     * @return self
-     */
-    public function setFeatureType($feature_type)
-    {
-        if (is_null($feature_type)) {
-            throw new \InvalidArgumentException('non-nullable feature_type cannot be null');
-        }
-        $this->container['feature_type'] = $feature_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets size
-     *
-     * @return \MtnManager\Model\FeatureSize|null
-     */
-    public function getSize()
-    {
-        return $this->container['size'];
-    }
-
-    /**
-     * Sets size
-     *
-     * @param \MtnManager\Model\FeatureSize|null $size Optional size rating of the feature (S, M, L, XL).
-     *
-     * @return self
-     */
-    public function setSize($size)
-    {
-        if (is_null($size)) {
-            array_push($this->openAPINullablesSetToNull, 'size');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('size', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['size'] = $size;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return \MtnManager\Model\TerrainParkFeatureStatus
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param \MtnManager\Model\TerrainParkFeatureStatus $status Current operational status (open, closed, or unknown).  `unknown` unless the terrain park feature status is enabled.
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        if (is_null($status)) {
-            throw new \InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets images
-     *
-     * @return \MtnManager\Model\EntityImage[]|null
-     */
-    public function getImages()
-    {
-        return $this->container['images'];
-    }
-
-    /**
-     * Sets images
-     *
-     * @param \MtnManager\Model\EntityImage[]|null $images Images attached to this feature, ordered for display. Each includes a  ThumbHash for rendering a blurred placeholder while the image loads.
-     *
-     * @return self
-     */
-    public function setImages($images)
-    {
-        if (is_null($images)) {
-            throw new \InvalidArgumentException('non-nullable images cannot be null');
-        }
-        $this->container['images'] = $images;
+        $this->container['thumb_hash'] = $thumb_hash;
 
         return $this;
     }

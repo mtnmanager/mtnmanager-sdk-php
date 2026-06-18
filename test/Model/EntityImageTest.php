@@ -1,6 +1,6 @@
 <?php
 /**
- * TerrainParkFeatureTest
+ * EntityImageTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TerrainParkFeatureTest Class Doc Comment
+ * EntityImageTest Class Doc Comment
  *
  * @category    Class
- * @description Represents a single feature within a terrain park (jump, box, rail, etc.)  with its current status and size rating.
+ * @description A single image attached to a resort entity, with a client-supplied ThumbHash  for rendering a blurred placeholder while the full image loads.
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TerrainParkFeatureTest extends TestCase
+class EntityImageTest extends TestCase
 {
 
     /**
@@ -72,81 +72,27 @@ class TerrainParkFeatureTest extends TestCase
     }
 
     /**
-     * Test "TerrainParkFeature"
+     * Test "EntityImage"
      */
-    public function testTerrainParkFeature()
+    public function testEntityImage()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "uuid"
+     * Test attribute "url"
      */
-    public function testPropertyUuid()
+    public function testPropertyUrl()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "thumb_hash"
      */
-    public function testPropertyName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "slug"
-     */
-    public function testPropertySlug()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "number"
-     */
-    public function testPropertyNumber()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "feature_type"
-     */
-    public function testPropertyFeatureType()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "size"
-     */
-    public function testPropertySize()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "status"
-     */
-    public function testPropertyStatus()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "images"
-     */
-    public function testPropertyImages()
+    public function testPropertyThumbHash()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

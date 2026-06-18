@@ -126,6 +126,15 @@ class AmenityTest extends TestCase
     }
 
     /**
+     * Test attribute "has_operating_hours"
+     */
+    public function testPropertyHasOperatingHours()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "opens_at"
      */
     public function testPropertyOpensAt()
@@ -147,6 +156,15 @@ class AmenityTest extends TestCase
      * Test attribute "schedules"
      */
     public function testPropertySchedules()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "images"
+     */
+    public function testPropertyImages()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

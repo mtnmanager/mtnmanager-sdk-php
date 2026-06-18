@@ -69,7 +69,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'area_name' => 'string',
         'area_display_order' => 'int',
         'features' => '\MtnManager\Model\TerrainParkFeature[]',
-        'updated_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'images' => '\MtnManager\Model\EntityImage[]'
     ];
 
     /**
@@ -90,7 +91,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'area_name' => null,
         'area_display_order' => 'int32',
         'features' => null,
-        'updated_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'images' => null
     ];
 
     /**
@@ -109,7 +111,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'area_name' => true,
         'area_display_order' => true,
         'features' => false,
-        'updated_at' => false
+        'updated_at' => false,
+        'images' => false
     ];
 
     /**
@@ -208,7 +211,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'area_name' => 'area_name',
         'area_display_order' => 'area_display_order',
         'features' => 'features',
-        'updated_at' => 'updated_at'
+        'updated_at' => 'updated_at',
+        'images' => 'images'
     ];
 
     /**
@@ -227,7 +231,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'area_name' => 'setAreaName',
         'area_display_order' => 'setAreaDisplayOrder',
         'features' => 'setFeatures',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'images' => 'setImages'
     ];
 
     /**
@@ -246,7 +251,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'area_name' => 'getAreaName',
         'area_display_order' => 'getAreaDisplayOrder',
         'features' => 'getFeatures',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'images' => 'getImages'
     ];
 
     /**
@@ -317,6 +323,7 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('area_display_order', $data ?? [], null);
         $this->setIfExists('features', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('images', $data ?? [], null);
     }
 
     /**
@@ -703,6 +710,33 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
         }
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets images
+     *
+     * @return \MtnManager\Model\EntityImage[]|null
+     */
+    public function getImages()
+    {
+        return $this->container['images'];
+    }
+
+    /**
+     * Sets images
+     *
+     * @param \MtnManager\Model\EntityImage[]|null $images Images attached to this terrain park, ordered for display. Each includes  a ThumbHash for rendering a blurred placeholder while the image loads.
+     *
+     * @return self
+     */
+    public function setImages($images)
+    {
+        if (is_null($images)) {
+            throw new \InvalidArgumentException('non-nullable images cannot be null');
+        }
+        $this->container['images'] = $images;
 
         return $this;
     }

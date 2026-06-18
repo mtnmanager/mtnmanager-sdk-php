@@ -187,4 +187,13 @@ class SummerTrailTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "images"
+     */
+    public function testPropertyImages()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

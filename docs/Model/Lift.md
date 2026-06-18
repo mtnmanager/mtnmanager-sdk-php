@@ -25,5 +25,6 @@ Name | Type | Description | Notes
 **area_name** | **string** | Name of the area this lift belongs to, if assigned. | [optional]
 **area_display_order** | **int** | Display order of the area this lift belongs to, if assigned, for sorting purposes. | [optional]
 **updated_at** | **\DateTime** | When this lift&#39;s information was last updated. |
+**images** | [**\MtnManager\Model\EntityImage[]**](EntityImage.md) | Images attached to this lift, ordered for display. Each includes a  ThumbHash for rendering a blurred placeholder while the image loads. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

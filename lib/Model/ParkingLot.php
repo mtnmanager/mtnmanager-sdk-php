@@ -67,7 +67,8 @@ class ParkingLot implements ModelInterface, ArrayAccess, \JsonSerializable
         'shuttle' => 'bool',
         'paid' => 'bool',
         'reservation_required' => 'bool',
-        'updated_at' => '\DateTime'
+        'updated_at' => '\DateTime',
+        'images' => '\MtnManager\Model\EntityImage[]'
     ];
 
     /**
@@ -86,7 +87,8 @@ class ParkingLot implements ModelInterface, ArrayAccess, \JsonSerializable
         'shuttle' => null,
         'paid' => null,
         'reservation_required' => null,
-        'updated_at' => 'date-time'
+        'updated_at' => 'date-time',
+        'images' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class ParkingLot implements ModelInterface, ArrayAccess, \JsonSerializable
         'shuttle' => false,
         'paid' => false,
         'reservation_required' => false,
-        'updated_at' => false
+        'updated_at' => false,
+        'images' => false
     ];
 
     /**
@@ -200,7 +203,8 @@ class ParkingLot implements ModelInterface, ArrayAccess, \JsonSerializable
         'shuttle' => 'shuttle',
         'paid' => 'paid',
         'reservation_required' => 'reservation_required',
-        'updated_at' => 'updated_at'
+        'updated_at' => 'updated_at',
+        'images' => 'images'
     ];
 
     /**
@@ -217,7 +221,8 @@ class ParkingLot implements ModelInterface, ArrayAccess, \JsonSerializable
         'shuttle' => 'setShuttle',
         'paid' => 'setPaid',
         'reservation_required' => 'setReservationRequired',
-        'updated_at' => 'setUpdatedAt'
+        'updated_at' => 'setUpdatedAt',
+        'images' => 'setImages'
     ];
 
     /**
@@ -234,7 +239,8 @@ class ParkingLot implements ModelInterface, ArrayAccess, \JsonSerializable
         'shuttle' => 'getShuttle',
         'paid' => 'getPaid',
         'reservation_required' => 'getReservationRequired',
-        'updated_at' => 'getUpdatedAt'
+        'updated_at' => 'getUpdatedAt',
+        'images' => 'getImages'
     ];
 
     /**
@@ -303,6 +309,7 @@ class ParkingLot implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('paid', $data ?? [], null);
         $this->setIfExists('reservation_required', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
+        $this->setIfExists('images', $data ?? [], null);
     }
 
     /**
@@ -617,6 +624,33 @@ class ParkingLot implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable updated_at cannot be null');
         }
         $this->container['updated_at'] = $updated_at;
+
+        return $this;
+    }
+
+    /**
+     * Gets images
+     *
+     * @return \MtnManager\Model\EntityImage[]|null
+     */
+    public function getImages()
+    {
+        return $this->container['images'];
+    }
+
+    /**
+     * Sets images
+     *
+     * @param \MtnManager\Model\EntityImage[]|null $images Images attached to this parking lot, ordered for display. Each includes a  ThumbHash for rendering a blurred placeholder while the image loads.
+     *
+     * @return self
+     */
+    public function setImages($images)
+    {
+        if (is_null($images)) {
+            throw new \InvalidArgumentException('non-nullable images cannot be null');
+        }
+        $this->container['images'] = $images;
 
         return $this;
     }

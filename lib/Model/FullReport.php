@@ -68,7 +68,7 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
         'parking_lots' => '\MtnManager\Model\ParkingLot[]',
         'summer_trails' => '\MtnManager\Model\SummerTrail[]',
         'hours' => '\MtnManager\Model\OperatingHours',
-        'weather' => '\MtnManager\Model\Weather'
+        'weather' => '\MtnManager\Model\Weather[]'
     ];
 
     /**
@@ -106,7 +106,7 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
         'parking_lots' => false,
         'summer_trails' => false,
         'hours' => false,
-        'weather' => true
+        'weather' => false
     ];
 
     /**
@@ -627,7 +627,7 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets weather
      *
-     * @return \MtnManager\Model\Weather|null
+     * @return \MtnManager\Model\Weather[]|null
      */
     public function getWeather()
     {
@@ -637,21 +637,14 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets weather
      *
-     * @param \MtnManager\Model\Weather|null $weather weather
+     * @param \MtnManager\Model\Weather[]|null $weather Weather entries: the resort-wide entry first (current + forecast), then  any per-area current-conditions entries. Empty when weather is disabled  or unavailable.
      *
      * @return self
      */
     public function setWeather($weather)
     {
         if (is_null($weather)) {
-            array_push($this->openAPINullablesSetToNull, 'weather');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('weather', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable weather cannot be null');
         }
         $this->container['weather'] = $weather;
 

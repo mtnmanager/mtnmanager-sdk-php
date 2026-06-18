@@ -100,6 +100,7 @@ Class | Method | HTTP request | Description
 - [DailyForecastImperial](docs/Model/DailyForecastImperial.md)
 - [DailyForecastMetric](docs/Model/DailyForecastMetric.md)
 - [DayOfWeek](docs/Model/DayOfWeek.md)
+- [EntityImage](docs/Model/EntityImage.md)
 - [FeatureSize](docs/Model/FeatureSize.md)
 - [FeatureType](docs/Model/FeatureType.md)
 - [FullReport](docs/Model/FullReport.md)

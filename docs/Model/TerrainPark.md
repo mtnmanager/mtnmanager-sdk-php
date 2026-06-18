@@ -15,5 +15,6 @@ Name | Type | Description | Notes
 **area_display_order** | **int** | Display order of the area this terrain park belongs to, if assigned, for sorting purposes. | [optional]
 **features** | [**\MtnManager\Model\TerrainParkFeature[]**](TerrainParkFeature.md) | Features within this terrain park (jumps, boxes, rails, etc.). |
 **updated_at** | **\DateTime** | When this terrain park or any of its features was last updated. |
+**images** | [**\MtnManager\Model\EntityImage[]**](EntityImage.md) | Images attached to this terrain park, ordered for display. Each includes  a ThumbHash for rendering a blurred placeholder while the image loads. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

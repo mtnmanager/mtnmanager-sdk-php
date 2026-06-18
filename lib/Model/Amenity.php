@@ -64,9 +64,11 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'category' => '\MtnManager\Model\AmenityCategory',
         'website' => 'string',
+        'has_operating_hours' => 'bool',
         'opens_at' => 'string',
         'closes_at' => 'string',
-        'schedules' => '\MtnManager\Model\Schedule[]'
+        'schedules' => '\MtnManager\Model\Schedule[]',
+        'images' => '\MtnManager\Model\EntityImage[]'
     ];
 
     /**
@@ -82,9 +84,11 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'category' => null,
         'website' => null,
+        'has_operating_hours' => null,
         'opens_at' => null,
         'closes_at' => null,
-        'schedules' => null
+        'schedules' => null,
+        'images' => null
     ];
 
     /**
@@ -98,9 +102,11 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
         'category' => false,
         'website' => false,
+        'has_operating_hours' => false,
         'opens_at' => true,
         'closes_at' => true,
-        'schedules' => false
+        'schedules' => false,
+        'images' => false
     ];
 
     /**
@@ -194,9 +200,11 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'category' => 'category',
         'website' => 'website',
+        'has_operating_hours' => 'has_operating_hours',
         'opens_at' => 'opens_at',
         'closes_at' => 'closes_at',
-        'schedules' => 'schedules'
+        'schedules' => 'schedules',
+        'images' => 'images'
     ];
 
     /**
@@ -210,9 +218,11 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'category' => 'setCategory',
         'website' => 'setWebsite',
+        'has_operating_hours' => 'setHasOperatingHours',
         'opens_at' => 'setOpensAt',
         'closes_at' => 'setClosesAt',
-        'schedules' => 'setSchedules'
+        'schedules' => 'setSchedules',
+        'images' => 'setImages'
     ];
 
     /**
@@ -226,9 +236,11 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'category' => 'getCategory',
         'website' => 'getWebsite',
+        'has_operating_hours' => 'getHasOperatingHours',
         'opens_at' => 'getOpensAt',
         'closes_at' => 'getClosesAt',
-        'schedules' => 'getSchedules'
+        'schedules' => 'getSchedules',
+        'images' => 'getImages'
     ];
 
     /**
@@ -293,9 +305,11 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('website', $data ?? [], null);
+        $this->setIfExists('has_operating_hours', $data ?? [], null);
         $this->setIfExists('opens_at', $data ?? [], null);
         $this->setIfExists('closes_at', $data ?? [], null);
         $this->setIfExists('schedules', $data ?? [], null);
+        $this->setIfExists('images', $data ?? [], null);
     }
 
     /**
@@ -339,6 +353,9 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['website'] === null) {
             $invalidProperties[] = "'website' can't be null";
+        }
+        if ($this->container['has_operating_hours'] === null) {
+            $invalidProperties[] = "'has_operating_hours' can't be null";
         }
         if ($this->container['schedules'] === null) {
             $invalidProperties[] = "'schedules' can't be null";
@@ -494,6 +511,33 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets has_operating_hours
+     *
+     * @return bool
+     */
+    public function getHasOperatingHours()
+    {
+        return $this->container['has_operating_hours'];
+    }
+
+    /**
+     * Sets has_operating_hours
+     *
+     * @param bool $has_operating_hours Whether this amenity reports operating hours. When false, clients should  not expect `opens_at`, `closes_at`, or `schedules` to ever be populated.
+     *
+     * @return self
+     */
+    public function setHasOperatingHours($has_operating_hours)
+    {
+        if (is_null($has_operating_hours)) {
+            throw new \InvalidArgumentException('non-nullable has_operating_hours cannot be null');
+        }
+        $this->container['has_operating_hours'] = $has_operating_hours;
+
+        return $this;
+    }
+
+    /**
      * Gets opens_at
      *
      * @return string|null
@@ -584,6 +628,33 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable schedules cannot be null');
         }
         $this->container['schedules'] = $schedules;
+
+        return $this;
+    }
+
+    /**
+     * Gets images
+     *
+     * @return \MtnManager\Model\EntityImage[]|null
+     */
+    public function getImages()
+    {
+        return $this->container['images'];
+    }
+
+    /**
+     * Sets images
+     *
+     * @param \MtnManager\Model\EntityImage[]|null $images Images attached to this amenity, ordered for display. Each includes a  ThumbHash for rendering a blurred placeholder while the image loads.
+     *
+     * @return self
+     */
+    public function setImages($images)
+    {
+        if (is_null($images)) {
+            throw new \InvalidArgumentException('non-nullable images cannot be null');
+        }
+        $this->container['images'] = $images;
 
         return $this;
     }

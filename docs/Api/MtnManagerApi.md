@@ -617,7 +617,7 @@ No authorization required
 ## `getWeather()`
 
 ```php
-getWeather($accept_language): \MtnManager\Model\Weather
+getWeather($accept_language): \MtnManager\Model\Weather[]
 ```
 
 Get weather
@@ -653,7 +653,7 @@ try {
 
 ### Return type
 
-[**\MtnManager\Model\Weather**](../Model/Weather.md)
+[**\MtnManager\Model\Weather[]**](../Model/Weather.md)
 
 ### Authorization
 

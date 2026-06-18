@@ -3007,7 +3007,7 @@ class MtnManagerApi
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \MtnManager\Model\Weather
+     * @return \MtnManager\Model\Weather[]
      */
     public function getWeather($accept_language = null, string $contentType = self::contentTypes['getWeather'][0])
     {
@@ -3025,7 +3025,7 @@ class MtnManagerApi
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \MtnManager\Model\Weather, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \MtnManager\Model\Weather[], HTTP status code, HTTP response headers (array of strings)
      */
     public function getWeatherWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getWeather'][0])
     {
@@ -3057,7 +3057,7 @@ class MtnManagerApi
             switch($statusCode) {
                 case 200:
                     return $this->handleResponseWithDataType(
-                        '\MtnManager\Model\Weather',
+                        '\MtnManager\Model\Weather[]',
                         $request,
                         $response,
                     );
@@ -3079,7 +3079,7 @@ class MtnManagerApi
             }
 
             return $this->handleResponseWithDataType(
-                '\MtnManager\Model\Weather',
+                '\MtnManager\Model\Weather[]',
                 $request,
                 $response,
             );
@@ -3088,7 +3088,7 @@ class MtnManagerApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\MtnManager\Model\Weather',
+                        '\MtnManager\Model\Weather[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3134,7 +3134,7 @@ class MtnManagerApi
      */
     public function getWeatherAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getWeather'][0])
     {
-        $returnType = '\MtnManager\Model\Weather';
+        $returnType = '\MtnManager\Model\Weather[]';
         $request = $this->getWeatherRequest($accept_language, $contentType);
 
         return $this->client

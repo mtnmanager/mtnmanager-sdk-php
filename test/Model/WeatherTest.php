@@ -81,6 +81,33 @@ class WeatherTest extends TestCase
     }
 
     /**
+     * Test attribute "area_uuid"
+     */
+    public function testPropertyAreaUuid()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "area_name"
+     */
+    public function testPropertyAreaName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "area_display_order"
+     */
+    public function testPropertyAreaDisplayOrder()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "current"
      */
     public function testPropertyCurrent()

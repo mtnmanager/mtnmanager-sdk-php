@@ -59,6 +59,9 @@ class Weather implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        'area_uuid' => 'string',
+        'area_name' => 'string',
+        'area_display_order' => 'int',
         'current' => '\MtnManager\Model\CurrentWeather',
         'hourly_forecast' => '\MtnManager\Model\HourlyForecast[]',
         'daily_forecast' => '\MtnManager\Model\DailyForecast[]',
@@ -74,6 +77,9 @@ class Weather implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'area_uuid' => null,
+        'area_name' => null,
+        'area_display_order' => 'int32',
         'current' => null,
         'hourly_forecast' => null,
         'daily_forecast' => null,
@@ -87,6 +93,9 @@ class Weather implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'area_uuid' => true,
+        'area_name' => true,
+        'area_display_order' => true,
         'current' => false,
         'hourly_forecast' => false,
         'daily_forecast' => false,
@@ -180,6 +189,9 @@ class Weather implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'area_uuid' => 'area_uuid',
+        'area_name' => 'area_name',
+        'area_display_order' => 'area_display_order',
         'current' => 'current',
         'hourly_forecast' => 'hourly_forecast',
         'daily_forecast' => 'daily_forecast',
@@ -193,6 +205,9 @@ class Weather implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'area_uuid' => 'setAreaUuid',
+        'area_name' => 'setAreaName',
+        'area_display_order' => 'setAreaDisplayOrder',
         'current' => 'setCurrent',
         'hourly_forecast' => 'setHourlyForecast',
         'daily_forecast' => 'setDailyForecast',
@@ -206,6 +221,9 @@ class Weather implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'area_uuid' => 'getAreaUuid',
+        'area_name' => 'getAreaName',
+        'area_display_order' => 'getAreaDisplayOrder',
         'current' => 'getCurrent',
         'hourly_forecast' => 'getHourlyForecast',
         'daily_forecast' => 'getDailyForecast',
@@ -270,6 +288,9 @@ class Weather implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('area_uuid', $data ?? [], null);
+        $this->setIfExists('area_name', $data ?? [], null);
+        $this->setIfExists('area_display_order', $data ?? [], null);
         $this->setIfExists('current', $data ?? [], null);
         $this->setIfExists('hourly_forecast', $data ?? [], null);
         $this->setIfExists('daily_forecast', $data ?? [], null);
@@ -333,6 +354,108 @@ class Weather implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets area_uuid
+     *
+     * @return string|null
+     */
+    public function getAreaUuid()
+    {
+        return $this->container['area_uuid'];
+    }
+
+    /**
+     * Sets area_uuid
+     *
+     * @param string|null $area_uuid The area this weather belongs to, or omitted for resort-wide weather.
+     *
+     * @return self
+     */
+    public function setAreaUuid($area_uuid)
+    {
+        if (is_null($area_uuid)) {
+            array_push($this->openAPINullablesSetToNull, 'area_uuid');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('area_uuid', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['area_uuid'] = $area_uuid;
+
+        return $this;
+    }
+
+    /**
+     * Gets area_name
+     *
+     * @return string|null
+     */
+    public function getAreaName()
+    {
+        return $this->container['area_name'];
+    }
+
+    /**
+     * Sets area_name
+     *
+     * @param string|null $area_name The area's name, or omitted for resort-wide weather.
+     *
+     * @return self
+     */
+    public function setAreaName($area_name)
+    {
+        if (is_null($area_name)) {
+            array_push($this->openAPINullablesSetToNull, 'area_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('area_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['area_name'] = $area_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets area_display_order
+     *
+     * @return int|null
+     */
+    public function getAreaDisplayOrder()
+    {
+        return $this->container['area_display_order'];
+    }
+
+    /**
+     * Sets area_display_order
+     *
+     * @param int|null $area_display_order The area's display order, or omitted for resort-wide weather.
+     *
+     * @return self
+     */
+    public function setAreaDisplayOrder($area_display_order)
+    {
+        if (is_null($area_display_order)) {
+            array_push($this->openAPINullablesSetToNull, 'area_display_order');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('area_display_order', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['area_display_order'] = $area_display_order;
+
+        return $this;
+    }
 
     /**
      * Gets current

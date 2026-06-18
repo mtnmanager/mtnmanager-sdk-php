@@ -4,6 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**area_uuid** | **string** | The area this weather belongs to, or omitted for resort-wide weather. | [optional]
+**area_name** | **string** | The area&#39;s name, or omitted for resort-wide weather. | [optional]
+**area_display_order** | **int** | The area&#39;s display order, or omitted for resort-wide weather. | [optional]
 **current** | [**\MtnManager\Model\CurrentWeather**](CurrentWeather.md) | Current weather conditions |
 **hourly_forecast** | [**\MtnManager\Model\HourlyForecast[]**](HourlyForecast.md) | Hourly forecast for next 24 hours (including current hour) |
 **daily_forecast** | [**\MtnManager\Model\DailyForecast[]**](DailyForecast.md) | Daily forecast for next 7 days (including today) |
