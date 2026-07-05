@@ -1,6 +1,6 @@
 <?php
 /**
- * TrailMapElementOneOf6Test
+ * TrailMapElementOneOf7Test
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TrailMapElementOneOf6Test Class Doc Comment
+ * TrailMapElementOneOf7Test Class Doc Comment
  *
  * @category    Class
- * @description TrailMapElementOneOf6
+ * @description TrailMapElementOneOf7
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TrailMapElementOneOf6Test extends TestCase
+class TrailMapElementOneOf7Test extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class TrailMapElementOneOf6Test extends TestCase
     }
 
     /**
-     * Test "TrailMapElementOneOf6"
+     * Test "TrailMapElementOneOf7"
      */
-    public function testTrailMapElementOneOf6()
+    public function testTrailMapElementOneOf7()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -135,9 +135,18 @@ class TrailMapElementOneOf6Test extends TestCase
     }
 
     /**
-     * Test attribute "webcam"
+     * Test attribute "label"
      */
-    public function testPropertyWebcam()
+    public function testPropertyLabel()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "searchable"
+     */
+    public function testPropertySearchable()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

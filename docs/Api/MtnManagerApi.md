@@ -18,6 +18,8 @@ All URIs are relative to https://your-resort.mtnmanager.com, except if the opera
 | [**getTerrainParks()**](MtnManagerApi.md#getTerrainParks) | **GET** /api/v1/report/terrain-parks | Get terrain parks |
 | [**getTrailMaps()**](MtnManagerApi.md#getTrailMaps) | **GET** /api/v1/report/trail-maps | Get trail maps |
 | [**getWeather()**](MtnManagerApi.md#getWeather) | **GET** /api/v1/report/weather | Get weather |
+| [**getWebcamHistory()**](MtnManagerApi.md#getWebcamHistory) | **GET** /api/v1/report/webcam/{uuid}/history | Get webcam history |
+| [**getWebcams()**](MtnManagerApi.md#getWebcams) | **GET** /api/v1/report/webcams | Get webcams |
 
 
 ## `getAmenities()`
@@ -654,6 +656,120 @@ try {
 ### Return type
 
 [**\MtnManager\Model\Weather[]**](../Model/Weather.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getWebcamHistory()`
+
+```php
+getWebcamHistory($uuid, $from, $to, $accept_language): \MtnManager\Model\WebcamHistoryResponse
+```
+
+Get webcam history
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MtnManager\Api\MtnManagerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$uuid = 'uuid_example'; // string | Resource UUID
+$from = 'null'; // string | Inclusive lower bound on `captured_at` (RFC 3339).
+$to = 'null'; // string | Inclusive upper bound on `captured_at` (RFC 3339).
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
+
+try {
+    $result = $apiInstance->getWebcamHistory($uuid, $from, $to, $accept_language);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MtnManagerApi->getWebcamHistory: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **uuid** | **string**| Resource UUID | |
+| **from** | **string**| Inclusive lower bound on &#x60;captured_at&#x60; (RFC 3339). | [optional] [default to &#39;null&#39;] |
+| **to** | **string**| Inclusive upper bound on &#x60;captured_at&#x60; (RFC 3339). | [optional] [default to &#39;null&#39;] |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
+
+### Return type
+
+[**\MtnManager\Model\WebcamHistoryResponse**](../Model/WebcamHistoryResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getWebcams()`
+
+```php
+getWebcams($accept_language): \MtnManager\Model\Webcam[]
+```
+
+Get webcams
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+
+$apiInstance = new MtnManager\Api\MtnManagerApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client()
+);
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
+
+try {
+    $result = $apiInstance->getWebcams($accept_language);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MtnManagerApi->getWebcams: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **accept_language** | **string**| Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. | [optional] |
+
+### Return type
+
+[**\MtnManager\Model\Webcam[]**](../Model/Webcam.md)
 
 ### Authorization
 

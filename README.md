@@ -84,6 +84,8 @@ Class | Method | HTTP request | Description
 *MtnManagerApi* | [**getTerrainParks**](docs/Api/MtnManagerApi.md#getterrainparks) | **GET** /api/v1/report/terrain-parks | Get terrain parks
 *MtnManagerApi* | [**getTrailMaps**](docs/Api/MtnManagerApi.md#gettrailmaps) | **GET** /api/v1/report/trail-maps | Get trail maps
 *MtnManagerApi* | [**getWeather**](docs/Api/MtnManagerApi.md#getweather) | **GET** /api/v1/report/weather | Get weather
+*MtnManagerApi* | [**getWebcamHistory**](docs/Api/MtnManagerApi.md#getwebcamhistory) | **GET** /api/v1/report/webcam/{uuid}/history | Get webcam history
+*MtnManagerApi* | [**getWebcams**](docs/Api/MtnManagerApi.md#getwebcams) | **GET** /api/v1/report/webcams | Get webcams
 
 ## Models
 
@@ -150,10 +152,15 @@ Class | Method | HTTP request | Description
 - [TrailMapElementOneOf4](docs/Model/TrailMapElementOneOf4.md)
 - [TrailMapElementOneOf5](docs/Model/TrailMapElementOneOf5.md)
 - [TrailMapElementOneOf6](docs/Model/TrailMapElementOneOf6.md)
+- [TrailMapElementOneOf7](docs/Model/TrailMapElementOneOf7.md)
 - [TrailMapSummary](docs/Model/TrailMapSummary.md)
 - [UnitPreference](docs/Model/UnitPreference.md)
 - [Weather](docs/Model/Weather.md)
 - [WeatherConditionCode](docs/Model/WeatherConditionCode.md)
+- [Webcam](docs/Model/Webcam.md)
+- [WebcamHistoryFrame](docs/Model/WebcamHistoryFrame.md)
+- [WebcamHistoryQuery](docs/Model/WebcamHistoryQuery.md)
+- [WebcamHistoryResponse](docs/Model/WebcamHistoryResponse.md)
 
 ## Authorization
 Endpoints do not require authorization.

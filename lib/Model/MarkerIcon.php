@@ -87,6 +87,8 @@ class MarkerIcon
 
     public const STAR = 'star';
 
+    public const WEBCAM = 'webcam';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -115,7 +117,8 @@ class MarkerIcon
             self::PHONE,
             self::RETAIL,
             self::ATM,
-            self::STAR
+            self::STAR,
+            self::WEBCAM
         ];
     }
 }

@@ -215,4 +215,28 @@ class MtnManagerApiTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test case for getWebcamHistory
+     *
+     * Get webcam history.
+     *
+     */
+    public function testGetWebcamHistory()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getWebcams
+     *
+     * Get webcams.
+     *
+     */
+    public function testGetWebcams()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

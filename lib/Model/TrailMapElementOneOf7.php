@@ -1,6 +1,6 @@
 <?php
 /**
- * TrailMapElementOneOf6
+ * TrailMapElementOneOf7
  *
  * PHP version 8.1
  *
@@ -33,7 +33,7 @@ use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
- * TrailMapElementOneOf6 Class Doc Comment
+ * TrailMapElementOneOf7 Class Doc Comment
  *
  * @category Class
  * @package  MtnManager
@@ -41,7 +41,7 @@ use \MtnManager\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSerializable
+class TrailMapElementOneOf7 implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TrailMapElement_oneOf_6';
+    protected static $openAPIModelName = 'TrailMapElement_oneOf_7';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -64,7 +64,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
         'y' => 'float',
         'icon' => '\MtnManager\Model\MarkerIcon',
         'color' => 'string',
-        'webcam' => '\MtnManager\Model\Webcam',
+        'label' => 'string',
+        'searchable' => 'bool',
         'group_label' => 'string'
     ];
 
@@ -82,7 +83,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
         'y' => 'double',
         'icon' => null,
         'color' => null,
-        'webcam' => null,
+        'label' => null,
+        'searchable' => null,
         'group_label' => null
     ];
 
@@ -98,7 +100,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
         'y' => false,
         'icon' => true,
         'color' => true,
-        'webcam' => true,
+        'label' => false,
+        'searchable' => true,
         'group_label' => true
     ];
 
@@ -194,7 +197,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
         'y' => 'y',
         'icon' => 'icon',
         'color' => 'color',
-        'webcam' => 'webcam',
+        'label' => 'label',
+        'searchable' => 'searchable',
         'group_label' => 'group_label'
     ];
 
@@ -210,7 +214,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
         'y' => 'setY',
         'icon' => 'setIcon',
         'color' => 'setColor',
-        'webcam' => 'setWebcam',
+        'label' => 'setLabel',
+        'searchable' => 'setSearchable',
         'group_label' => 'setGroupLabel'
     ];
 
@@ -226,7 +231,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
         'y' => 'getY',
         'icon' => 'getIcon',
         'color' => 'getColor',
-        'webcam' => 'getWebcam',
+        'label' => 'getLabel',
+        'searchable' => 'getSearchable',
         'group_label' => 'getGroupLabel'
     ];
 
@@ -271,7 +277,7 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    public const TYPE_WEBCAM_MARKER = 'webcam_marker';
+    public const TYPE_GENERIC_MARKER = 'generic_marker';
 
     /**
      * Gets allowable values of the enum
@@ -281,7 +287,7 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
     public function getTypeAllowableValues()
     {
         return [
-            self::TYPE_WEBCAM_MARKER,
+            self::TYPE_GENERIC_MARKER,
         ];
     }
 
@@ -306,7 +312,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
         $this->setIfExists('y', $data ?? [], null);
         $this->setIfExists('icon', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
-        $this->setIfExists('webcam', $data ?? [], null);
+        $this->setIfExists('label', $data ?? [], null);
+        $this->setIfExists('searchable', $data ?? [], null);
         $this->setIfExists('group_label', $data ?? [], null);
     }
 
@@ -357,6 +364,9 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
         }
         if ($this->container['y'] === null) {
             $invalidProperties[] = "'y' can't be null";
+        }
+        if ($this->container['label'] === null) {
+            $invalidProperties[] = "'label' can't be null";
         }
         return $invalidProperties;
     }
@@ -560,35 +570,62 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets webcam
+     * Gets label
      *
-     * @return \MtnManager\Model\Webcam|null
+     * @return string
      */
-    public function getWebcam()
+    public function getLabel()
     {
-        return $this->container['webcam'];
+        return $this->container['label'];
     }
 
     /**
-     * Sets webcam
+     * Sets label
      *
-     * @param \MtnManager\Model\Webcam|null $webcam webcam
+     * @param string $label label
      *
      * @return self
      */
-    public function setWebcam($webcam)
+    public function setLabel($label)
     {
-        if (is_null($webcam)) {
-            array_push($this->openAPINullablesSetToNull, 'webcam');
+        if (is_null($label)) {
+            throw new \InvalidArgumentException('non-nullable label cannot be null');
+        }
+        $this->container['label'] = $label;
+
+        return $this;
+    }
+
+    /**
+     * Gets searchable
+     *
+     * @return bool|null
+     */
+    public function getSearchable()
+    {
+        return $this->container['searchable'];
+    }
+
+    /**
+     * Sets searchable
+     *
+     * @param bool|null $searchable searchable
+     *
+     * @return self
+     */
+    public function setSearchable($searchable)
+    {
+        if (is_null($searchable)) {
+            array_push($this->openAPINullablesSetToNull, 'searchable');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('webcam', $nullablesSetToNull);
+            $index = array_search('searchable', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['webcam'] = $webcam;
+        $this->container['searchable'] = $searchable;
 
         return $this;
     }

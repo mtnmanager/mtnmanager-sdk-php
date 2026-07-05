@@ -1,4 +1,4 @@
-# TrailMapElementOneOf6
+# TrailMapElementOneOf7
 
 ## Properties
 
@@ -10,7 +10,8 @@ Name | Type | Description | Notes
 **y** | **float** |  |
 **icon** | [**\MtnManager\Model\MarkerIcon**](MarkerIcon.md) |  | [optional]
 **color** | **string** |  | [optional]
-**webcam** | [**\MtnManager\Model\Webcam**](Webcam.md) |  | [optional]
+**label** | **string** |  |
+**searchable** | **bool** |  | [optional]
 **group_label** | **string** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

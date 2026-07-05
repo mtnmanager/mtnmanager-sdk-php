@@ -1,6 +1,6 @@
 <?php
 /**
- * TrailMapElementOneOf6
+ * WebcamHistoryQuery
  *
  * PHP version 8.1
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
- * TrailMapElementOneOf6 Class Doc Comment
+ * WebcamHistoryQuery Class Doc Comment
  *
  * @category Class
+ * @description Query parameters for the history endpoint.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSerializable
+class WebcamHistoryQuery implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TrailMapElement_oneOf_6';
+    protected static $openAPIModelName = 'WebcamHistoryQuery';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +59,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'uuid' => 'string',
-        'x' => 'float',
-        'y' => 'float',
-        'icon' => '\MtnManager\Model\MarkerIcon',
-        'color' => 'string',
-        'webcam' => '\MtnManager\Model\Webcam',
-        'group_label' => 'string'
+        'from' => 'string',
+        'to' => 'string'
     ];
 
     /**
@@ -76,14 +71,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'type' => null,
-        'uuid' => null,
-        'x' => 'double',
-        'y' => 'double',
-        'icon' => null,
-        'color' => null,
-        'webcam' => null,
-        'group_label' => null
+        'from' => null,
+        'to' => null
     ];
 
     /**
@@ -92,14 +81,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'type' => false,
-        'uuid' => false,
-        'x' => false,
-        'y' => false,
-        'icon' => true,
-        'color' => true,
-        'webcam' => true,
-        'group_label' => true
+        'from' => true,
+        'to' => true
     ];
 
     /**
@@ -188,14 +171,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'uuid' => 'uuid',
-        'x' => 'x',
-        'y' => 'y',
-        'icon' => 'icon',
-        'color' => 'color',
-        'webcam' => 'webcam',
-        'group_label' => 'group_label'
+        'from' => 'from',
+        'to' => 'to'
     ];
 
     /**
@@ -204,14 +181,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'uuid' => 'setUuid',
-        'x' => 'setX',
-        'y' => 'setY',
-        'icon' => 'setIcon',
-        'color' => 'setColor',
-        'webcam' => 'setWebcam',
-        'group_label' => 'setGroupLabel'
+        'from' => 'setFrom',
+        'to' => 'setTo'
     ];
 
     /**
@@ -220,14 +191,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'uuid' => 'getUuid',
-        'x' => 'getX',
-        'y' => 'getY',
-        'icon' => 'getIcon',
-        'color' => 'getColor',
-        'webcam' => 'getWebcam',
-        'group_label' => 'getGroupLabel'
+        'from' => 'getFrom',
+        'to' => 'getTo'
     ];
 
     /**
@@ -271,19 +236,6 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    public const TYPE_WEBCAM_MARKER = 'webcam_marker';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_WEBCAM_MARKER,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -300,14 +252,8 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('uuid', $data ?? [], null);
-        $this->setIfExists('x', $data ?? [], null);
-        $this->setIfExists('y', $data ?? [], null);
-        $this->setIfExists('icon', $data ?? [], null);
-        $this->setIfExists('color', $data ?? [], null);
-        $this->setIfExists('webcam', $data ?? [], null);
-        $this->setIfExists('group_label', $data ?? [], null);
+        $this->setIfExists('from', $data ?? [], null);
+        $this->setIfExists('to', $data ?? [], null);
     }
 
     /**
@@ -337,27 +283,6 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['uuid'] === null) {
-            $invalidProperties[] = "'uuid' can't be null";
-        }
-        if ($this->container['x'] === null) {
-            $invalidProperties[] = "'x' can't be null";
-        }
-        if ($this->container['y'] === null) {
-            $invalidProperties[] = "'y' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -374,255 +299,69 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
 
 
     /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets uuid
-     *
-     * @return string
-     */
-    public function getUuid()
-    {
-        return $this->container['uuid'];
-    }
-
-    /**
-     * Sets uuid
-     *
-     * @param string $uuid uuid
-     *
-     * @return self
-     */
-    public function setUuid($uuid)
-    {
-        if (is_null($uuid)) {
-            throw new \InvalidArgumentException('non-nullable uuid cannot be null');
-        }
-        $this->container['uuid'] = $uuid;
-
-        return $this;
-    }
-
-    /**
-     * Gets x
-     *
-     * @return float
-     */
-    public function getX()
-    {
-        return $this->container['x'];
-    }
-
-    /**
-     * Sets x
-     *
-     * @param float $x x
-     *
-     * @return self
-     */
-    public function setX($x)
-    {
-        if (is_null($x)) {
-            throw new \InvalidArgumentException('non-nullable x cannot be null');
-        }
-        $this->container['x'] = $x;
-
-        return $this;
-    }
-
-    /**
-     * Gets y
-     *
-     * @return float
-     */
-    public function getY()
-    {
-        return $this->container['y'];
-    }
-
-    /**
-     * Sets y
-     *
-     * @param float $y y
-     *
-     * @return self
-     */
-    public function setY($y)
-    {
-        if (is_null($y)) {
-            throw new \InvalidArgumentException('non-nullable y cannot be null');
-        }
-        $this->container['y'] = $y;
-
-        return $this;
-    }
-
-    /**
-     * Gets icon
-     *
-     * @return \MtnManager\Model\MarkerIcon|null
-     */
-    public function getIcon()
-    {
-        return $this->container['icon'];
-    }
-
-    /**
-     * Sets icon
-     *
-     * @param \MtnManager\Model\MarkerIcon|null $icon icon
-     *
-     * @return self
-     */
-    public function setIcon($icon)
-    {
-        if (is_null($icon)) {
-            array_push($this->openAPINullablesSetToNull, 'icon');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('icon', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['icon'] = $icon;
-
-        return $this;
-    }
-
-    /**
-     * Gets color
+     * Gets from
      *
      * @return string|null
      */
-    public function getColor()
+    public function getFrom()
     {
-        return $this->container['color'];
+        return $this->container['from'];
     }
 
     /**
-     * Sets color
+     * Sets from
      *
-     * @param string|null $color color
+     * @param string|null $from Inclusive lower bound on `captured_at` (RFC 3339).
      *
      * @return self
      */
-    public function setColor($color)
+    public function setFrom($from)
     {
-        if (is_null($color)) {
-            array_push($this->openAPINullablesSetToNull, 'color');
+        if (is_null($from)) {
+            array_push($this->openAPINullablesSetToNull, 'from');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('color', $nullablesSetToNull);
+            $index = array_search('from', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['color'] = $color;
+        $this->container['from'] = $from;
 
         return $this;
     }
 
     /**
-     * Gets webcam
-     *
-     * @return \MtnManager\Model\Webcam|null
-     */
-    public function getWebcam()
-    {
-        return $this->container['webcam'];
-    }
-
-    /**
-     * Sets webcam
-     *
-     * @param \MtnManager\Model\Webcam|null $webcam webcam
-     *
-     * @return self
-     */
-    public function setWebcam($webcam)
-    {
-        if (is_null($webcam)) {
-            array_push($this->openAPINullablesSetToNull, 'webcam');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('webcam', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['webcam'] = $webcam;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_label
+     * Gets to
      *
      * @return string|null
      */
-    public function getGroupLabel()
+    public function getTo()
     {
-        return $this->container['group_label'];
+        return $this->container['to'];
     }
 
     /**
-     * Sets group_label
+     * Sets to
      *
-     * @param string|null $group_label group_label
+     * @param string|null $to Inclusive upper bound on `captured_at` (RFC 3339).
      *
      * @return self
      */
-    public function setGroupLabel($group_label)
+    public function setTo($to)
     {
-        if (is_null($group_label)) {
-            array_push($this->openAPINullablesSetToNull, 'group_label');
+        if (is_null($to)) {
+            array_push($this->openAPINullablesSetToNull, 'to');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('group_label', $nullablesSetToNull);
+            $index = array_search('to', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['group_label'] = $group_label;
+        $this->container['to'] = $to;
 
         return $this;
     }

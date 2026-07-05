@@ -1,6 +1,6 @@
 <?php
 /**
- * TrailMapElementOneOf6Test
+ * WebcamHistoryResponseTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TrailMapElementOneOf6Test Class Doc Comment
+ * WebcamHistoryResponseTest Class Doc Comment
  *
  * @category    Class
- * @description TrailMapElementOneOf6
+ * @description The historical frame listing for one camera over a time range.
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TrailMapElementOneOf6Test extends TestCase
+class WebcamHistoryResponseTest extends TestCase
 {
 
     /**
@@ -72,81 +72,27 @@ class TrailMapElementOneOf6Test extends TestCase
     }
 
     /**
-     * Test "TrailMapElementOneOf6"
+     * Test "WebcamHistoryResponse"
      */
-    public function testTrailMapElementOneOf6()
+    public function testWebcamHistoryResponse()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "type"
+     * Test attribute "webcam_uuid"
      */
-    public function testPropertyType()
+    public function testPropertyWebcamUuid()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "uuid"
+     * Test attribute "frames"
      */
-    public function testPropertyUuid()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "x"
-     */
-    public function testPropertyX()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "y"
-     */
-    public function testPropertyY()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "icon"
-     */
-    public function testPropertyIcon()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "color"
-     */
-    public function testPropertyColor()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "webcam"
-     */
-    public function testPropertyWebcam()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "group_label"
-     */
-    public function testPropertyGroupLabel()
+    public function testPropertyFrames()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

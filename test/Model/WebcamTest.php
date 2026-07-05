@@ -1,6 +1,6 @@
 <?php
 /**
- * TrailMapElementOneOf6Test
+ * WebcamTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * TrailMapElementOneOf6Test Class Doc Comment
+ * WebcamTest Class Doc Comment
  *
  * @category    Class
- * @description TrailMapElementOneOf6
+ * @description A public webcam entry. Consumers pick &#x60;latest&#x60; (always the newest frame) or  &#x60;latest-daylight&#x60; (the last daylight frame, never a black night shot)  depending on whether they want the freshest or a guaranteed-lit image.
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class TrailMapElementOneOf6Test extends TestCase
+class WebcamTest extends TestCase
 {
 
     /**
@@ -72,18 +72,9 @@ class TrailMapElementOneOf6Test extends TestCase
     }
 
     /**
-     * Test "TrailMapElementOneOf6"
+     * Test "Webcam"
      */
-    public function testTrailMapElementOneOf6()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "type"
-     */
-    public function testPropertyType()
+    public function testWebcam()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -99,54 +90,81 @@ class TrailMapElementOneOf6Test extends TestCase
     }
 
     /**
-     * Test attribute "x"
+     * Test attribute "name"
      */
-    public function testPropertyX()
+    public function testPropertyName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "y"
+     * Test attribute "area_uuid"
      */
-    public function testPropertyY()
+    public function testPropertyAreaUuid()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "icon"
+     * Test attribute "area_name"
      */
-    public function testPropertyIcon()
+    public function testPropertyAreaName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "color"
+     * Test attribute "area_display_order"
      */
-    public function testPropertyColor()
+    public function testPropertyAreaDisplayOrder()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "webcam"
+     * Test attribute "latest_image_url"
      */
-    public function testPropertyWebcam()
+    public function testPropertyLatestImageUrl()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "group_label"
+     * Test attribute "latest_daylight_image_url"
      */
-    public function testPropertyGroupLabel()
+    public function testPropertyLatestDaylightImageUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "latest_thumb_url"
+     */
+    public function testPropertyLatestThumbUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "latest_daylight_thumb_url"
+     */
+    public function testPropertyLatestDaylightThumbUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "last_frame_at"
+     */
+    public function testPropertyLastFrameAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

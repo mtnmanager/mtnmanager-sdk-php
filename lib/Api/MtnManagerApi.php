@@ -111,6 +111,12 @@ class MtnManagerApi
         'getWeather' => [
             'application/json',
         ],
+        'getWebcamHistory' => [
+            'application/json',
+        ],
+        'getWebcams' => [
+            'application/json',
+        ],
     ];
 
     /**
@@ -3188,6 +3194,572 @@ class MtnManagerApi
 
 
         $resourcePath = '/api/v1/report/weather';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getWebcamHistory
+     *
+     * Get webcam history
+     *
+     * @param  string $uuid Resource UUID (required)
+     * @param  string|null $from Inclusive lower bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
+     * @param  string|null $to Inclusive upper bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcamHistory'] to see the possible values for this operation
+     *
+     * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \MtnManager\Model\WebcamHistoryResponse
+     */
+    public function getWebcamHistory($uuid, $from = 'null', $to = 'null', $accept_language = null, string $contentType = self::contentTypes['getWebcamHistory'][0])
+    {
+        list($response) = $this->getWebcamHistoryWithHttpInfo($uuid, $from, $to, $accept_language, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getWebcamHistoryWithHttpInfo
+     *
+     * Get webcam history
+     *
+     * @param  string $uuid Resource UUID (required)
+     * @param  string|null $from Inclusive lower bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
+     * @param  string|null $to Inclusive upper bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcamHistory'] to see the possible values for this operation
+     *
+     * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \MtnManager\Model\WebcamHistoryResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWebcamHistoryWithHttpInfo($uuid, $from = 'null', $to = 'null', $accept_language = null, string $contentType = self::contentTypes['getWebcamHistory'][0])
+    {
+        $request = $this->getWebcamHistoryRequest($uuid, $from, $to, $accept_language, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\MtnManager\Model\WebcamHistoryResponse',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\MtnManager\Model\WebcamHistoryResponse',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MtnManager\Model\WebcamHistoryResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getWebcamHistoryAsync
+     *
+     * Get webcam history
+     *
+     * @param  string $uuid Resource UUID (required)
+     * @param  string|null $from Inclusive lower bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
+     * @param  string|null $to Inclusive upper bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcamHistory'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWebcamHistoryAsync($uuid, $from = 'null', $to = 'null', $accept_language = null, string $contentType = self::contentTypes['getWebcamHistory'][0])
+    {
+        return $this->getWebcamHistoryAsyncWithHttpInfo($uuid, $from, $to, $accept_language, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getWebcamHistoryAsyncWithHttpInfo
+     *
+     * Get webcam history
+     *
+     * @param  string $uuid Resource UUID (required)
+     * @param  string|null $from Inclusive lower bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
+     * @param  string|null $to Inclusive upper bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcamHistory'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWebcamHistoryAsyncWithHttpInfo($uuid, $from = 'null', $to = 'null', $accept_language = null, string $contentType = self::contentTypes['getWebcamHistory'][0])
+    {
+        $returnType = '\MtnManager\Model\WebcamHistoryResponse';
+        $request = $this->getWebcamHistoryRequest($uuid, $from, $to, $accept_language, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getWebcamHistory'
+     *
+     * @param  string $uuid Resource UUID (required)
+     * @param  string|null $from Inclusive lower bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
+     * @param  string|null $to Inclusive upper bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcamHistory'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getWebcamHistoryRequest($uuid, $from = 'null', $to = 'null', $accept_language = null, string $contentType = self::contentTypes['getWebcamHistory'][0])
+    {
+
+        // verify the required parameter 'uuid' is set
+        if ($uuid === null || (is_array($uuid) && count($uuid) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $uuid when calling getWebcamHistory'
+            );
+        }
+
+
+
+
+
+        $resourcePath = '/api/v1/report/webcam/{uuid}/history';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $from,
+            'from', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $to,
+            'to', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+
+        // header params
+        if ($accept_language !== null) {
+            $headerParams['Accept-Language'] = ObjectSerializer::toHeaderValue($accept_language);
+        }
+
+        // path params
+        if ($uuid !== null) {
+            $resourcePath = str_replace(
+                '{uuid}',
+                ObjectSerializer::toPathValue($uuid),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getWebcams
+     *
+     * Get webcams
+     *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcams'] to see the possible values for this operation
+     *
+     * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return \MtnManager\Model\Webcam[]
+     */
+    public function getWebcams($accept_language = null, string $contentType = self::contentTypes['getWebcams'][0])
+    {
+        list($response) = $this->getWebcamsWithHttpInfo($accept_language, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getWebcamsWithHttpInfo
+     *
+     * Get webcams
+     *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcams'] to see the possible values for this operation
+     *
+     * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
+     * @throws \InvalidArgumentException
+     * @return array of \MtnManager\Model\Webcam[], HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getWebcamsWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getWebcams'][0])
+    {
+        $request = $this->getWebcamsRequest($accept_language, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+
+            switch($statusCode) {
+                case 200:
+                    return $this->handleResponseWithDataType(
+                        '\MtnManager\Model\Webcam[]',
+                        $request,
+                        $response,
+                    );
+            }
+
+            
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            return $this->handleResponseWithDataType(
+                '\MtnManager\Model\Webcam[]',
+                $request,
+                $response,
+            );
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\MtnManager\Model\Webcam[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+            }
+        
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getWebcamsAsync
+     *
+     * Get webcams
+     *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcams'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWebcamsAsync($accept_language = null, string $contentType = self::contentTypes['getWebcams'][0])
+    {
+        return $this->getWebcamsAsyncWithHttpInfo($accept_language, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getWebcamsAsyncWithHttpInfo
+     *
+     * Get webcams
+     *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcams'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getWebcamsAsyncWithHttpInfo($accept_language = null, string $contentType = self::contentTypes['getWebcams'][0])
+    {
+        $returnType = '\MtnManager\Model\Webcam[]';
+        $request = $this->getWebcamsRequest($accept_language, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getWebcams'
+     *
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcams'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getWebcamsRequest($accept_language = null, string $contentType = self::contentTypes['getWebcams'][0])
+    {
+
+
+
+        $resourcePath = '/api/v1/report/webcams';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

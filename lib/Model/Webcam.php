@@ -1,6 +1,6 @@
 <?php
 /**
- * TrailMapElementOneOf6
+ * Webcam
  *
  * PHP version 8.1
  *
@@ -33,15 +33,16 @@ use \ArrayAccess;
 use \MtnManager\ObjectSerializer;
 
 /**
- * TrailMapElementOneOf6 Class Doc Comment
+ * Webcam Class Doc Comment
  *
  * @category Class
+ * @description A public webcam entry. Consumers pick &#x60;latest&#x60; (always the newest frame) or  &#x60;latest-daylight&#x60; (the last daylight frame, never a black night shot)  depending on whether they want the freshest or a guaranteed-lit image.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSerializable
+class Webcam implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -50,7 +51,7 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      *
      * @var string
      */
-    protected static $openAPIModelName = 'TrailMapElement_oneOf_6';
+    protected static $openAPIModelName = 'Webcam';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -58,14 +59,16 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $openAPITypes = [
-        'type' => 'string',
         'uuid' => 'string',
-        'x' => 'float',
-        'y' => 'float',
-        'icon' => '\MtnManager\Model\MarkerIcon',
-        'color' => 'string',
-        'webcam' => '\MtnManager\Model\Webcam',
-        'group_label' => 'string'
+        'name' => 'string',
+        'area_uuid' => 'string',
+        'area_name' => 'string',
+        'area_display_order' => 'int',
+        'latest_image_url' => 'string',
+        'latest_daylight_image_url' => 'string',
+        'latest_thumb_url' => 'string',
+        'latest_daylight_thumb_url' => 'string',
+        'last_frame_at' => 'string'
     ];
 
     /**
@@ -76,14 +79,16 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'type' => null,
         'uuid' => null,
-        'x' => 'double',
-        'y' => 'double',
-        'icon' => null,
-        'color' => null,
-        'webcam' => null,
-        'group_label' => null
+        'name' => null,
+        'area_uuid' => null,
+        'area_name' => null,
+        'area_display_order' => 'int32',
+        'latest_image_url' => null,
+        'latest_daylight_image_url' => null,
+        'latest_thumb_url' => null,
+        'latest_daylight_thumb_url' => null,
+        'last_frame_at' => null
     ];
 
     /**
@@ -92,14 +97,16 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'type' => false,
         'uuid' => false,
-        'x' => false,
-        'y' => false,
-        'icon' => true,
-        'color' => true,
-        'webcam' => true,
-        'group_label' => true
+        'name' => false,
+        'area_uuid' => true,
+        'area_name' => true,
+        'area_display_order' => true,
+        'latest_image_url' => false,
+        'latest_daylight_image_url' => false,
+        'latest_thumb_url' => false,
+        'latest_daylight_thumb_url' => false,
+        'last_frame_at' => true
     ];
 
     /**
@@ -188,14 +195,16 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
         'uuid' => 'uuid',
-        'x' => 'x',
-        'y' => 'y',
-        'icon' => 'icon',
-        'color' => 'color',
-        'webcam' => 'webcam',
-        'group_label' => 'group_label'
+        'name' => 'name',
+        'area_uuid' => 'area_uuid',
+        'area_name' => 'area_name',
+        'area_display_order' => 'area_display_order',
+        'latest_image_url' => 'latest_image_url',
+        'latest_daylight_image_url' => 'latest_daylight_image_url',
+        'latest_thumb_url' => 'latest_thumb_url',
+        'latest_daylight_thumb_url' => 'latest_daylight_thumb_url',
+        'last_frame_at' => 'last_frame_at'
     ];
 
     /**
@@ -204,14 +213,16 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
         'uuid' => 'setUuid',
-        'x' => 'setX',
-        'y' => 'setY',
-        'icon' => 'setIcon',
-        'color' => 'setColor',
-        'webcam' => 'setWebcam',
-        'group_label' => 'setGroupLabel'
+        'name' => 'setName',
+        'area_uuid' => 'setAreaUuid',
+        'area_name' => 'setAreaName',
+        'area_display_order' => 'setAreaDisplayOrder',
+        'latest_image_url' => 'setLatestImageUrl',
+        'latest_daylight_image_url' => 'setLatestDaylightImageUrl',
+        'latest_thumb_url' => 'setLatestThumbUrl',
+        'latest_daylight_thumb_url' => 'setLatestDaylightThumbUrl',
+        'last_frame_at' => 'setLastFrameAt'
     ];
 
     /**
@@ -220,14 +231,16 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
         'uuid' => 'getUuid',
-        'x' => 'getX',
-        'y' => 'getY',
-        'icon' => 'getIcon',
-        'color' => 'getColor',
-        'webcam' => 'getWebcam',
-        'group_label' => 'getGroupLabel'
+        'name' => 'getName',
+        'area_uuid' => 'getAreaUuid',
+        'area_name' => 'getAreaName',
+        'area_display_order' => 'getAreaDisplayOrder',
+        'latest_image_url' => 'getLatestImageUrl',
+        'latest_daylight_image_url' => 'getLatestDaylightImageUrl',
+        'latest_thumb_url' => 'getLatestThumbUrl',
+        'latest_daylight_thumb_url' => 'getLatestDaylightThumbUrl',
+        'last_frame_at' => 'getLastFrameAt'
     ];
 
     /**
@@ -271,19 +284,6 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
         return self::$openAPIModelName;
     }
 
-    public const TYPE_WEBCAM_MARKER = 'webcam_marker';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getTypeAllowableValues()
-    {
-        return [
-            self::TYPE_WEBCAM_MARKER,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -300,14 +300,16 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('uuid', $data ?? [], null);
-        $this->setIfExists('x', $data ?? [], null);
-        $this->setIfExists('y', $data ?? [], null);
-        $this->setIfExists('icon', $data ?? [], null);
-        $this->setIfExists('color', $data ?? [], null);
-        $this->setIfExists('webcam', $data ?? [], null);
-        $this->setIfExists('group_label', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('area_uuid', $data ?? [], null);
+        $this->setIfExists('area_name', $data ?? [], null);
+        $this->setIfExists('area_display_order', $data ?? [], null);
+        $this->setIfExists('latest_image_url', $data ?? [], null);
+        $this->setIfExists('latest_daylight_image_url', $data ?? [], null);
+        $this->setIfExists('latest_thumb_url', $data ?? [], null);
+        $this->setIfExists('latest_daylight_thumb_url', $data ?? [], null);
+        $this->setIfExists('last_frame_at', $data ?? [], null);
     }
 
     /**
@@ -337,26 +339,23 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'type', must be one of '%s'",
-                $this->container['type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         if ($this->container['uuid'] === null) {
             $invalidProperties[] = "'uuid' can't be null";
         }
-        if ($this->container['x'] === null) {
-            $invalidProperties[] = "'x' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['y'] === null) {
-            $invalidProperties[] = "'y' can't be null";
+        if ($this->container['latest_image_url'] === null) {
+            $invalidProperties[] = "'latest_image_url' can't be null";
+        }
+        if ($this->container['latest_daylight_image_url'] === null) {
+            $invalidProperties[] = "'latest_daylight_image_url' can't be null";
+        }
+        if ($this->container['latest_thumb_url'] === null) {
+            $invalidProperties[] = "'latest_thumb_url' can't be null";
+        }
+        if ($this->container['latest_daylight_thumb_url'] === null) {
+            $invalidProperties[] = "'latest_daylight_thumb_url' can't be null";
         }
         return $invalidProperties;
     }
@@ -372,43 +371,6 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type type
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $allowedValues = $this->getTypeAllowableValues();
-        if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
 
     /**
      * Gets uuid
@@ -438,191 +400,272 @@ class TrailMapElementOneOf6 implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     /**
-     * Gets x
+     * Gets name
      *
-     * @return float
+     * @return string
      */
-    public function getX()
+    public function getName()
     {
-        return $this->container['x'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets x
+     * Sets name
      *
-     * @param float $x x
+     * @param string $name name
      *
      * @return self
      */
-    public function setX($x)
+    public function setName($name)
     {
-        if (is_null($x)) {
-            throw new \InvalidArgumentException('non-nullable x cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['x'] = $x;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets y
-     *
-     * @return float
-     */
-    public function getY()
-    {
-        return $this->container['y'];
-    }
-
-    /**
-     * Sets y
-     *
-     * @param float $y y
-     *
-     * @return self
-     */
-    public function setY($y)
-    {
-        if (is_null($y)) {
-            throw new \InvalidArgumentException('non-nullable y cannot be null');
-        }
-        $this->container['y'] = $y;
-
-        return $this;
-    }
-
-    /**
-     * Gets icon
-     *
-     * @return \MtnManager\Model\MarkerIcon|null
-     */
-    public function getIcon()
-    {
-        return $this->container['icon'];
-    }
-
-    /**
-     * Sets icon
-     *
-     * @param \MtnManager\Model\MarkerIcon|null $icon icon
-     *
-     * @return self
-     */
-    public function setIcon($icon)
-    {
-        if (is_null($icon)) {
-            array_push($this->openAPINullablesSetToNull, 'icon');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('icon', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['icon'] = $icon;
-
-        return $this;
-    }
-
-    /**
-     * Gets color
+     * Gets area_uuid
      *
      * @return string|null
      */
-    public function getColor()
+    public function getAreaUuid()
     {
-        return $this->container['color'];
+        return $this->container['area_uuid'];
     }
 
     /**
-     * Sets color
+     * Sets area_uuid
      *
-     * @param string|null $color color
+     * @param string|null $area_uuid area_uuid
      *
      * @return self
      */
-    public function setColor($color)
+    public function setAreaUuid($area_uuid)
     {
-        if (is_null($color)) {
-            array_push($this->openAPINullablesSetToNull, 'color');
+        if (is_null($area_uuid)) {
+            array_push($this->openAPINullablesSetToNull, 'area_uuid');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('color', $nullablesSetToNull);
+            $index = array_search('area_uuid', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['color'] = $color;
+        $this->container['area_uuid'] = $area_uuid;
 
         return $this;
     }
 
     /**
-     * Gets webcam
-     *
-     * @return \MtnManager\Model\Webcam|null
-     */
-    public function getWebcam()
-    {
-        return $this->container['webcam'];
-    }
-
-    /**
-     * Sets webcam
-     *
-     * @param \MtnManager\Model\Webcam|null $webcam webcam
-     *
-     * @return self
-     */
-    public function setWebcam($webcam)
-    {
-        if (is_null($webcam)) {
-            array_push($this->openAPINullablesSetToNull, 'webcam');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('webcam', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['webcam'] = $webcam;
-
-        return $this;
-    }
-
-    /**
-     * Gets group_label
+     * Gets area_name
      *
      * @return string|null
      */
-    public function getGroupLabel()
+    public function getAreaName()
     {
-        return $this->container['group_label'];
+        return $this->container['area_name'];
     }
 
     /**
-     * Sets group_label
+     * Sets area_name
      *
-     * @param string|null $group_label group_label
+     * @param string|null $area_name area_name
      *
      * @return self
      */
-    public function setGroupLabel($group_label)
+    public function setAreaName($area_name)
     {
-        if (is_null($group_label)) {
-            array_push($this->openAPINullablesSetToNull, 'group_label');
+        if (is_null($area_name)) {
+            array_push($this->openAPINullablesSetToNull, 'area_name');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('group_label', $nullablesSetToNull);
+            $index = array_search('area_name', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['group_label'] = $group_label;
+        $this->container['area_name'] = $area_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets area_display_order
+     *
+     * @return int|null
+     */
+    public function getAreaDisplayOrder()
+    {
+        return $this->container['area_display_order'];
+    }
+
+    /**
+     * Sets area_display_order
+     *
+     * @param int|null $area_display_order area_display_order
+     *
+     * @return self
+     */
+    public function setAreaDisplayOrder($area_display_order)
+    {
+        if (is_null($area_display_order)) {
+            array_push($this->openAPINullablesSetToNull, 'area_display_order');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('area_display_order', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['area_display_order'] = $area_display_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_image_url
+     *
+     * @return string
+     */
+    public function getLatestImageUrl()
+    {
+        return $this->container['latest_image_url'];
+    }
+
+    /**
+     * Sets latest_image_url
+     *
+     * @param string $latest_image_url URL of the newest frame (refreshes within ~60s via the edge cache).
+     *
+     * @return self
+     */
+    public function setLatestImageUrl($latest_image_url)
+    {
+        if (is_null($latest_image_url)) {
+            throw new \InvalidArgumentException('non-nullable latest_image_url cannot be null');
+        }
+        $this->container['latest_image_url'] = $latest_image_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_daylight_image_url
+     *
+     * @return string
+     */
+    public function getLatestDaylightImageUrl()
+    {
+        return $this->container['latest_daylight_image_url'];
+    }
+
+    /**
+     * Sets latest_daylight_image_url
+     *
+     * @param string $latest_daylight_image_url URL of the last daylight frame.
+     *
+     * @return self
+     */
+    public function setLatestDaylightImageUrl($latest_daylight_image_url)
+    {
+        if (is_null($latest_daylight_image_url)) {
+            throw new \InvalidArgumentException('non-nullable latest_daylight_image_url cannot be null');
+        }
+        $this->container['latest_daylight_image_url'] = $latest_daylight_image_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_thumb_url
+     *
+     * @return string
+     */
+    public function getLatestThumbUrl()
+    {
+        return $this->container['latest_thumb_url'];
+    }
+
+    /**
+     * Sets latest_thumb_url
+     *
+     * @param string $latest_thumb_url latest_thumb_url
+     *
+     * @return self
+     */
+    public function setLatestThumbUrl($latest_thumb_url)
+    {
+        if (is_null($latest_thumb_url)) {
+            throw new \InvalidArgumentException('non-nullable latest_thumb_url cannot be null');
+        }
+        $this->container['latest_thumb_url'] = $latest_thumb_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_daylight_thumb_url
+     *
+     * @return string
+     */
+    public function getLatestDaylightThumbUrl()
+    {
+        return $this->container['latest_daylight_thumb_url'];
+    }
+
+    /**
+     * Sets latest_daylight_thumb_url
+     *
+     * @param string $latest_daylight_thumb_url latest_daylight_thumb_url
+     *
+     * @return self
+     */
+    public function setLatestDaylightThumbUrl($latest_daylight_thumb_url)
+    {
+        if (is_null($latest_daylight_thumb_url)) {
+            throw new \InvalidArgumentException('non-nullable latest_daylight_thumb_url cannot be null');
+        }
+        $this->container['latest_daylight_thumb_url'] = $latest_daylight_thumb_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_frame_at
+     *
+     * @return string|null
+     */
+    public function getLastFrameAt()
+    {
+        return $this->container['last_frame_at'];
+    }
+
+    /**
+     * Sets last_frame_at
+     *
+     * @param string|null $last_frame_at Time of the most recently published frame; omitted until the first frame.
+     *
+     * @return self
+     */
+    public function setLastFrameAt($last_frame_at)
+    {
+        if (is_null($last_frame_at)) {
+            array_push($this->openAPINullablesSetToNull, 'last_frame_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_frame_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['last_frame_at'] = $last_frame_at;
 
         return $this;
     }
