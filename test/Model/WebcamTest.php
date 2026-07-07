@@ -162,6 +162,51 @@ class WebcamTest extends TestCase
     }
 
     /**
+     * Test attribute "latest_thumbhash"
+     */
+    public function testPropertyLatestThumbhash()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "latest_daylight_thumbhash"
+     */
+    public function testPropertyLatestDaylightThumbhash()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "has_history"
+     */
+    public function testPropertyHasHistory()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "elevation_ft"
+     */
+    public function testPropertyElevationFt()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "elevation_m"
+     */
+    public function testPropertyElevationM()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "last_frame_at"
      */
     public function testPropertyLastFrameAt()

@@ -68,7 +68,8 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
         'parking_lots' => '\MtnManager\Model\ParkingLot[]',
         'summer_trails' => '\MtnManager\Model\SummerTrail[]',
         'hours' => '\MtnManager\Model\OperatingHours',
-        'weather' => '\MtnManager\Model\Weather[]'
+        'weather' => '\MtnManager\Model\Weather[]',
+        'webcams' => '\MtnManager\Model\Webcam[]'
     ];
 
     /**
@@ -88,7 +89,8 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
         'parking_lots' => null,
         'summer_trails' => null,
         'hours' => null,
-        'weather' => null
+        'weather' => null,
+        'webcams' => null
     ];
 
     /**
@@ -106,7 +108,8 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
         'parking_lots' => false,
         'summer_trails' => false,
         'hours' => false,
-        'weather' => false
+        'weather' => false,
+        'webcams' => false
     ];
 
     /**
@@ -204,7 +207,8 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
         'parking_lots' => 'parking_lots',
         'summer_trails' => 'summer_trails',
         'hours' => 'hours',
-        'weather' => 'weather'
+        'weather' => 'weather',
+        'webcams' => 'webcams'
     ];
 
     /**
@@ -222,7 +226,8 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
         'parking_lots' => 'setParkingLots',
         'summer_trails' => 'setSummerTrails',
         'hours' => 'setHours',
-        'weather' => 'setWeather'
+        'weather' => 'setWeather',
+        'webcams' => 'setWebcams'
     ];
 
     /**
@@ -240,7 +245,8 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
         'parking_lots' => 'getParkingLots',
         'summer_trails' => 'getSummerTrails',
         'hours' => 'getHours',
-        'weather' => 'getWeather'
+        'weather' => 'getWeather',
+        'webcams' => 'getWebcams'
     ];
 
     /**
@@ -310,6 +316,7 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('summer_trails', $data ?? [], null);
         $this->setIfExists('hours', $data ?? [], null);
         $this->setIfExists('weather', $data ?? [], null);
+        $this->setIfExists('webcams', $data ?? [], null);
     }
 
     /**
@@ -647,6 +654,33 @@ class FullReport implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable weather cannot be null');
         }
         $this->container['weather'] = $weather;
+
+        return $this;
+    }
+
+    /**
+     * Gets webcams
+     *
+     * @return \MtnManager\Model\Webcam[]|null
+     */
+    public function getWebcams()
+    {
+        return $this->container['webcams'];
+    }
+
+    /**
+     * Sets webcams
+     *
+     * @param \MtnManager\Model\Webcam[]|null $webcams Enabled webcams with the URLs of their current and last-daylight frames  plus thumbnails. Empty when the resort does not have webcams.
+     *
+     * @return self
+     */
+    public function setWebcams($webcams)
+    {
+        if (is_null($webcams)) {
+            throw new \InvalidArgumentException('non-nullable webcams cannot be null');
+        }
+        $this->container['webcams'] = $webcams;
 
         return $this;
     }

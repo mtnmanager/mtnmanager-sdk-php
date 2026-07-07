@@ -169,4 +169,13 @@ class FullReportTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "webcams"
+     */
+    public function testPropertyWebcams()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

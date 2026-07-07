@@ -106,4 +106,13 @@ class WebcamHistoryFrameTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "thumbhash"
+     */
+    public function testPropertyThumbhash()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

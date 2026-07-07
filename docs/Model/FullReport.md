@@ -14,5 +14,6 @@ Name | Type | Description | Notes
 **summer_trails** | [**\MtnManager\Model\SummerTrail[]**](SummerTrail.md) | List of all summer trails at the resort with their current status,  type (e.g. hiking, mountain biking), and optional difficulty rating. |
 **hours** | [**\MtnManager\Model\OperatingHours**](OperatingHours.md) |  |
 **weather** | [**\MtnManager\Model\Weather[]**](Weather.md) | Weather entries: the resort-wide entry first (current + forecast), then  any per-area current-conditions entries. Empty when weather is disabled  or unavailable. | [optional]
+**webcams** | [**\MtnManager\Model\Webcam[]**](Webcam.md) | Enabled webcams with the URLs of their current and last-daylight frames  plus thumbnails. Empty when the resort does not have webcams. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

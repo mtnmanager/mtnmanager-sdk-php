@@ -61,7 +61,8 @@ class WebcamHistoryFrame implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPITypes = [
         'captured_at' => 'string',
         'image_url' => 'string',
-        'thumb_url' => 'string'
+        'thumb_url' => 'string',
+        'thumbhash' => 'string'
     ];
 
     /**
@@ -74,7 +75,8 @@ class WebcamHistoryFrame implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $openAPIFormats = [
         'captured_at' => null,
         'image_url' => null,
-        'thumb_url' => null
+        'thumb_url' => null,
+        'thumbhash' => null
     ];
 
     /**
@@ -85,7 +87,8 @@ class WebcamHistoryFrame implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static array $openAPINullables = [
         'captured_at' => false,
         'image_url' => false,
-        'thumb_url' => false
+        'thumb_url' => false,
+        'thumbhash' => false
     ];
 
     /**
@@ -176,7 +179,8 @@ class WebcamHistoryFrame implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $attributeMap = [
         'captured_at' => 'captured_at',
         'image_url' => 'image_url',
-        'thumb_url' => 'thumb_url'
+        'thumb_url' => 'thumb_url',
+        'thumbhash' => 'thumbhash'
     ];
 
     /**
@@ -187,7 +191,8 @@ class WebcamHistoryFrame implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $setters = [
         'captured_at' => 'setCapturedAt',
         'image_url' => 'setImageUrl',
-        'thumb_url' => 'setThumbUrl'
+        'thumb_url' => 'setThumbUrl',
+        'thumbhash' => 'setThumbhash'
     ];
 
     /**
@@ -198,7 +203,8 @@ class WebcamHistoryFrame implements ModelInterface, ArrayAccess, \JsonSerializab
     protected static $getters = [
         'captured_at' => 'getCapturedAt',
         'image_url' => 'getImageUrl',
-        'thumb_url' => 'getThumbUrl'
+        'thumb_url' => 'getThumbUrl',
+        'thumbhash' => 'getThumbhash'
     ];
 
     /**
@@ -261,6 +267,7 @@ class WebcamHistoryFrame implements ModelInterface, ArrayAccess, \JsonSerializab
         $this->setIfExists('captured_at', $data ?? [], null);
         $this->setIfExists('image_url', $data ?? [], null);
         $this->setIfExists('thumb_url', $data ?? [], null);
+        $this->setIfExists('thumbhash', $data ?? [], null);
     }
 
     /**
@@ -298,6 +305,9 @@ class WebcamHistoryFrame implements ModelInterface, ArrayAccess, \JsonSerializab
         }
         if ($this->container['thumb_url'] === null) {
             $invalidProperties[] = "'thumb_url' can't be null";
+        }
+        if ($this->container['thumbhash'] === null) {
+            $invalidProperties[] = "'thumbhash' can't be null";
         }
         return $invalidProperties;
     }
@@ -391,6 +401,33 @@ class WebcamHistoryFrame implements ModelInterface, ArrayAccess, \JsonSerializab
             throw new \InvalidArgumentException('non-nullable thumb_url cannot be null');
         }
         $this->container['thumb_url'] = $thumb_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets thumbhash
+     *
+     * @return string
+     */
+    public function getThumbhash()
+    {
+        return $this->container['thumbhash'];
+    }
+
+    /**
+     * Sets thumbhash
+     *
+     * @param string $thumbhash ThumbHash of the frame (standard base64), recovered from the thumb object's  key. Empty string for legacy frames archived without one.
+     *
+     * @return self
+     */
+    public function setThumbhash($thumbhash)
+    {
+        if (is_null($thumbhash)) {
+            throw new \InvalidArgumentException('non-nullable thumbhash cannot be null');
+        }
+        $this->container['thumbhash'] = $thumbhash;
 
         return $this;
     }

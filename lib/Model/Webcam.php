@@ -68,6 +68,11 @@ class Webcam implements ModelInterface, ArrayAccess, \JsonSerializable
         'latest_daylight_image_url' => 'string',
         'latest_thumb_url' => 'string',
         'latest_daylight_thumb_url' => 'string',
+        'latest_thumbhash' => 'string',
+        'latest_daylight_thumbhash' => 'string',
+        'has_history' => 'bool',
+        'elevation_ft' => 'int',
+        'elevation_m' => 'int',
         'last_frame_at' => 'string'
     ];
 
@@ -88,6 +93,11 @@ class Webcam implements ModelInterface, ArrayAccess, \JsonSerializable
         'latest_daylight_image_url' => null,
         'latest_thumb_url' => null,
         'latest_daylight_thumb_url' => null,
+        'latest_thumbhash' => null,
+        'latest_daylight_thumbhash' => null,
+        'has_history' => null,
+        'elevation_ft' => 'int32',
+        'elevation_m' => 'int32',
         'last_frame_at' => null
     ];
 
@@ -106,6 +116,11 @@ class Webcam implements ModelInterface, ArrayAccess, \JsonSerializable
         'latest_daylight_image_url' => false,
         'latest_thumb_url' => false,
         'latest_daylight_thumb_url' => false,
+        'latest_thumbhash' => false,
+        'latest_daylight_thumbhash' => false,
+        'has_history' => false,
+        'elevation_ft' => true,
+        'elevation_m' => true,
         'last_frame_at' => true
     ];
 
@@ -204,6 +219,11 @@ class Webcam implements ModelInterface, ArrayAccess, \JsonSerializable
         'latest_daylight_image_url' => 'latest_daylight_image_url',
         'latest_thumb_url' => 'latest_thumb_url',
         'latest_daylight_thumb_url' => 'latest_daylight_thumb_url',
+        'latest_thumbhash' => 'latest_thumbhash',
+        'latest_daylight_thumbhash' => 'latest_daylight_thumbhash',
+        'has_history' => 'has_history',
+        'elevation_ft' => 'elevation_ft',
+        'elevation_m' => 'elevation_m',
         'last_frame_at' => 'last_frame_at'
     ];
 
@@ -222,6 +242,11 @@ class Webcam implements ModelInterface, ArrayAccess, \JsonSerializable
         'latest_daylight_image_url' => 'setLatestDaylightImageUrl',
         'latest_thumb_url' => 'setLatestThumbUrl',
         'latest_daylight_thumb_url' => 'setLatestDaylightThumbUrl',
+        'latest_thumbhash' => 'setLatestThumbhash',
+        'latest_daylight_thumbhash' => 'setLatestDaylightThumbhash',
+        'has_history' => 'setHasHistory',
+        'elevation_ft' => 'setElevationFt',
+        'elevation_m' => 'setElevationM',
         'last_frame_at' => 'setLastFrameAt'
     ];
 
@@ -240,6 +265,11 @@ class Webcam implements ModelInterface, ArrayAccess, \JsonSerializable
         'latest_daylight_image_url' => 'getLatestDaylightImageUrl',
         'latest_thumb_url' => 'getLatestThumbUrl',
         'latest_daylight_thumb_url' => 'getLatestDaylightThumbUrl',
+        'latest_thumbhash' => 'getLatestThumbhash',
+        'latest_daylight_thumbhash' => 'getLatestDaylightThumbhash',
+        'has_history' => 'getHasHistory',
+        'elevation_ft' => 'getElevationFt',
+        'elevation_m' => 'getElevationM',
         'last_frame_at' => 'getLastFrameAt'
     ];
 
@@ -309,6 +339,11 @@ class Webcam implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('latest_daylight_image_url', $data ?? [], null);
         $this->setIfExists('latest_thumb_url', $data ?? [], null);
         $this->setIfExists('latest_daylight_thumb_url', $data ?? [], null);
+        $this->setIfExists('latest_thumbhash', $data ?? [], null);
+        $this->setIfExists('latest_daylight_thumbhash', $data ?? [], null);
+        $this->setIfExists('has_history', $data ?? [], null);
+        $this->setIfExists('elevation_ft', $data ?? [], null);
+        $this->setIfExists('elevation_m', $data ?? [], null);
         $this->setIfExists('last_frame_at', $data ?? [], null);
     }
 
@@ -356,6 +391,15 @@ class Webcam implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['latest_daylight_thumb_url'] === null) {
             $invalidProperties[] = "'latest_daylight_thumb_url' can't be null";
+        }
+        if ($this->container['latest_thumbhash'] === null) {
+            $invalidProperties[] = "'latest_thumbhash' can't be null";
+        }
+        if ($this->container['latest_daylight_thumbhash'] === null) {
+            $invalidProperties[] = "'latest_daylight_thumbhash' can't be null";
+        }
+        if ($this->container['has_history'] === null) {
+            $invalidProperties[] = "'has_history' can't be null";
         }
         return $invalidProperties;
     }
@@ -632,6 +676,155 @@ class Webcam implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable latest_daylight_thumb_url cannot be null');
         }
         $this->container['latest_daylight_thumb_url'] = $latest_daylight_thumb_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_thumbhash
+     *
+     * @return string
+     */
+    public function getLatestThumbhash()
+    {
+        return $this->container['latest_thumbhash'];
+    }
+
+    /**
+     * Sets latest_thumbhash
+     *
+     * @param string $latest_thumbhash ThumbHash of the `latest` frame (standard base64) — a compact blur  placeholder to render while the image loads. Empty string until the first  frame (or on cameras predating the feature).
+     *
+     * @return self
+     */
+    public function setLatestThumbhash($latest_thumbhash)
+    {
+        if (is_null($latest_thumbhash)) {
+            throw new \InvalidArgumentException('non-nullable latest_thumbhash cannot be null');
+        }
+        $this->container['latest_thumbhash'] = $latest_thumbhash;
+
+        return $this;
+    }
+
+    /**
+     * Gets latest_daylight_thumbhash
+     *
+     * @return string
+     */
+    public function getLatestDaylightThumbhash()
+    {
+        return $this->container['latest_daylight_thumbhash'];
+    }
+
+    /**
+     * Sets latest_daylight_thumbhash
+     *
+     * @param string $latest_daylight_thumbhash ThumbHash of the `latest-daylight` frame (standard base64). Empty string  until the first daylight frame.
+     *
+     * @return self
+     */
+    public function setLatestDaylightThumbhash($latest_daylight_thumbhash)
+    {
+        if (is_null($latest_daylight_thumbhash)) {
+            throw new \InvalidArgumentException('non-nullable latest_daylight_thumbhash cannot be null');
+        }
+        $this->container['latest_daylight_thumbhash'] = $latest_daylight_thumbhash;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_history
+     *
+     * @return bool
+     */
+    public function getHasHistory()
+    {
+        return $this->container['has_history'];
+    }
+
+    /**
+     * Sets has_history
+     *
+     * @param bool $has_history Whether this camera archives frames — i.e. whether its history endpoint  returns anything. When `false`, don't call the history API for it.
+     *
+     * @return self
+     */
+    public function setHasHistory($has_history)
+    {
+        if (is_null($has_history)) {
+            throw new \InvalidArgumentException('non-nullable has_history cannot be null');
+        }
+        $this->container['has_history'] = $has_history;
+
+        return $this;
+    }
+
+    /**
+     * Gets elevation_ft
+     *
+     * @return int|null
+     */
+    public function getElevationFt()
+    {
+        return $this->container['elevation_ft'];
+    }
+
+    /**
+     * Sets elevation_ft
+     *
+     * @param int|null $elevation_ft Camera elevation in both units; omitted when unset.
+     *
+     * @return self
+     */
+    public function setElevationFt($elevation_ft)
+    {
+        if (is_null($elevation_ft)) {
+            array_push($this->openAPINullablesSetToNull, 'elevation_ft');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('elevation_ft', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['elevation_ft'] = $elevation_ft;
+
+        return $this;
+    }
+
+    /**
+     * Gets elevation_m
+     *
+     * @return int|null
+     */
+    public function getElevationM()
+    {
+        return $this->container['elevation_m'];
+    }
+
+    /**
+     * Sets elevation_m
+     *
+     * @param int|null $elevation_m elevation_m
+     *
+     * @return self
+     */
+    public function setElevationM($elevation_m)
+    {
+        if (is_null($elevation_m)) {
+            array_push($this->openAPINullablesSetToNull, 'elevation_m');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('elevation_m', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['elevation_m'] = $elevation_m;
 
         return $this;
     }
