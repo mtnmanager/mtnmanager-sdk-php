@@ -133,4 +133,13 @@ class ResortInfoTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "logo_url"
+     */
+    public function testPropertyLogoUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

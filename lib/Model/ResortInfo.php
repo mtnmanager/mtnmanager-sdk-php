@@ -64,7 +64,8 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'string',
         'timezone' => 'string',
         'region' => '\MtnManager\Model\Region',
-        'unit_preference' => '\MtnManager\Model\UnitPreference'
+        'unit_preference' => '\MtnManager\Model\UnitPreference',
+        'logo_url' => 'string'
     ];
 
     /**
@@ -80,7 +81,8 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => null,
         'timezone' => null,
         'region' => null,
-        'unit_preference' => null
+        'unit_preference' => null,
+        'logo_url' => null
     ];
 
     /**
@@ -94,7 +96,8 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => false,
         'timezone' => false,
         'region' => false,
-        'unit_preference' => false
+        'unit_preference' => false,
+        'logo_url' => true
     ];
 
     /**
@@ -188,7 +191,8 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'slug',
         'timezone' => 'timezone',
         'region' => 'region',
-        'unit_preference' => 'unit_preference'
+        'unit_preference' => 'unit_preference',
+        'logo_url' => 'logo_url'
     ];
 
     /**
@@ -202,7 +206,8 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'setSlug',
         'timezone' => 'setTimezone',
         'region' => 'setRegion',
-        'unit_preference' => 'setUnitPreference'
+        'unit_preference' => 'setUnitPreference',
+        'logo_url' => 'setLogoUrl'
     ];
 
     /**
@@ -216,7 +221,8 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'getSlug',
         'timezone' => 'getTimezone',
         'region' => 'getRegion',
-        'unit_preference' => 'getUnitPreference'
+        'unit_preference' => 'getUnitPreference',
+        'logo_url' => 'getLogoUrl'
     ];
 
     /**
@@ -282,6 +288,7 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('timezone', $data ?? [], null);
         $this->setIfExists('region', $data ?? [], null);
         $this->setIfExists('unit_preference', $data ?? [], null);
+        $this->setIfExists('logo_url', $data ?? [], null);
     }
 
     /**
@@ -502,6 +509,40 @@ class ResortInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable unit_preference cannot be null');
         }
         $this->container['unit_preference'] = $unit_preference;
+
+        return $this;
+    }
+
+    /**
+     * Gets logo_url
+     *
+     * @return string|null
+     */
+    public function getLogoUrl()
+    {
+        return $this->container['logo_url'];
+    }
+
+    /**
+     * Sets logo_url
+     *
+     * @param string|null $logo_url Full public URL to the resort's logo image. `null` if no logo is set.
+     *
+     * @return self
+     */
+    public function setLogoUrl($logo_url)
+    {
+        if (is_null($logo_url)) {
+            array_push($this->openAPINullablesSetToNull, 'logo_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('logo_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['logo_url'] = $logo_url;
 
         return $this;
     }
