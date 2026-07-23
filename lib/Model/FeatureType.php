@@ -52,6 +52,8 @@ class FeatureType
 
     public const OTHER = 'other';
 
+    public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -62,7 +64,8 @@ class FeatureType
             self::JUMP,
             self::BOX,
             self::RAIL,
-            self::OTHER
+            self::OTHER,
+            self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }
 }

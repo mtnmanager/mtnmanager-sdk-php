@@ -47,6 +47,8 @@ class SummerTrailType
 
     public const MOUNTAIN_BIKING = 'mountain_biking';
 
+    public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -55,7 +57,8 @@ class SummerTrailType
     {
         return [
             self::HIKING,
-            self::MOUNTAIN_BIKING
+            self::MOUNTAIN_BIKING,
+            self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }
 }

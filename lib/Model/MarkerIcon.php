@@ -89,6 +89,8 @@ class MarkerIcon
 
     public const WEBCAM = 'webcam';
 
+    public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -118,7 +120,8 @@ class MarkerIcon
             self::RETAIL,
             self::ATM,
             self::STAR,
-            self::WEBCAM
+            self::WEBCAM,
+            self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }
 }

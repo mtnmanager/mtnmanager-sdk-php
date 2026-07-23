@@ -52,6 +52,8 @@ class ClosureReason
 
     public const MECHANICAL_ISSUES = 'mechanical_issues';
 
+    public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -62,7 +64,8 @@ class ClosureReason
             self::EXTREME_COLD,
             self::HIGH_WINDS,
             self::SNOW_CONDITIONS,
-            self::MECHANICAL_ISSUES
+            self::MECHANICAL_ISSUES,
+            self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }
 }

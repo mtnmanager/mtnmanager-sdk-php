@@ -54,6 +54,8 @@ class RunDifficulty
 
     public const TERRAIN_PARK = 'terrain_park';
 
+    public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -65,7 +67,8 @@ class RunDifficulty
             self::INTERMEDIATE,
             self::ADVANCED,
             self::EXPERT,
-            self::TERRAIN_PARK
+            self::TERRAIN_PARK,
+            self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }
 }

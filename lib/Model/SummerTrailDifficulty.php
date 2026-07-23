@@ -52,6 +52,8 @@ class SummerTrailDifficulty
 
     public const EXPERT = 'expert';
 
+    public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -62,7 +64,8 @@ class SummerTrailDifficulty
             self::BEGINNER,
             self::INTERMEDIATE,
             self::ADVANCED,
-            self::EXPERT
+            self::EXPERT,
+            self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }
 }

@@ -48,6 +48,8 @@ class Region
 
     public const EU = 'eu';
 
+    public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -56,7 +58,8 @@ class Region
     {
         return [
             self::NA,
-            self::EU
+            self::EU,
+            self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }
 }

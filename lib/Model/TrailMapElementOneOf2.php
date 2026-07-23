@@ -260,6 +260,7 @@ class TrailMapElementOneOf2 implements ModelInterface, ArrayAccess, \JsonSeriali
     }
 
     public const TYPE_TERRAIN_PARK = 'terrain_park';
+    public const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     /**
      * Gets allowable values of the enum
@@ -270,6 +271,7 @@ class TrailMapElementOneOf2 implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         return [
             self::TYPE_TERRAIN_PARK,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -380,13 +382,7 @@ class TrailMapElementOneOf2 implements ModelInterface, ArrayAccess, \JsonSeriali
         }
         $allowedValues = $this->getTypeAllowableValues();
         if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
+            $type = self::TYPE_UNKNOWN_DEFAULT_OPEN_API;
         }
         $this->container['type'] = $type;
 

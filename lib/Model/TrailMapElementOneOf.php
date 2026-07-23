@@ -254,6 +254,7 @@ class TrailMapElementOneOf implements ModelInterface, ArrayAccess, \JsonSerializ
     }
 
     public const TYPE_LIFT = 'lift';
+    public const TYPE_UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     /**
      * Gets allowable values of the enum
@@ -264,6 +265,7 @@ class TrailMapElementOneOf implements ModelInterface, ArrayAccess, \JsonSerializ
     {
         return [
             self::TYPE_LIFT,
+            self::TYPE_UNKNOWN_DEFAULT_OPEN_API,
         ];
     }
 
@@ -373,13 +375,7 @@ class TrailMapElementOneOf implements ModelInterface, ArrayAccess, \JsonSerializ
         }
         $allowedValues = $this->getTypeAllowableValues();
         if (!in_array($type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'type', must be one of '%s'",
-                    $type,
-                    implode("', '", $allowedValues)
-                )
-            );
+            $type = self::TYPE_UNKNOWN_DEFAULT_OPEN_API;
         }
         $this->container['type'] = $type;
 

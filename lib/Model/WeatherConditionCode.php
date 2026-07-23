@@ -114,6 +114,8 @@ class WeatherConditionCode
 
     public const UNKNOWN = 'Unknown';
 
+    public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -155,7 +157,8 @@ class WeatherConditionCode
             self::HEAVY_SNOW,
             self::HURRICANE,
             self::TROPICAL_STORM,
-            self::UNKNOWN
+            self::UNKNOWN,
+            self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }
 }

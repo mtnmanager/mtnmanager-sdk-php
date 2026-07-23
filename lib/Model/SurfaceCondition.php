@@ -74,6 +74,8 @@ class SurfaceCondition
 
     public const WP = 'WP';
 
+    public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -95,7 +97,8 @@ class SurfaceCondition
             self::TC,
             self::V,
             self::WG,
-            self::WP
+            self::WP,
+            self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }
 }

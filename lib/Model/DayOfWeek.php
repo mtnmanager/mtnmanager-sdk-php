@@ -57,6 +57,8 @@ class DayOfWeek
 
     public const SATURDAY = 'Saturday';
 
+    public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -70,7 +72,8 @@ class DayOfWeek
             self::WEDNESDAY,
             self::THURSDAY,
             self::FRIDAY,
-            self::SATURDAY
+            self::SATURDAY,
+            self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }
 }

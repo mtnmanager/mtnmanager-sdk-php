@@ -48,6 +48,8 @@ class UnitPreference
 
     public const IMPERIAL = 'imperial';
 
+    public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -56,7 +58,8 @@ class UnitPreference
     {
         return [
             self::METRIC,
-            self::IMPERIAL
+            self::IMPERIAL,
+            self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }
 }

@@ -50,6 +50,8 @@ class SeasonType
 
     public const CLOSED = 'closed';
 
+    public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -59,7 +61,8 @@ class SeasonType
         return [
             self::WINTER,
             self::SUMMER,
-            self::CLOSED
+            self::CLOSED,
+            self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }
 }
