@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **opens_at** | **string** | Today&#39;s scheduled opening time in 24-hour format (HH:MM).  &#x60;null&#x60; if the resort is not scheduled to open today. | [optional]
 **closes_at** | **string** | Today&#39;s scheduled closing time in 24-hour format (HH:MM).  &#x60;null&#x60; if the resort is not scheduled to open today. | [optional]
 **season** | [**\MtnManager\Model\SeasonType**](SeasonType.md) | Current operating season (winter, summer, or closed/off-season). |
-**news** | [**\MtnManager\Model\OverviewNews**](OverviewNews.md) | Written news — daily update, announcements, etc. |
+**news** | [**\MtnManager\Model\OverviewNews[]**](OverviewNews.md) | Written news — daily update, announcements, etc. The resort&#39;s primary  news comes first, followed by any others it publishes, in the order they  were added. News with nothing written is still listed, with empty  &#x60;raw&#x60; and &#x60;html&#x60;. |
 **runs** | [**\MtnManager\Model\OverviewRuns**](OverviewRuns.md) | Run statistics: counts, acres, and last-updated timestamp. |
 **lifts** | [**\MtnManager\Model\OverviewLifts**](OverviewLifts.md) | Lift statistics: counts and last-updated timestamp. |
 **summer_trails** | [**\MtnManager\Model\OverviewSummerTrails**](OverviewSummerTrails.md) | Summer trail statistics: counts and last-updated timestamp. |
