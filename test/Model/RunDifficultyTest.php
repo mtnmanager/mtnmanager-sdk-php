@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * RunDifficultyTest Class Doc Comment
  *
  * @category    Class
- * @description Difficulty rating for a ski run.
+ * @description Difficulty rating for a ski run. Stored as TEXT in &#x60;runs.difficulty&#x60;.
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

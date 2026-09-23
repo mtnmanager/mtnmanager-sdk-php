@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * ResortStatusTest Class Doc Comment
  *
  * @category    Class
- * @description Current operational status of the resort.
+ * @description Whether the resort is open right now, from today&#39;s scheduled hours.
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

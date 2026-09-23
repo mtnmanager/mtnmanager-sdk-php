@@ -153,6 +153,15 @@ class LiftTest extends TestCase
     }
 
     /**
+     * Test attribute "capacity"
+     */
+    public function testPropertyCapacity()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "travel_time"
      */
     public function testPropertyTravelTime()

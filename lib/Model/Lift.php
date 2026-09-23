@@ -67,6 +67,7 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'high_speed' => 'bool',
         'bubble' => 'bool',
         'heated' => 'bool',
+        'capacity' => 'int',
         'travel_time' => 'float',
         'length_ft' => 'int',
         'length_m' => 'int',
@@ -99,6 +100,7 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'high_speed' => null,
         'bubble' => null,
         'heated' => null,
+        'capacity' => 'int32',
         'travel_time' => 'double',
         'length_ft' => 'int32',
         'length_m' => 'int32',
@@ -129,6 +131,7 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'high_speed' => false,
         'bubble' => false,
         'heated' => false,
+        'capacity' => true,
         'travel_time' => true,
         'length_ft' => true,
         'length_m' => true,
@@ -239,6 +242,7 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'high_speed' => 'high_speed',
         'bubble' => 'bubble',
         'heated' => 'heated',
+        'capacity' => 'capacity',
         'travel_time' => 'travel_time',
         'length_ft' => 'length_ft',
         'length_m' => 'length_m',
@@ -269,6 +273,7 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'high_speed' => 'setHighSpeed',
         'bubble' => 'setBubble',
         'heated' => 'setHeated',
+        'capacity' => 'setCapacity',
         'travel_time' => 'setTravelTime',
         'length_ft' => 'setLengthFt',
         'length_m' => 'setLengthM',
@@ -299,6 +304,7 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         'high_speed' => 'getHighSpeed',
         'bubble' => 'getBubble',
         'heated' => 'getHeated',
+        'capacity' => 'getCapacity',
         'travel_time' => 'getTravelTime',
         'length_ft' => 'getLengthFt',
         'length_m' => 'getLengthM',
@@ -380,6 +386,7 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('high_speed', $data ?? [], null);
         $this->setIfExists('bubble', $data ?? [], null);
         $this->setIfExists('heated', $data ?? [], null);
+        $this->setIfExists('capacity', $data ?? [], null);
         $this->setIfExists('travel_time', $data ?? [], null);
         $this->setIfExists('length_ft', $data ?? [], null);
         $this->setIfExists('length_m', $data ?? [], null);
@@ -684,6 +691,40 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable heated cannot be null');
         }
         $this->container['heated'] = $heated;
+
+        return $this;
+    }
+
+    /**
+     * Gets capacity
+     *
+     * @return int|null
+     */
+    public function getCapacity()
+    {
+        return $this->container['capacity'];
+    }
+
+    /**
+     * Sets capacity
+     *
+     * @param int|null $capacity Riders per chair or cabin, if available.
+     *
+     * @return self
+     */
+    public function setCapacity($capacity)
+    {
+        if (is_null($capacity)) {
+            array_push($this->openAPINullablesSetToNull, 'capacity');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('capacity', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['capacity'] = $capacity;
 
         return $this;
     }
