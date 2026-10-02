@@ -34,7 +34,7 @@ use \MtnManager\ObjectSerializer;
  * RunStatus Class Doc Comment
  *
  * @category Class
- * @description Operational status of a ski run. Stored as TEXT in &#x60;runs.status&#x60;.
+ * @description Operational status of a ski run.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

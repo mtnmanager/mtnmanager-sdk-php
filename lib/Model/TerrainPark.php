@@ -64,6 +64,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'string',
         'number' => 'int',
         'status' => '\MtnManager\Model\TerrainParkStatus',
+        'last_groomed' => '\DateTime',
+        'groomed_today' => 'bool',
         'condition_notes' => 'string',
         'area_uuid' => 'string',
         'area_name' => 'string',
@@ -86,6 +88,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => null,
         'number' => 'int32',
         'status' => null,
+        'last_groomed' => 'date-time',
+        'groomed_today' => null,
         'condition_notes' => null,
         'area_uuid' => null,
         'area_name' => null,
@@ -106,6 +110,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => false,
         'number' => true,
         'status' => false,
+        'last_groomed' => true,
+        'groomed_today' => false,
         'condition_notes' => false,
         'area_uuid' => true,
         'area_name' => true,
@@ -206,6 +212,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'slug',
         'number' => 'number',
         'status' => 'status',
+        'last_groomed' => 'last_groomed',
+        'groomed_today' => 'groomed_today',
         'condition_notes' => 'condition_notes',
         'area_uuid' => 'area_uuid',
         'area_name' => 'area_name',
@@ -226,6 +234,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'setSlug',
         'number' => 'setNumber',
         'status' => 'setStatus',
+        'last_groomed' => 'setLastGroomed',
+        'groomed_today' => 'setGroomedToday',
         'condition_notes' => 'setConditionNotes',
         'area_uuid' => 'setAreaUuid',
         'area_name' => 'setAreaName',
@@ -246,6 +256,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'getSlug',
         'number' => 'getNumber',
         'status' => 'getStatus',
+        'last_groomed' => 'getLastGroomed',
+        'groomed_today' => 'getGroomedToday',
         'condition_notes' => 'getConditionNotes',
         'area_uuid' => 'getAreaUuid',
         'area_name' => 'getAreaName',
@@ -317,6 +329,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('slug', $data ?? [], null);
         $this->setIfExists('number', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('last_groomed', $data ?? [], null);
+        $this->setIfExists('groomed_today', $data ?? [], null);
         $this->setIfExists('condition_notes', $data ?? [], null);
         $this->setIfExists('area_uuid', $data ?? [], null);
         $this->setIfExists('area_name', $data ?? [], null);
@@ -364,6 +378,9 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
+        }
+        if ($this->container['groomed_today'] === null) {
+            $invalidProperties[] = "'groomed_today' can't be null";
         }
         if ($this->container['condition_notes'] === null) {
             $invalidProperties[] = "'condition_notes' can't be null";
@@ -527,6 +544,67 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable status cannot be null');
         }
         $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets last_groomed
+     *
+     * @return \DateTime|null
+     */
+    public function getLastGroomed()
+    {
+        return $this->container['last_groomed'];
+    }
+
+    /**
+     * Sets last_groomed
+     *
+     * @param \DateTime|null $last_groomed When the terrain park was last groomed.  `null` if never groomed, or if the terrain park grooming feature is disabled.
+     *
+     * @return self
+     */
+    public function setLastGroomed($last_groomed)
+    {
+        if (is_null($last_groomed)) {
+            array_push($this->openAPINullablesSetToNull, 'last_groomed');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_groomed', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['last_groomed'] = $last_groomed;
+
+        return $this;
+    }
+
+    /**
+     * Gets groomed_today
+     *
+     * @return bool
+     */
+    public function getGroomedToday()
+    {
+        return $this->container['groomed_today'];
+    }
+
+    /**
+     * Sets groomed_today
+     *
+     * @param bool $groomed_today Whether the terrain park was groomed within the last 24 hours.
+     *
+     * @return self
+     */
+    public function setGroomedToday($groomed_today)
+    {
+        if (is_null($groomed_today)) {
+            throw new \InvalidArgumentException('non-nullable groomed_today cannot be null');
+        }
+        $this->container['groomed_today'] = $groomed_today;
 
         return $this;
     }

@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * OverviewTerrainParksTest Class Doc Comment
  *
  * @category    Class
- * @description Terrain park statistics: open/total counts and last-updated timestamp.
+ * @description Terrain park statistics: open/groomed/total counts and last-updated timestamp.
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -84,6 +84,15 @@ class OverviewTerrainParksTest extends TestCase
      * Test attribute "open"
      */
     public function testPropertyOpen()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "groomed"
+     */
+    public function testPropertyGroomed()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

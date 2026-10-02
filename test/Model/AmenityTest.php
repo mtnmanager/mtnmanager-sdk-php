@@ -108,6 +108,15 @@ class AmenityTest extends TestCase
     }
 
     /**
+     * Test attribute "slug"
+     */
+    public function testPropertySlug()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "category"
      */
     public function testPropertyCategory()

@@ -34,7 +34,7 @@ use \MtnManager\ObjectSerializer;
  * RunDifficulty Class Doc Comment
  *
  * @category Class
- * @description Difficulty rating for a ski run. Stored as TEXT in &#x60;runs.difficulty&#x60;.
+ * @description Difficulty rating for a ski run.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -52,8 +52,6 @@ class RunDifficulty
 
     public const EXPERT = 'expert';
 
-    public const TERRAIN_PARK = 'terrain_park';
-
     public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
     /**
@@ -67,7 +65,6 @@ class RunDifficulty
             self::INTERMEDIATE,
             self::ADVANCED,
             self::EXPERT,
-            self::TERRAIN_PARK,
             self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }

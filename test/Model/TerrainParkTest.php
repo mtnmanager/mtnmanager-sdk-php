@@ -126,6 +126,24 @@ class TerrainParkTest extends TestCase
     }
 
     /**
+     * Test attribute "last_groomed"
+     */
+    public function testPropertyLastGroomed()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "groomed_today"
+     */
+    public function testPropertyGroomedToday()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "condition_notes"
      */
     public function testPropertyConditionNotes()

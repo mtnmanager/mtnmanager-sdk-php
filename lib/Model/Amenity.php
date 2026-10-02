@@ -62,6 +62,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'string',
         'uuid' => 'string',
         'name' => 'string',
+        'slug' => 'string',
         'category' => '\MtnManager\Model\AmenityCategory',
         'website' => 'string',
         'has_operating_hours' => 'bool',
@@ -82,6 +83,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => null,
         'uuid' => null,
         'name' => null,
+        'slug' => null,
         'category' => null,
         'website' => null,
         'has_operating_hours' => null,
@@ -100,6 +102,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => false,
         'uuid' => false,
         'name' => false,
+        'slug' => false,
         'category' => false,
         'website' => false,
         'has_operating_hours' => false,
@@ -198,6 +201,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'description',
         'uuid' => 'uuid',
         'name' => 'name',
+        'slug' => 'slug',
         'category' => 'category',
         'website' => 'website',
         'has_operating_hours' => 'has_operating_hours',
@@ -216,6 +220,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'setDescription',
         'uuid' => 'setUuid',
         'name' => 'setName',
+        'slug' => 'setSlug',
         'category' => 'setCategory',
         'website' => 'setWebsite',
         'has_operating_hours' => 'setHasOperatingHours',
@@ -234,6 +239,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'description' => 'getDescription',
         'uuid' => 'getUuid',
         'name' => 'getName',
+        'slug' => 'getSlug',
         'category' => 'getCategory',
         'website' => 'getWebsite',
         'has_operating_hours' => 'getHasOperatingHours',
@@ -303,6 +309,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('description', $data ?? [], null);
         $this->setIfExists('uuid', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('slug', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('website', $data ?? [], null);
         $this->setIfExists('has_operating_hours', $data ?? [], null);
@@ -347,6 +354,9 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
+        }
+        if ($this->container['slug'] === null) {
+            $invalidProperties[] = "'slug' can't be null";
         }
         if ($this->container['category'] === null) {
             $invalidProperties[] = "'category' can't be null";
@@ -452,6 +462,33 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->container['slug'];
+    }
+
+    /**
+     * Sets slug
+     *
+     * @param string $slug URL-friendly name of the amenity.
+     *
+     * @return self
+     */
+    public function setSlug($slug)
+    {
+        if (is_null($slug)) {
+            throw new \InvalidArgumentException('non-nullable slug cannot be null');
+        }
+        $this->container['slug'] = $slug;
 
         return $this;
     }

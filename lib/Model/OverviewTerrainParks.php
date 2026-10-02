@@ -36,7 +36,7 @@ use \MtnManager\ObjectSerializer;
  * OverviewTerrainParks Class Doc Comment
  *
  * @category Class
- * @description Terrain park statistics: open/total counts and last-updated timestamp.
+ * @description Terrain park statistics: open/groomed/total counts and last-updated timestamp.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,6 +60,7 @@ class OverviewTerrainParks implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $openAPITypes = [
         'open' => 'int',
+        'groomed' => 'int',
         'total' => 'int',
         'updated_at' => '\DateTime'
     ];
@@ -73,6 +74,7 @@ class OverviewTerrainParks implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $openAPIFormats = [
         'open' => 'int64',
+        'groomed' => 'int64',
         'total' => 'int64',
         'updated_at' => 'date-time'
     ];
@@ -84,6 +86,7 @@ class OverviewTerrainParks implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static array $openAPINullables = [
         'open' => true,
+        'groomed' => true,
         'total' => false,
         'updated_at' => false
     ];
@@ -175,6 +178,7 @@ class OverviewTerrainParks implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $attributeMap = [
         'open' => 'open',
+        'groomed' => 'groomed',
         'total' => 'total',
         'updated_at' => 'updated_at'
     ];
@@ -186,6 +190,7 @@ class OverviewTerrainParks implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $setters = [
         'open' => 'setOpen',
+        'groomed' => 'setGroomed',
         'total' => 'setTotal',
         'updated_at' => 'setUpdatedAt'
     ];
@@ -197,6 +202,7 @@ class OverviewTerrainParks implements ModelInterface, ArrayAccess, \JsonSerializ
      */
     protected static $getters = [
         'open' => 'getOpen',
+        'groomed' => 'getGroomed',
         'total' => 'getTotal',
         'updated_at' => 'getUpdatedAt'
     ];
@@ -259,6 +265,7 @@ class OverviewTerrainParks implements ModelInterface, ArrayAccess, \JsonSerializ
     public function __construct(?array $data = null)
     {
         $this->setIfExists('open', $data ?? [], null);
+        $this->setIfExists('groomed', $data ?? [], null);
         $this->setIfExists('total', $data ?? [], null);
         $this->setIfExists('updated_at', $data ?? [], null);
     }
@@ -341,6 +348,40 @@ class OverviewTerrainParks implements ModelInterface, ArrayAccess, \JsonSerializ
             }
         }
         $this->container['open'] = $open;
+
+        return $this;
+    }
+
+    /**
+     * Gets groomed
+     *
+     * @return int|null
+     */
+    public function getGroomed()
+    {
+        return $this->container['groomed'];
+    }
+
+    /**
+     * Sets groomed
+     *
+     * @param int|null $groomed Number of terrain parks groomed within the last 24 hours.  Not included if the terrain park grooming feature is disabled.
+     *
+     * @return self
+     */
+    public function setGroomed($groomed)
+    {
+        if (is_null($groomed)) {
+            array_push($this->openAPINullablesSetToNull, 'groomed');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('groomed', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['groomed'] = $groomed;
 
         return $this;
     }

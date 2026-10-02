@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * SeasonTypeTest Class Doc Comment
  *
  * @category    Class
- * @description Current operating season of the resort.
+ * @description A resort&#39;s season: winter or summer as its weekly operating hours say  (&#x60;OperatingHoursDb::season_type&#x60;), or closed outside every season (see  &#x60;utils::hours::season_on&#x60;).
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

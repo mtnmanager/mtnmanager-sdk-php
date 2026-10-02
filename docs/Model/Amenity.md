@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 **description** | **string** | Description of the amenity. |
 **uuid** | **string** | Unique identifier for the amenity. |
 **name** | **string** | Display name of the amenity. |
+**slug** | **string** | URL-friendly name of the amenity. |
 **category** | [**\MtnManager\Model\AmenityCategory**](AmenityCategory.md) | Category classification (e.g. restaurant, lodge, ski_school). |
 **website** | **string** | Website URL for the amenity, if available. |
 **has_operating_hours** | **bool** | Whether this amenity reports operating hours. When false, clients should  not expect &#x60;opens_at&#x60;, &#x60;closes_at&#x60;, or &#x60;schedules&#x60; to ever be populated. |

@@ -9,6 +9,8 @@ Name | Type | Description | Notes
 **slug** | **string** | URL-friendly name of the terrain park. |
 **number** | **int** | Optional terrain park number. | [optional]
 **status** | [**\MtnManager\Model\TerrainParkStatus**](TerrainParkStatus.md) | Current operational status (open, closed, or unknown). |
+**last_groomed** | **\DateTime** | When the terrain park was last groomed.  &#x60;null&#x60; if never groomed, or if the terrain park grooming feature is disabled. | [optional]
+**groomed_today** | **bool** | Whether the terrain park was groomed within the last 24 hours. |
 **condition_notes** | **string** | Notes about current conditions in this terrain park. |
 **area_uuid** | **string** | UUID of the area this terrain park belongs to, if assigned. | [optional]
 **area_name** | **string** | Name of the area this terrain park belongs to, if assigned. | [optional]
