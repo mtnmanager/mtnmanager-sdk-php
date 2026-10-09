@@ -63,11 +63,14 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'opens_at' => 'string',
         'closes_at' => 'string',
         'season' => '\MtnManager\Model\SeasonType',
+        'previous_season' => '\MtnManager\Model\SeasonPeriod',
+        'next_season' => '\MtnManager\Model\SeasonPeriod',
         'news' => '\MtnManager\Model\OverviewNews[]',
         'runs' => '\MtnManager\Model\OverviewRuns',
         'lifts' => '\MtnManager\Model\OverviewLifts',
         'summer_trails' => '\MtnManager\Model\OverviewSummerTrails',
-        'terrain_parks' => '\MtnManager\Model\OverviewTerrainParks'
+        'terrain_parks' => '\MtnManager\Model\OverviewTerrainParks',
+        'powder_alerts' => '\MtnManager\Model\PowderAlerts'
     ];
 
     /**
@@ -82,11 +85,14 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'opens_at' => null,
         'closes_at' => null,
         'season' => null,
+        'previous_season' => null,
+        'next_season' => null,
         'news' => null,
         'runs' => null,
         'lifts' => null,
         'summer_trails' => null,
-        'terrain_parks' => null
+        'terrain_parks' => null,
+        'powder_alerts' => null
     ];
 
     /**
@@ -99,11 +105,14 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'opens_at' => true,
         'closes_at' => true,
         'season' => false,
+        'previous_season' => true,
+        'next_season' => true,
         'news' => false,
         'runs' => false,
         'lifts' => false,
         'summer_trails' => false,
-        'terrain_parks' => false
+        'terrain_parks' => false,
+        'powder_alerts' => false
     ];
 
     /**
@@ -196,11 +205,14 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'opens_at' => 'opens_at',
         'closes_at' => 'closes_at',
         'season' => 'season',
+        'previous_season' => 'previous_season',
+        'next_season' => 'next_season',
         'news' => 'news',
         'runs' => 'runs',
         'lifts' => 'lifts',
         'summer_trails' => 'summer_trails',
-        'terrain_parks' => 'terrain_parks'
+        'terrain_parks' => 'terrain_parks',
+        'powder_alerts' => 'powder_alerts'
     ];
 
     /**
@@ -213,11 +225,14 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'opens_at' => 'setOpensAt',
         'closes_at' => 'setClosesAt',
         'season' => 'setSeason',
+        'previous_season' => 'setPreviousSeason',
+        'next_season' => 'setNextSeason',
         'news' => 'setNews',
         'runs' => 'setRuns',
         'lifts' => 'setLifts',
         'summer_trails' => 'setSummerTrails',
-        'terrain_parks' => 'setTerrainParks'
+        'terrain_parks' => 'setTerrainParks',
+        'powder_alerts' => 'setPowderAlerts'
     ];
 
     /**
@@ -230,11 +245,14 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         'opens_at' => 'getOpensAt',
         'closes_at' => 'getClosesAt',
         'season' => 'getSeason',
+        'previous_season' => 'getPreviousSeason',
+        'next_season' => 'getNextSeason',
         'news' => 'getNews',
         'runs' => 'getRuns',
         'lifts' => 'getLifts',
         'summer_trails' => 'getSummerTrails',
-        'terrain_parks' => 'getTerrainParks'
+        'terrain_parks' => 'getTerrainParks',
+        'powder_alerts' => 'getPowderAlerts'
     ];
 
     /**
@@ -298,11 +316,14 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('opens_at', $data ?? [], null);
         $this->setIfExists('closes_at', $data ?? [], null);
         $this->setIfExists('season', $data ?? [], null);
+        $this->setIfExists('previous_season', $data ?? [], null);
+        $this->setIfExists('next_season', $data ?? [], null);
         $this->setIfExists('news', $data ?? [], null);
         $this->setIfExists('runs', $data ?? [], null);
         $this->setIfExists('lifts', $data ?? [], null);
         $this->setIfExists('summer_trails', $data ?? [], null);
         $this->setIfExists('terrain_parks', $data ?? [], null);
+        $this->setIfExists('powder_alerts', $data ?? [], null);
     }
 
     /**
@@ -352,6 +373,9 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['terrain_parks'] === null) {
             $invalidProperties[] = "'terrain_parks' can't be null";
+        }
+        if ($this->container['powder_alerts'] === null) {
+            $invalidProperties[] = "'powder_alerts' can't be null";
         }
         return $invalidProperties;
     }
@@ -491,6 +515,74 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets previous_season
+     *
+     * @return \MtnManager\Model\SeasonPeriod|null
+     */
+    public function getPreviousSeason()
+    {
+        return $this->container['previous_season'];
+    }
+
+    /**
+     * Sets previous_season
+     *
+     * @param \MtnManager\Model\SeasonPeriod|null $previous_season The last season to end before today, from the resort's operating  hours of the past year. `null` if there was none. While `season` is  `closed`, this and `next_season` tell an off-season that just ended a  winter from one leading up to a summer.
+     *
+     * @return self
+     */
+    public function setPreviousSeason($previous_season)
+    {
+        if (is_null($previous_season)) {
+            array_push($this->openAPINullablesSetToNull, 'previous_season');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('previous_season', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['previous_season'] = $previous_season;
+
+        return $this;
+    }
+
+    /**
+     * Gets next_season
+     *
+     * @return \MtnManager\Model\SeasonPeriod|null
+     */
+    public function getNextSeason()
+    {
+        return $this->container['next_season'];
+    }
+
+    /**
+     * Sets next_season
+     *
+     * @param \MtnManager\Model\SeasonPeriod|null $next_season The next season to start after today, from the resort's scheduled  operating hours. `null` if none is scheduled yet.
+     *
+     * @return self
+     */
+    public function setNextSeason($next_season)
+    {
+        if (is_null($next_season)) {
+            array_push($this->openAPINullablesSetToNull, 'next_season');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('next_season', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['next_season'] = $next_season;
+
+        return $this;
+    }
+
+    /**
      * Gets news
      *
      * @return \MtnManager\Model\OverviewNews[]
@@ -621,6 +713,33 @@ class Overview implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable terrain_parks cannot be null');
         }
         $this->container['terrain_parks'] = $terrain_parks;
+
+        return $this;
+    }
+
+    /**
+     * Gets powder_alerts
+     *
+     * @return \MtnManager\Model\PowderAlerts
+     */
+    public function getPowderAlerts()
+    {
+        return $this->container['powder_alerts'];
+    }
+
+    /**
+     * Sets powder_alerts
+     *
+     * @param \MtnManager\Model\PowderAlerts $powder_alerts Guest powder alerts the resort offers, by channel.
+     *
+     * @return self
+     */
+    public function setPowderAlerts($powder_alerts)
+    {
+        if (is_null($powder_alerts)) {
+            throw new \InvalidArgumentException('non-nullable powder_alerts cannot be null');
+        }
+        $this->container['powder_alerts'] = $powder_alerts;
 
         return $this;
     }

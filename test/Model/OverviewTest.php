@@ -117,6 +117,24 @@ class OverviewTest extends TestCase
     }
 
     /**
+     * Test attribute "previous_season"
+     */
+    public function testPropertyPreviousSeason()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "next_season"
+     */
+    public function testPropertyNextSeason()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "news"
      */
     public function testPropertyNews()
@@ -156,6 +174,15 @@ class OverviewTest extends TestCase
      * Test attribute "terrain_parks"
      */
     public function testPropertyTerrainParks()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "powder_alerts"
+     */
+    public function testPropertyPowderAlerts()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

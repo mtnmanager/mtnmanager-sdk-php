@@ -8,10 +8,13 @@ Name | Type | Description | Notes
 **opens_at** | **string** | Today&#39;s scheduled opening time in 24-hour format (HH:MM).  &#x60;null&#x60; if the resort is not scheduled to open today. | [optional]
 **closes_at** | **string** | Today&#39;s scheduled closing time in 24-hour format (HH:MM).  &#x60;null&#x60; if the resort is not scheduled to open today. | [optional]
 **season** | [**\MtnManager\Model\SeasonType**](SeasonType.md) | Current operating season (winter, summer, or closed/off-season). |
+**previous_season** | [**\MtnManager\Model\SeasonPeriod**](SeasonPeriod.md) | The last season to end before today, from the resort&#39;s operating  hours of the past year. &#x60;null&#x60; if there was none. While &#x60;season&#x60; is  &#x60;closed&#x60;, this and &#x60;next_season&#x60; tell an off-season that just ended a  winter from one leading up to a summer. | [optional]
+**next_season** | [**\MtnManager\Model\SeasonPeriod**](SeasonPeriod.md) | The next season to start after today, from the resort&#39;s scheduled  operating hours. &#x60;null&#x60; if none is scheduled yet. | [optional]
 **news** | [**\MtnManager\Model\OverviewNews[]**](OverviewNews.md) | Written news — daily update, announcements, etc. The resort&#39;s primary  news comes first, followed by any others it publishes, in the order they  were added. News with nothing written is still listed, with empty  &#x60;raw&#x60; and &#x60;html&#x60;. |
 **runs** | [**\MtnManager\Model\OverviewRuns**](OverviewRuns.md) | Run statistics: counts, acres, and last-updated timestamp. |
 **lifts** | [**\MtnManager\Model\OverviewLifts**](OverviewLifts.md) | Lift statistics: counts and last-updated timestamp. |
 **summer_trails** | [**\MtnManager\Model\OverviewSummerTrails**](OverviewSummerTrails.md) | Summer trail statistics: counts and last-updated timestamp. |
 **terrain_parks** | [**\MtnManager\Model\OverviewTerrainParks**](OverviewTerrainParks.md) | Terrain park statistics: counts and last-updated timestamp. |
+**powder_alerts** | [**\MtnManager\Model\PowderAlerts**](PowderAlerts.md) | Guest powder alerts the resort offers, by channel. |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)
