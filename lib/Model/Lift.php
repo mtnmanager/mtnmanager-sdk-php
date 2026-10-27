@@ -939,7 +939,7 @@ class Lift implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets wait_time_minutes
      *
-     * @param int|null $wait_time_minutes Current estimated wait time in minutes, if available.
+     * @param int|null $wait_time_minutes Current estimated wait time in minutes, if available.  Always `null` when the lift is closed.
      *
      * @return self
      */

@@ -36,7 +36,7 @@ use \MtnManager\ObjectSerializer;
  * SummerTrail Class Doc Comment
  *
  * @category Class
- * @description Represents a single summer trail at the resort with its current status,  type (e.g. hiking, mountain biking), and optional difficulty rating.
+ * @description Represents a single summer trail at the resort with its current status,  activities (e.g. hiking, mountain biking, dogs), and optional difficulty rating.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,8 +63,9 @@ class SummerTrail implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'slug' => 'string',
         'number' => 'int',
-        'trail_type' => '\MtnManager\Model\SummerTrailType[]',
+        'activities' => '\MtnManager\Model\SummerTrailActivity[]',
         'difficulty' => '\MtnManager\Model\SummerTrailDifficulty',
+        'difficulty_type' => '\MtnManager\Model\SummerTrailDifficultyType',
         'status' => '\MtnManager\Model\SummerTrailStatus',
         'condition_notes' => 'string',
         'area_uuid' => 'string',
@@ -86,8 +87,9 @@ class SummerTrail implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'slug' => null,
         'number' => 'int32',
-        'trail_type' => null,
+        'activities' => null,
         'difficulty' => null,
+        'difficulty_type' => null,
         'status' => null,
         'condition_notes' => null,
         'area_uuid' => null,
@@ -107,8 +109,9 @@ class SummerTrail implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
         'slug' => false,
         'number' => true,
-        'trail_type' => false,
+        'activities' => false,
         'difficulty' => true,
+        'difficulty_type' => true,
         'status' => false,
         'condition_notes' => false,
         'area_uuid' => true,
@@ -208,8 +211,9 @@ class SummerTrail implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'slug' => 'slug',
         'number' => 'number',
-        'trail_type' => 'trail_type',
+        'activities' => 'activities',
         'difficulty' => 'difficulty',
+        'difficulty_type' => 'difficulty_type',
         'status' => 'status',
         'condition_notes' => 'condition_notes',
         'area_uuid' => 'area_uuid',
@@ -229,8 +233,9 @@ class SummerTrail implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'slug' => 'setSlug',
         'number' => 'setNumber',
-        'trail_type' => 'setTrailType',
+        'activities' => 'setActivities',
         'difficulty' => 'setDifficulty',
+        'difficulty_type' => 'setDifficultyType',
         'status' => 'setStatus',
         'condition_notes' => 'setConditionNotes',
         'area_uuid' => 'setAreaUuid',
@@ -250,8 +255,9 @@ class SummerTrail implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'slug' => 'getSlug',
         'number' => 'getNumber',
-        'trail_type' => 'getTrailType',
+        'activities' => 'getActivities',
         'difficulty' => 'getDifficulty',
+        'difficulty_type' => 'getDifficultyType',
         'status' => 'getStatus',
         'condition_notes' => 'getConditionNotes',
         'area_uuid' => 'getAreaUuid',
@@ -322,8 +328,9 @@ class SummerTrail implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('slug', $data ?? [], null);
         $this->setIfExists('number', $data ?? [], null);
-        $this->setIfExists('trail_type', $data ?? [], null);
+        $this->setIfExists('activities', $data ?? [], null);
         $this->setIfExists('difficulty', $data ?? [], null);
+        $this->setIfExists('difficulty_type', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('condition_notes', $data ?? [], null);
         $this->setIfExists('area_uuid', $data ?? [], null);
@@ -369,8 +376,8 @@ class SummerTrail implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['slug'] === null) {
             $invalidProperties[] = "'slug' can't be null";
         }
-        if ($this->container['trail_type'] === null) {
-            $invalidProperties[] = "'trail_type' can't be null";
+        if ($this->container['activities'] === null) {
+            $invalidProperties[] = "'activities' can't be null";
         }
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
@@ -512,28 +519,28 @@ class SummerTrail implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets trail_type
+     * Gets activities
      *
-     * @return \MtnManager\Model\SummerTrailType[]
+     * @return \MtnManager\Model\SummerTrailActivity[]
      */
-    public function getTrailType()
+    public function getActivities()
     {
-        return $this->container['trail_type'];
+        return $this->container['activities'];
     }
 
     /**
-     * Sets trail_type
+     * Sets activities
      *
-     * @param \MtnManager\Model\SummerTrailType[] $trail_type Type of trail activity (e.g. hiking, mountain_biking). Can have multiple.
+     * @param \MtnManager\Model\SummerTrailActivity[] $activities Activities the trail is open to (e.g. hiking, mountain_biking,  on_leash_dogs). Can have multiple.
      *
      * @return self
      */
-    public function setTrailType($trail_type)
+    public function setActivities($activities)
     {
-        if (is_null($trail_type)) {
-            throw new \InvalidArgumentException('non-nullable trail_type cannot be null');
+        if (is_null($activities)) {
+            throw new \InvalidArgumentException('non-nullable activities cannot be null');
         }
-        $this->container['trail_type'] = $trail_type;
+        $this->container['activities'] = $activities;
 
         return $this;
     }
@@ -568,6 +575,40 @@ class SummerTrail implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['difficulty'] = $difficulty;
+
+        return $this;
+    }
+
+    /**
+     * Gets difficulty_type
+     *
+     * @return \MtnManager\Model\SummerTrailDifficultyType|null
+     */
+    public function getDifficultyType()
+    {
+        return $this->container['difficulty_type'];
+    }
+
+    /**
+     * Sets difficulty_type
+     *
+     * @param \MtnManager\Model\SummerTrailDifficultyType|null $difficulty_type The rating system the difficulty is shown in, which picks its icon:  `null` for the standard one, or a mountain-bike freeride / technical one.
+     *
+     * @return self
+     */
+    public function setDifficultyType($difficulty_type)
+    {
+        if (is_null($difficulty_type)) {
+            array_push($this->openAPINullablesSetToNull, 'difficulty_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('difficulty_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['difficulty_type'] = $difficulty_type;
 
         return $this;
     }

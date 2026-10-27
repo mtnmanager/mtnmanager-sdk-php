@@ -1,6 +1,6 @@
 <?php
 /**
- * SummerTrailTypeTest
+ * SummerTrailDifficultyTypeTest
  *
  * PHP version 8.1
  *
@@ -32,15 +32,15 @@ namespace MtnManager\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SummerTrailTypeTest Class Doc Comment
+ * SummerTrailDifficultyTypeTest Class Doc Comment
  *
  * @category    Class
- * @description SummerTrailType
+ * @description The rating system a summer trail&#39;s difficulty is shown in, which picks its  difficulty icon. &#x60;None&#x60; (on the trail) is the standard system.
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SummerTrailTypeTest extends TestCase
+class SummerTrailDifficultyTypeTest extends TestCase
 {
 
     /**
@@ -72,9 +72,9 @@ class SummerTrailTypeTest extends TestCase
     }
 
     /**
-     * Test "SummerTrailType"
+     * Test "SummerTrailDifficultyType"
      */
-    public function testSummerTrailType()
+    public function testSummerTrailDifficultyType()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

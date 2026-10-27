@@ -135,6 +135,15 @@ class AmenityTest extends TestCase
     }
 
     /**
+     * Test attribute "status"
+     */
+    public function testPropertyStatus()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "has_operating_hours"
      */
     public function testPropertyHasOperatingHours()

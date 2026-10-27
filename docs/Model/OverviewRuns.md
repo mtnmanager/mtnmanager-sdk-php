@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **open** | **int** | Number of runs currently open.  Not included if the runs status feature is disabled. | [optional]
-**groomed** | **int** | Number of runs groomed within the last 24 hours.  Not included if the runs grooming feature is disabled. | [optional]
+**groomed** | **int** | Number of runs groomed since the resort last closed (see &#x60;groomed_today&#x60;).  Not included if the runs grooming feature is disabled. | [optional]
 **total** | **int** | Total number of runs at the resort. |
 **open_acres** | **int** | Total acres of open runs.  Not included if acres are not tracked or the runs status feature is disabled. | [optional]
 **total_acres** | **int** | Total acres of all runs.  Not included if acres are not tracked. | [optional]

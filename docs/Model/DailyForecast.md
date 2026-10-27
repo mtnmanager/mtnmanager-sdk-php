@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **date** | **\DateTime** | Date of forecast (YYYY-MM-DD format) |
 **imperial** | [**\MtnManager\Model\DailyForecastImperial**](DailyForecastImperial.md) | Measurements in imperial units |
 **metric** | [**\MtnManager\Model\DailyForecastMetric**](DailyForecastMetric.md) | Measurements in metric units |
-**condition** | **string** | Human-readable condition |
+**condition** | **string** | Human-readable condition, in the &#x60;Accept-Language&#x60; language |
 **condition_code** | [**\MtnManager\Model\WeatherConditionCode**](WeatherConditionCode.md) | Condition code |
 **precipitation_probability** | **int** | Probability of precipitation (0-100%) | [optional]
 **sunrise** | **\DateTime** | Sunrise time |

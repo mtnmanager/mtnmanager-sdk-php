@@ -35,7 +35,7 @@ use PHPUnit\Framework\TestCase;
  * SummerTrailTest Class Doc Comment
  *
  * @category    Class
- * @description Represents a single summer trail at the resort with its current status,  type (e.g. hiking, mountain biking), and optional difficulty rating.
+ * @description Represents a single summer trail at the resort with its current status,  activities (e.g. hiking, mountain biking, dogs), and optional difficulty rating.
  * @package     MtnManager
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -117,9 +117,9 @@ class SummerTrailTest extends TestCase
     }
 
     /**
-     * Test attribute "trail_type"
+     * Test attribute "activities"
      */
-    public function testPropertyTrailType()
+    public function testPropertyActivities()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -129,6 +129,15 @@ class SummerTrailTest extends TestCase
      * Test attribute "difficulty"
      */
     public function testPropertyDifficulty()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "difficulty_type"
+     */
+    public function testPropertyDifficultyType()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

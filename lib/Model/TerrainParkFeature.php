@@ -544,7 +544,7 @@ class TerrainParkFeature implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets status
      *
-     * @param \MtnManager\Model\TerrainParkFeatureStatus $status Current operational status (open, closed, or unknown).  `unknown` unless the terrain park feature status is enabled.
+     * @param \MtnManager\Model\TerrainParkFeatureStatus $status Current operational status (open, closed, or unknown).  `unknown` unless the terrain park feature status is enabled; `closed`  whenever its terrain park is closed.
      *
      * @return self
      */

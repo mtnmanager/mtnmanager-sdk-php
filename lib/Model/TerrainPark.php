@@ -66,6 +66,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => '\MtnManager\Model\TerrainParkStatus',
         'last_groomed' => '\DateTime',
         'groomed_today' => 'bool',
+        'snow_since_groomed_cm' => 'int',
+        'snow_since_groomed_in' => 'int',
         'condition_notes' => 'string',
         'area_uuid' => 'string',
         'area_name' => 'string',
@@ -90,6 +92,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => null,
         'last_groomed' => 'date-time',
         'groomed_today' => null,
+        'snow_since_groomed_cm' => 'int32',
+        'snow_since_groomed_in' => 'int32',
         'condition_notes' => null,
         'area_uuid' => null,
         'area_name' => null,
@@ -112,6 +116,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => false,
         'last_groomed' => true,
         'groomed_today' => false,
+        'snow_since_groomed_cm' => true,
+        'snow_since_groomed_in' => true,
         'condition_notes' => false,
         'area_uuid' => true,
         'area_name' => true,
@@ -214,6 +220,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'status',
         'last_groomed' => 'last_groomed',
         'groomed_today' => 'groomed_today',
+        'snow_since_groomed_cm' => 'snow_since_groomed_cm',
+        'snow_since_groomed_in' => 'snow_since_groomed_in',
         'condition_notes' => 'condition_notes',
         'area_uuid' => 'area_uuid',
         'area_name' => 'area_name',
@@ -236,6 +244,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'setStatus',
         'last_groomed' => 'setLastGroomed',
         'groomed_today' => 'setGroomedToday',
+        'snow_since_groomed_cm' => 'setSnowSinceGroomedCm',
+        'snow_since_groomed_in' => 'setSnowSinceGroomedIn',
         'condition_notes' => 'setConditionNotes',
         'area_uuid' => 'setAreaUuid',
         'area_name' => 'setAreaName',
@@ -258,6 +268,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         'status' => 'getStatus',
         'last_groomed' => 'getLastGroomed',
         'groomed_today' => 'getGroomedToday',
+        'snow_since_groomed_cm' => 'getSnowSinceGroomedCm',
+        'snow_since_groomed_in' => 'getSnowSinceGroomedIn',
         'condition_notes' => 'getConditionNotes',
         'area_uuid' => 'getAreaUuid',
         'area_name' => 'getAreaName',
@@ -331,6 +343,8 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('last_groomed', $data ?? [], null);
         $this->setIfExists('groomed_today', $data ?? [], null);
+        $this->setIfExists('snow_since_groomed_cm', $data ?? [], null);
+        $this->setIfExists('snow_since_groomed_in', $data ?? [], null);
         $this->setIfExists('condition_notes', $data ?? [], null);
         $this->setIfExists('area_uuid', $data ?? [], null);
         $this->setIfExists('area_name', $data ?? [], null);
@@ -561,7 +575,7 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets last_groomed
      *
-     * @param \DateTime|null $last_groomed When the terrain park was last groomed.  `null` if never groomed, or if the terrain park grooming feature is disabled.
+     * @param \DateTime|null $last_groomed When the terrain park was last groomed.  `null` if not groomed this season (since the snow year began: Aug 1, or  Jan 1 in the southern hemisphere), or if the terrain park grooming feature  is disabled.
      *
      * @return self
      */
@@ -595,7 +609,7 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets groomed_today
      *
-     * @param bool $groomed_today Whether the terrain park was groomed within the last 24 hours.
+     * @param bool $groomed_today Whether the terrain park has been groomed since the resort last closed  (or, for a resort with no operating hours set, within the last 24 hours).
      *
      * @return self
      */
@@ -605,6 +619,74 @@ class TerrainPark implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable groomed_today cannot be null');
         }
         $this->container['groomed_today'] = $groomed_today;
+
+        return $this;
+    }
+
+    /**
+     * Gets snow_since_groomed_cm
+     *
+     * @return int|null
+     */
+    public function getSnowSinceGroomedCm()
+    {
+        return $this->container['snow_since_groomed_cm'];
+    }
+
+    /**
+     * Sets snow_since_groomed_cm
+     *
+     * @param int|null $snow_since_groomed_cm New snow (cm) reported since `last_groomed`. Absent unless the park  was groomed within the last 24 hours and the resort keeps a snow report.
+     *
+     * @return self
+     */
+    public function setSnowSinceGroomedCm($snow_since_groomed_cm)
+    {
+        if (is_null($snow_since_groomed_cm)) {
+            array_push($this->openAPINullablesSetToNull, 'snow_since_groomed_cm');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('snow_since_groomed_cm', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['snow_since_groomed_cm'] = $snow_since_groomed_cm;
+
+        return $this;
+    }
+
+    /**
+     * Gets snow_since_groomed_in
+     *
+     * @return int|null
+     */
+    public function getSnowSinceGroomedIn()
+    {
+        return $this->container['snow_since_groomed_in'];
+    }
+
+    /**
+     * Sets snow_since_groomed_in
+     *
+     * @param int|null $snow_since_groomed_in New snow (inches) reported since `last_groomed`; see  `snow_since_groomed_cm`.
+     *
+     * @return self
+     */
+    public function setSnowSinceGroomedIn($snow_since_groomed_in)
+    {
+        if (is_null($snow_since_groomed_in)) {
+            array_push($this->openAPINullablesSetToNull, 'snow_since_groomed_in');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('snow_since_groomed_in', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['snow_since_groomed_in'] = $snow_since_groomed_in;
 
         return $this;
     }

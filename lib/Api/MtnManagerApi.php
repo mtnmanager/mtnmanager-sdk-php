@@ -170,7 +170,7 @@ class MtnManagerApi
      *
      * Get amenities
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAmenities'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -188,7 +188,7 @@ class MtnManagerApi
      *
      * Get amenities
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAmenities'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -273,7 +273,7 @@ class MtnManagerApi
      *
      * Get amenities
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAmenities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -294,7 +294,7 @@ class MtnManagerApi
      *
      * Get amenities
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAmenities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -344,7 +344,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getAmenities'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAmenities'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -428,7 +428,7 @@ class MtnManagerApi
      *
      * Get full report
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFullReport'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -446,7 +446,7 @@ class MtnManagerApi
      *
      * Get full report
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFullReport'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -531,7 +531,7 @@ class MtnManagerApi
      *
      * Get full report
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFullReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -552,7 +552,7 @@ class MtnManagerApi
      *
      * Get full report
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFullReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -602,7 +602,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getFullReport'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFullReport'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -686,7 +686,7 @@ class MtnManagerApi
      *
      * Get operating hours
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHours'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -704,7 +704,7 @@ class MtnManagerApi
      *
      * Get operating hours
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHours'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -789,7 +789,7 @@ class MtnManagerApi
      *
      * Get operating hours
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHours'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -810,7 +810,7 @@ class MtnManagerApi
      *
      * Get operating hours
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHours'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -860,7 +860,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getHours'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getHours'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -944,7 +944,7 @@ class MtnManagerApi
      *
      * Get lifts
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLifts'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -962,7 +962,7 @@ class MtnManagerApi
      *
      * Get lifts
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLifts'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1047,7 +1047,7 @@ class MtnManagerApi
      *
      * Get lifts
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLifts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1068,7 +1068,7 @@ class MtnManagerApi
      *
      * Get lifts
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLifts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1118,7 +1118,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getLifts'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLifts'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1202,7 +1202,7 @@ class MtnManagerApi
      *
      * Get overview
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOverview'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1220,7 +1220,7 @@ class MtnManagerApi
      *
      * Get overview
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOverview'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1305,7 +1305,7 @@ class MtnManagerApi
      *
      * Get overview
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOverview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1326,7 +1326,7 @@ class MtnManagerApi
      *
      * Get overview
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOverview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1376,7 +1376,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getOverview'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOverview'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1460,7 +1460,7 @@ class MtnManagerApi
      *
      * Get parking lots
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getParkingLots'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1478,7 +1478,7 @@ class MtnManagerApi
      *
      * Get parking lots
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getParkingLots'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1563,7 +1563,7 @@ class MtnManagerApi
      *
      * Get parking lots
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getParkingLots'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1584,7 +1584,7 @@ class MtnManagerApi
      *
      * Get parking lots
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getParkingLots'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1634,7 +1634,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getParkingLots'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getParkingLots'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1718,7 +1718,7 @@ class MtnManagerApi
      *
      * Get runs
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1736,7 +1736,7 @@ class MtnManagerApi
      *
      * Get runs
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1821,7 +1821,7 @@ class MtnManagerApi
      *
      * Get runs
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1842,7 +1842,7 @@ class MtnManagerApi
      *
      * Get runs
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1892,7 +1892,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getRuns'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRuns'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -1976,7 +1976,7 @@ class MtnManagerApi
      *
      * Get snow conditions
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSnow'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -1994,7 +1994,7 @@ class MtnManagerApi
      *
      * Get snow conditions
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSnow'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2079,7 +2079,7 @@ class MtnManagerApi
      *
      * Get snow conditions
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSnow'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2100,7 +2100,7 @@ class MtnManagerApi
      *
      * Get snow conditions
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSnow'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2150,7 +2150,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getSnow'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSnow'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2234,7 +2234,7 @@ class MtnManagerApi
      *
      * Get summer trails
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSummerTrails'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2252,7 +2252,7 @@ class MtnManagerApi
      *
      * Get summer trails
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSummerTrails'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2337,7 +2337,7 @@ class MtnManagerApi
      *
      * Get summer trails
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSummerTrails'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2358,7 +2358,7 @@ class MtnManagerApi
      *
      * Get summer trails
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSummerTrails'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2408,7 +2408,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getSummerTrails'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSummerTrails'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2492,7 +2492,7 @@ class MtnManagerApi
      *
      * Get terrain parks
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerrainParks'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2510,7 +2510,7 @@ class MtnManagerApi
      *
      * Get terrain parks
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerrainParks'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2595,7 +2595,7 @@ class MtnManagerApi
      *
      * Get terrain parks
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerrainParks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2616,7 +2616,7 @@ class MtnManagerApi
      *
      * Get terrain parks
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerrainParks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2666,7 +2666,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getTerrainParks'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTerrainParks'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2750,7 +2750,7 @@ class MtnManagerApi
      *
      * Get trail maps
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMaps'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2768,7 +2768,7 @@ class MtnManagerApi
      *
      * Get trail maps
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMaps'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -2853,7 +2853,7 @@ class MtnManagerApi
      *
      * Get trail maps
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMaps'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2874,7 +2874,7 @@ class MtnManagerApi
      *
      * Get trail maps
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMaps'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -2924,7 +2924,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getTrailMaps'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getTrailMaps'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3008,7 +3008,7 @@ class MtnManagerApi
      *
      * Get weather
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWeather'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3026,7 +3026,7 @@ class MtnManagerApi
      *
      * Get weather
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWeather'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3111,7 +3111,7 @@ class MtnManagerApi
      *
      * Get weather
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWeather'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3132,7 +3132,7 @@ class MtnManagerApi
      *
      * Get weather
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWeather'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3182,7 +3182,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getWeather'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWeather'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3269,7 +3269,7 @@ class MtnManagerApi
      * @param  string $uuid Resource UUID (required)
      * @param  string|null $from Inclusive lower bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
      * @param  string|null $to Inclusive upper bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcamHistory'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3290,7 +3290,7 @@ class MtnManagerApi
      * @param  string $uuid Resource UUID (required)
      * @param  string|null $from Inclusive lower bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
      * @param  string|null $to Inclusive upper bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcamHistory'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3378,7 +3378,7 @@ class MtnManagerApi
      * @param  string $uuid Resource UUID (required)
      * @param  string|null $from Inclusive lower bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
      * @param  string|null $to Inclusive upper bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcamHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3402,7 +3402,7 @@ class MtnManagerApi
      * @param  string $uuid Resource UUID (required)
      * @param  string|null $from Inclusive lower bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
      * @param  string|null $to Inclusive upper bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcamHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3455,7 +3455,7 @@ class MtnManagerApi
      * @param  string $uuid Resource UUID (required)
      * @param  string|null $from Inclusive lower bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
      * @param  string|null $to Inclusive upper bound on &#x60;captured_at&#x60; (RFC 3339). (optional, default to 'null')
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcamHistory'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3574,7 +3574,7 @@ class MtnManagerApi
      *
      * Get webcams
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcams'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3592,7 +3592,7 @@ class MtnManagerApi
      *
      * Get webcams
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcams'] to see the possible values for this operation
      *
      * @throws \MtnManager\ApiException on non-2xx response or if the response body is not in the expected format
@@ -3677,7 +3677,7 @@ class MtnManagerApi
      *
      * Get webcams
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcams'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3698,7 +3698,7 @@ class MtnManagerApi
      *
      * Get webcams
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcams'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
@@ -3748,7 +3748,7 @@ class MtnManagerApi
     /**
      * Create request for operation 'getWebcams'
      *
-     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
+     * @param  string|null $accept_language Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports &#x60;en&#x60;, &#x60;fr&#x60;, &#x60;de&#x60;, &#x60;it&#x60;, and &#x60;es&#x60;, with optional region tags such as &#x60;fr-CA&#x60; or &#x60;de-CH&#x60;. Defaults to English when omitted or unsupported. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWebcams'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException

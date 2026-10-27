@@ -1,6 +1,6 @@
 <?php
 /**
- * SummerTrailType
+ * SummerTrailDifficultyType
  *
  * PHP version 8.1
  *
@@ -31,21 +31,22 @@ namespace MtnManager\Model;
 use \MtnManager\ObjectSerializer;
 
 /**
- * SummerTrailType Class Doc Comment
+ * SummerTrailDifficultyType Class Doc Comment
  *
  * @category Class
+ * @description The rating system a summer trail&#39;s difficulty is shown in, which picks its  difficulty icon. &#x60;None&#x60; (on the trail) is the standard system.
  * @package  MtnManager
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SummerTrailType
+class SummerTrailDifficultyType
 {
     /**
      * Possible values of this enum
      */
-    public const HIKING = 'hiking';
+    public const MTB_FREERIDE = 'mtb_freeride';
 
-    public const MOUNTAIN_BIKING = 'mountain_biking';
+    public const MTB_TECHNICAL = 'mtb_technical';
 
     public const UNKNOWN_DEFAULT_OPEN_API = 'unknown_default_open_api';
 
@@ -56,8 +57,8 @@ class SummerTrailType
     public static function getAllowableEnumValues()
     {
         return [
-            self::HIKING,
-            self::MOUNTAIN_BIKING,
+            self::MTB_FREERIDE,
+            self::MTB_TECHNICAL,
             self::UNKNOWN_DEFAULT_OPEN_API
         ];
     }

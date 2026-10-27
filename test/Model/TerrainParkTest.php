@@ -144,6 +144,24 @@ class TerrainParkTest extends TestCase
     }
 
     /**
+     * Test attribute "snow_since_groomed_cm"
+     */
+    public function testPropertySnowSinceGroomedCm()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "snow_since_groomed_in"
+     */
+    public function testPropertySnowSinceGroomedIn()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "condition_notes"
      */
     public function testPropertyConditionNotes()

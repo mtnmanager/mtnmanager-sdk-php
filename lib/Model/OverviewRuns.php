@@ -379,7 +379,7 @@ class OverviewRuns implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets groomed
      *
-     * @param int|null $groomed Number of runs groomed within the last 24 hours.  Not included if the runs grooming feature is disabled.
+     * @param int|null $groomed Number of runs groomed since the resort last closed (see `groomed_today`).  Not included if the runs grooming feature is disabled.
      *
      * @return self
      */

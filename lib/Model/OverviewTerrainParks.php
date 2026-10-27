@@ -365,7 +365,7 @@ class OverviewTerrainParks implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets groomed
      *
-     * @param int|null $groomed Number of terrain parks groomed within the last 24 hours.  Not included if the terrain park grooming feature is disabled.
+     * @param int|null $groomed Number of terrain parks groomed since the resort last closed (see  `groomed_today`).  Not included if the terrain park grooming feature is disabled.
      *
      * @return self
      */

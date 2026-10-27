@@ -55,7 +55,7 @@ $apiInstance = new MtnManager\Api\MtnManagerApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
+$accept_language = fr-CA; // string | Preferred language and optional region for human-readable strings in the response (e.g. operating hours summaries, weather conditions). Supports `en`, `fr`, `de`, `it`, and `es`, with optional region tags such as `fr-CA` or `de-CH`. Defaults to English when omitted or unsupported.
 
 try {
     $result = $apiInstance->getAmenities($accept_language);
@@ -93,6 +93,7 @@ Class | Method | HTTP request | Description
 - [AmenityCalendarEntry](docs/Model/AmenityCalendarEntry.md)
 - [AmenityCategory](docs/Model/AmenityCategory.md)
 - [AmenitySchedule](docs/Model/AmenitySchedule.md)
+- [AmenityStatus](docs/Model/AmenityStatus.md)
 - [AppConfig](docs/Model/AppConfig.md)
 - [CalendarDay](docs/Model/CalendarDay.md)
 - [ClosureReason](docs/Model/ClosureReason.md)
@@ -141,9 +142,10 @@ Class | Method | HTTP request | Description
 - [SnowMetrics](docs/Model/SnowMetrics.md)
 - [SnowReport](docs/Model/SnowReport.md)
 - [SummerTrail](docs/Model/SummerTrail.md)
+- [SummerTrailActivity](docs/Model/SummerTrailActivity.md)
 - [SummerTrailDifficulty](docs/Model/SummerTrailDifficulty.md)
+- [SummerTrailDifficultyType](docs/Model/SummerTrailDifficultyType.md)
 - [SummerTrailStatus](docs/Model/SummerTrailStatus.md)
-- [SummerTrailType](docs/Model/SummerTrailType.md)
 - [SurfaceCondition](docs/Model/SurfaceCondition.md)
 - [TerrainPark](docs/Model/TerrainPark.md)
 - [TerrainParkFeature](docs/Model/TerrainParkFeature.md)

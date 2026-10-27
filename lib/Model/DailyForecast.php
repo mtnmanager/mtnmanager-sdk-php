@@ -455,7 +455,7 @@ class DailyForecast implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets condition
      *
-     * @param string $condition Human-readable condition
+     * @param string $condition Human-readable condition, in the `Accept-Language` language
      *
      * @return self
      */

@@ -415,7 +415,7 @@ class CurrentWeather implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets condition
      *
-     * @param string $condition Human-readable weather condition
+     * @param string $condition Human-readable weather condition, in the `Accept-Language` language
      *
      * @return self
      */

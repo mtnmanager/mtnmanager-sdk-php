@@ -65,6 +65,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'string',
         'category' => '\MtnManager\Model\AmenityCategory',
         'website' => 'string',
+        'status' => '\MtnManager\Model\AmenityStatus',
         'has_operating_hours' => 'bool',
         'opens_at' => 'string',
         'closes_at' => 'string',
@@ -86,6 +87,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => null,
         'category' => null,
         'website' => null,
+        'status' => null,
         'has_operating_hours' => null,
         'opens_at' => null,
         'closes_at' => null,
@@ -105,6 +107,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => false,
         'category' => false,
         'website' => false,
+        'status' => false,
         'has_operating_hours' => false,
         'opens_at' => true,
         'closes_at' => true,
@@ -204,6 +207,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'slug',
         'category' => 'category',
         'website' => 'website',
+        'status' => 'status',
         'has_operating_hours' => 'has_operating_hours',
         'opens_at' => 'opens_at',
         'closes_at' => 'closes_at',
@@ -223,6 +227,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'setSlug',
         'category' => 'setCategory',
         'website' => 'setWebsite',
+        'status' => 'setStatus',
         'has_operating_hours' => 'setHasOperatingHours',
         'opens_at' => 'setOpensAt',
         'closes_at' => 'setClosesAt',
@@ -242,6 +247,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         'slug' => 'getSlug',
         'category' => 'getCategory',
         'website' => 'getWebsite',
+        'status' => 'getStatus',
         'has_operating_hours' => 'getHasOperatingHours',
         'opens_at' => 'getOpensAt',
         'closes_at' => 'getClosesAt',
@@ -312,6 +318,7 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('slug', $data ?? [], null);
         $this->setIfExists('category', $data ?? [], null);
         $this->setIfExists('website', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
         $this->setIfExists('has_operating_hours', $data ?? [], null);
         $this->setIfExists('opens_at', $data ?? [], null);
         $this->setIfExists('closes_at', $data ?? [], null);
@@ -363,6 +370,9 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['website'] === null) {
             $invalidProperties[] = "'website' can't be null";
+        }
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
         }
         if ($this->container['has_operating_hours'] === null) {
             $invalidProperties[] = "'has_operating_hours' can't be null";
@@ -543,6 +553,33 @@ class Amenity implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable website cannot be null');
         }
         $this->container['website'] = $website;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return \MtnManager\Model\AmenityStatus
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param \MtnManager\Model\AmenityStatus $status Current operational status (open, closed, or unknown). Always `unknown`  when the resort doesn't track amenity status.
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            throw new \InvalidArgumentException('non-nullable status cannot be null');
+        }
+        $this->container['status'] = $status;
 
         return $this;
     }
